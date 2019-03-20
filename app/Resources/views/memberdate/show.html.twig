@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Memberdate</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ memberDate.id }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ memberDate.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ memberDate.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ memberDate.email }}</td>
+            </tr>
+            <tr>
+                <th>Street</th>
+                <td>{{ memberDate.street }}</td>
+            </tr>
+            <tr>
+                <th>Housenumber</th>
+                <td>{{ memberDate.houseNumber }}</td>
+            </tr>
+            <tr>
+                <th>Zipcode</th>
+                <td>{{ memberDate.zipCode }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ memberDate.city }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('memberdate_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('memberdate_edit', { 'id': memberDate.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

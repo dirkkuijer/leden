@@ -1,0 +1,75 @@
+/* aanpassing van css het volgende in cmder runnen: php bin/console assetic:watch */
+
+
+* {
+    font-family: 'Calibri', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;   
+   }
+
+#appbundle_memberdate li {
+    color:red;
+}
+.button {
+    margin: 0.5rem 0.5rem;
+    display: flex;
+    justify-content: center;
+    float: left;
+    width: 5rem;
+    background-color: #2377AF;
+    box-shadow: 3px 3px 3px black;
+    border-radius: 2px;
+}
+
+.button:hover {
+    background-color: rgb(65, 53, 119);
+    box-shadow: 3px 3px 3px black;
+}
+
+form {
+    margin-left: 6rem;
+    margin-right: 6rem;
+    
+ }
+
+ @keyframes show {
+    0% { border: 1px solid blue; }
+    100% { border: px solid #2377AF;} 
+ }
+ 
+ .formAnimation input:not(.button):hover {
+    animation-iteration-count: infinite; 
+    animation-duration: 1s;
+    animation-name: show;
+ }
+
+ input[type]:not(.button) {
+     border-radius: 5px;
+ }
+ 
+
+h3 {
+    background-color:  #2377AF;
+    color: white;
+    text-align: center;
+}
+
+nav {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-content: space-between;
+  padding: 0;
+
+}
+
+nav td {
+    padding: 0;
+}
+
+
+
+ul {
+    list-style: none;
+ 
+}
+
+
