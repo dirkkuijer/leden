@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="../css/main.css" />
+    {% block stylesheet %}
+       <link rel="stylesheet" type="text/css" href="css/main.css">
+    {% endblock %}
         <meta charset="UTF-8" />
     </head>
    
     <body>
     
-        <div>
+   
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
                 <a href="{{ path('fos_user_security_logout') }}">
@@ -29,6 +31,8 @@
         {% endif %}
 
         <div>
+            {% block body %}{% endblock %}
+
             {% block fos_user_content %}
             {% endblock fos_user_content %}
         </div>

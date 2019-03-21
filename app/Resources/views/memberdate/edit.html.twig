@@ -1,20 +1,23 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
+    {% block stylesheet %}
+        <link rel="stylesheet" type="text/css" href="{{ asset("css/main.css") }}">
+    {% endblock %}
 
 {% block body %}
-    <h1>Memberdate edit</h1>
-
+    <h1>Lid bewerken</h1>
+ <a href="{{ path('memberdate_index') }}">Terug naar lijst</a>
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <input class="button" type="submit" value="Edit" />
     {{ form_end(edit_form) }}
 
     <ul>
-        <li>
-            <a href="{{ path('memberdate_index') }}">Back to the list</a>
-        </li>
+    
+           
+    
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input class="button" type="submit" value="Verwijderen">
             {{ form_end(delete_form) }}
         </li>
     </ul>

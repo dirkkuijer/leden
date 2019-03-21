@@ -1,20 +1,32 @@
-{% extends 'base.html.twig' %}
+
+
+
+TODO:: Kijk naar de vertaling van het invoerformulier van de leden.
+Pas de opmaak pas als laatste aan. Het is ook het minst belangrijk.
+Zorg dat aan de hand van rollen dat je bepaalde gebruikers geen toegang geeft tot formulieren.
+
+
+
+{% extends 'layout.html.twig' %}
+    {% block stylesheet %}
+        <link rel="stylesheet" type="text/css" href="{{ asset("css/main.css") }}">
+    {% endblock %}
 
 {% block body %}
-    <h1>Memberdates list</h1>
-
+    <h1>Ledenlijst</h1>
+<div class="form">
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Email</th>
-                <th>Street</th>
-                <th>Housenumber</th>
-                <th>Zipcode</th>
-                <th>City</th>
-                <th>Actions</th>
+                <th>Voornaam</th>
+                <th>Achternaam</th>
+                <th>E-mail</th>
+                <th>Straat</th>
+                <th>Huisnummer</th>
+                <th>Postcode</th>
+                <th>Woonplaats</th>
+                <th>Actie</th>
             </tr>
         </thead>
         <tbody>
@@ -31,10 +43,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('memberdate_show', { 'id': memberDate.id }) }}">show</a>
+                            <a class="button" href="{{ path('memberdate_show', { 'id': memberDate.id }) }}">Inzien</a>
                         </li>
                         <li>
-                            <a href="{{ path('memberdate_edit', { 'id': memberDate.id }) }}">edit</a>
+                            <a class="button" href="{{ path('memberdate_edit', { 'id': memberDate.id }) }}">Bewerken</a>
                         </li>
                     </ul>
                 </td>
@@ -42,10 +54,10 @@
         {% endfor %}
         </tbody>
     </table>
-
+</div>
     <ul>
         <li>
-            <a href="{{ path('memberdate_new') }}">Create a new memberDate</a>
+            <a class="button" href="{{ path('memberdate_new') }}">Nieuw lid aanmaken</a>
         </li>
     </ul>
 {% endblock %}

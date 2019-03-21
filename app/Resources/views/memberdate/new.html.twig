@@ -1,16 +1,21 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
 
+<link rel="stylesheet" type="text/css" href="{{ asset("css/main.css") }}">
+
+{% endblock %}
 {% block body %}
-    <h1>Memberdate creation</h1>
+    <h1>Lid aanmaken</h1>
 
+<div class="form">
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <input type="submit" value="Aanmaken" />
     {{ form_end(form) }}
-
+</div>
     <ul>
         <li>
-            <a href="{{ path('memberdate_index') }}">Back to the list</a>
+            <a href="{{ path('memberdate_index') }}">Terug naar overzicht</a>
         </li>
     </ul>
 {% endblock %}

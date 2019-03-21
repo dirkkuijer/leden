@@ -1,8 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
 
+<link rel="stylesheet" type="text/css" href="{{ asset("css/main.css") }}">
+
+{% endblock %}
 {% block body %}
-    <h1>Memberdate</h1>
 
+    <h1>Ledenlijst</h1>
+ <a href="{{ path('memberdate_index') }}">Terug naar lijst</a>
     <table>
         <tbody>
             <tr>
@@ -10,47 +15,48 @@
                 <td>{{ memberDate.id }}</td>
             </tr>
             <tr>
-                <th>Firstname</th>
+                <th>Voornaam</th>
                 <td>{{ memberDate.firstName }}</td>
             </tr>
             <tr>
-                <th>Lastname</th>
+                <th>Achternaam</th>
                 <td>{{ memberDate.lastName }}</td>
             </tr>
             <tr>
-                <th>Email</th>
+                <th>E-mail</th>
                 <td>{{ memberDate.email }}</td>
             </tr>
             <tr>
-                <th>Street</th>
+                <th>Straat</th>
                 <td>{{ memberDate.street }}</td>
             </tr>
             <tr>
-                <th>Housenumber</th>
+                <th>Huisnummer</th>
                 <td>{{ memberDate.houseNumber }}</td>
             </tr>
             <tr>
-                <th>Zipcode</th>
+                <th>Postcode</th>
                 <td>{{ memberDate.zipCode }}</td>
             </tr>
             <tr>
-                <th>City</th>
+                <th>Woonplaats</th>
                 <td>{{ memberDate.city }}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
+     
+           
+        
         <li>
-            <a href="{{ path('memberdate_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('memberdate_edit', { 'id': memberDate.id }) }}">Edit</a>
+            <a class="button" href="{{ path('memberdate_edit', { 'id': memberDate.id }) }}">Bewerken</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input class="button" type="submit" value="Verwijderen">
             {{ form_end(delete_form) }}
         </li>
     </ul>
+
 {% endblock %}
