@@ -1,12 +1,6 @@
 
 
 
-TODO:: Kijk naar de vertaling van het invoerformulier van de leden.
-Pas de opmaak pas als laatste aan. Het is ook het minst belangrijk.
-Zorg dat aan de hand van rollen dat je bepaalde gebruikers geen toegang geeft tot formulieren.
-
-
-
 {% extends 'layout.html.twig' %}
     {% block stylesheet %}
         <link rel="stylesheet" type="text/css" href="{{ asset("css/main.css") }}">
@@ -24,8 +18,11 @@ Zorg dat aan de hand van rollen dat je bepaalde gebruikers geen toegang geeft to
                 <th>E-mail</th>
                 <th>Straat</th>
                 <th>Huisnummer</th>
+                <th>Toevoeging</th>
                 <th>Postcode</th>
                 <th>Woonplaats</th>
+                <th>Telefoon</th>
+                <th>Geboortedatum</th>
                 <th>Actie</th>
             </tr>
         </thead>
@@ -38,8 +35,11 @@ Zorg dat aan de hand van rollen dat je bepaalde gebruikers geen toegang geeft to
                 <td>{{ memberDate.email }}</td>
                 <td>{{ memberDate.street }}</td>
                 <td>{{ memberDate.houseNumber }}</td>
+                <td>{{ memberDate.houseNumberAddition }}</td>
                 <td>{{ memberDate.zipCode }}</td>
                 <td>{{ memberDate.city }}</td>
+                <td>{{ memberDate.telephone }}</td>
+                <td>{{ memberDate.dateOfBirth | date('j F Y.') }}</td>
                 <td>
                     <ul>
                         <li>

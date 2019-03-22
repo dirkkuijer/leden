@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-    {% block stylesheet %}
-       <link rel="stylesheet" type="text/css" href="css/main.css">
-    {% endblock %}
+        {% block stylesheet %}
+            {% stylesheets filter='cssrewrite' output="css/main.css"
+                "%kernel.root_dir%/Resources/assets/css/main.css" %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}  
+        {% endblock %}
         <meta charset="UTF-8" />
     </head>
    
     <body>
-    
+    <img src="images/header.jpg" title="Baarns mannenkoor" /><p>
    
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
@@ -18,8 +21,10 @@
             {% else %}
                 <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
             {% endif %}
-        </div>
-
+        </div> 
+       
+        
+       
         {% if app.request.hasPreviousSession %}
             {% for type, messages in app.session.flashbag.all() %}
                 {% for message in messages %}
@@ -30,11 +35,15 @@
             {% endfor %}
         {% endif %}
 
+
+
         <div>
             {% block body %}{% endblock %}
 
             {% block fos_user_content %}
             {% endblock fos_user_content %}
+
+            
         </div>
     </body>
 </html>

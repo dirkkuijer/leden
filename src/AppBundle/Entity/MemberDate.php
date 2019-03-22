@@ -55,6 +55,13 @@ class MemberDate
      * @ORM\Column(name="houseNumber", type="string", length=255)
      */
     private $houseNumber;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="houseNumberAddition", type="string", length=255)
+     */
+    private $houseNumberAddition;
 
     /**
      * @var string
@@ -69,6 +76,20 @@ class MemberDate
      * @ORM\Column(name="city", type="string", length=255)
      */
     private $city;
+    
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="telephone", type="integer", length=14)
+     */
+    private $telephone;
+    
+    /**
+     * @var date
+     *
+     * @ORM\Column(name="dateOfBirth", type="date", length=255)
+     */
+    private $dateOfBirth;
 
 
     /**
@@ -202,6 +223,30 @@ class MemberDate
     }
 
     /**
+     * Set houseNumberAddition
+     *
+     * @param string $houseNumberAddition
+     *
+     * @return MemberDate
+     */
+    public function setHouseNumberAddition($houseNumberAddition)
+    {
+        $this->houseNumberAddition = $houseNumberAddition;
+
+        return $this;
+    }
+
+    /**
+     * Get houseNumberAddition
+     *
+     * @return string
+     */
+    public function getHouseNumberAddition()
+    {
+        return $this->houseNumberAddition;
+    }
+
+    /**
      * Set zipCode
      *
      * @param string $zipCode
@@ -247,6 +292,54 @@ class MemberDate
     public function getCity()
     {
         return $this->city;
+    }
+
+    /**
+     * Set telephone
+     *
+     * @param int $telephone
+     *
+     * @return MemberDate
+     */
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * Get telephone
+     *
+     * @return int
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+
+    /**
+     * Set dateOfBirth
+     *
+     * @param date $dateOfBirth
+     *
+     * @return MemberDate
+     */
+    public function setDateOfBirth($dateOfBirth)
+    {
+        $this->dateOfBirth = $dateOfBirth;
+
+        return $this;
+    }
+
+    /**
+     * Get dateOfBirth
+     *
+     * @return date
+     */
+    public function getdateOfBirth()
+    {
+        return $this->dateOfBirth;
     }
 }
 

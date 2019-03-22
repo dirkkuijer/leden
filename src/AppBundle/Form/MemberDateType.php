@@ -13,7 +13,9 @@ class MemberDateType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('firstName')->add('lastName')->add('email')->add('street')->add('houseNumber')->add('zipCode')->add('city');
+        $builder->add('firstName')->add('lastName')->add('email')->add('street')->
+        add('houseNumber')->add('houseNumberAddition')->add('zipCode')->add('city')
+        ->add('telephone')->add('dateOfBirth');
     }/**
      * {@inheritdoc}
      */

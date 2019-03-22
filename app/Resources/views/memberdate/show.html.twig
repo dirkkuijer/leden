@@ -35,12 +35,24 @@
                 <td>{{ memberDate.houseNumber }}</td>
             </tr>
             <tr>
+                <th>Toevoeging</th>
+                <td>{{ memberDate.houseNumberAddition }}</td>
+            </tr>
+            <tr>
                 <th>Postcode</th>
                 <td>{{ memberDate.zipCode }}</td>
             </tr>
             <tr>
                 <th>Woonplaats</th>
                 <td>{{ memberDate.city }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ memberDate.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Geboortedatum</th>
+                <td>{{ memberDate.dateOfBirth | date('j F Y')}}</td>
             </tr>
         </tbody>
     </table>
