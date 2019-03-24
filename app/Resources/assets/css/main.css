@@ -5,10 +5,12 @@
     font-family: 'Calibri', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;   
    }
 
+
 #appbundle_memberdate li {
     color:red;
 }
 .button {
+    color: white;
     margin: 0.5rem 0.5rem;
     display: flex;
     justify-content: center;
@@ -17,6 +19,7 @@
     background-color: #2377AF;
     box-shadow: 3px 3px 3px black;
     border-radius: 2px;
+    text-decoration-line: none;
 }
 
 .button:hover {
@@ -34,7 +37,15 @@ form {
     0% { border: 1px solid blue; }
     100% { border: px solid #2377AF;} 
  }
- 
+
+ .fos {
+     display: flex;
+     justify-content: center;
+ }
+
+ .fos input {
+     margin: 0 2rem;
+ }
  .formAnimation input:not(.button):hover {
     animation-iteration-count: infinite; 
     animation-duration: 1s;
@@ -65,7 +76,14 @@ nav td {
     padding: 0;
 }
 
+table th tr td {
+    display: flex;
+    justify-content: center;
+}
 
+td {
+    padding: 0 2rem;
+}
 
 ul {
     list-style: none;

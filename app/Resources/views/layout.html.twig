@@ -11,8 +11,9 @@
     </head>
    
     <body>
-    <img src="images/header.jpg" title="Baarns mannenkoor" /><p>
-   
+
+        <img src="./images/header.jpg" title="Baarns mannenkoor" /><p>
+
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
                 <a href="{{ path('fos_user_security_logout') }}">
@@ -22,7 +23,8 @@
                 <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
             {% endif %}
         </div> 
-       
+
+
         
        
         {% if app.request.hasPreviousSession %}

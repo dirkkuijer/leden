@@ -1,6 +1,15 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
+{% block stylesheet %}
+            {% stylesheets filter='cssrewrite' output="css/main.css"
+                "%kernel.root_dir%/Resources/assets/css/main.css" %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}  
+{% endblock %}
+
+<h3>invullen</h3>
+
 {{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'fos_user_resetting_reset' } }) }}
     {{ form_widget(form) }}
     <div>

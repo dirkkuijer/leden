@@ -4,8 +4,11 @@
     {% endblock %}
 
 {% block body %}
-    <h1>Lid bewerken</h1>
+    <h3>Lid bewerken</h3>
  <a href="{{ path('memberdate_index') }}">Terug naar lijst</a>
+
+
+{% if is_granted('ROLE_ADMIN') %}
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
         <input class="button" type="submit" value="Edit" />
@@ -21,4 +24,9 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+
+    {% else %}
+<p> U bent niet bevoegd om deze inhoud te zien of te bewerken. <p>
+
+{% endif %}
 {% endblock %}

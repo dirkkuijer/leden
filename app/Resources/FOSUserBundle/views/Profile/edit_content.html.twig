@@ -1,6 +1,13 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
+{% block stylesheet %}
+            {% stylesheets filter='cssrewrite' output="css/main.css"
+                "%kernel.root_dir%/Resources/assets/css/main.css" %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}  
+{% endblock %}
 
+<h3>Gebruiker aanpassen</h3>
 {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
     {{ form_widget(form) }}
     <div>

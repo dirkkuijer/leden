@@ -59,7 +59,7 @@ class MemberDateController extends Controller
 
     /**
      * Finds and displays a memberDate entity.
-     *
+     * 
      * @Route("/{id}", name="memberdate_show")
      * @Method("GET")
      */

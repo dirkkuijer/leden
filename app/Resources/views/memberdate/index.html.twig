@@ -7,40 +7,42 @@
     {% endblock %}
 
 {% block body %}
-    <h1>Ledenlijst</h1>
-<div class="form">
+    <h3>Ledenlijst</h3>
+   <ul>
+        <li>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('memberdate_new') }}">Nieuw lid aanmaken</a>
+        {% endif %}
+        </li>
+    </ul>
     <table>
         <thead>
             <tr>
+               {% if is_granted('ROLE_ADMIN')%}
+               
                 <th>Id</th>
+                {% endif %}
                 <th>Voornaam</th>
                 <th>Achternaam</th>
                 <th>E-mail</th>
-                <th>Straat</th>
-                <th>Huisnummer</th>
-                <th>Toevoeging</th>
-                <th>Postcode</th>
-                <th>Woonplaats</th>
-                <th>Telefoon</th>
                 <th>Geboortedatum</th>
+                {% if is_granted('ROLE_ADMIN')%}
                 <th>Actie</th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
         {% for memberDate in memberDates %}
             <tr>
+            {% if is_granted('ROLE_ADMIN')%}
                 <td><a href="{{ path('memberdate_show', { 'id': memberDate.id }) }}">{{ memberDate.id }}</a></td>
-                <td>{{ memberDate.firstName }}</td>
+            {% endif %}
+                <td>{{ memberDate.firstName }}</td> 
                 <td>{{ memberDate.lastName }}</td>
                 <td>{{ memberDate.email }}</td>
-                <td>{{ memberDate.street }}</td>
-                <td>{{ memberDate.houseNumber }}</td>
-                <td>{{ memberDate.houseNumberAddition }}</td>
-                <td>{{ memberDate.zipCode }}</td>
-                <td>{{ memberDate.city }}</td>
-                <td>{{ memberDate.telephone }}</td>
-                <td>{{ memberDate.dateOfBirth | date('j F Y.') }}</td>
+                <td>{{ memberDate.dateOfBirth | date('j F Y') }}</td>
                 <td>
+                {% if is_granted('ROLE_ADMIN') %}
                     <ul>
                         <li>
                             <a class="button" href="{{ path('memberdate_show', { 'id': memberDate.id }) }}">Inzien</a>
@@ -49,15 +51,12 @@
                             <a class="button" href="{{ path('memberdate_edit', { 'id': memberDate.id }) }}">Bewerken</a>
                         </li>
                     </ul>
+                {% endif %}
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-</div>
-    <ul>
-        <li>
-            <a class="button" href="{{ path('memberdate_new') }}">Nieuw lid aanmaken</a>
-        </li>
-    </ul>
+
+ 
 {% endblock %}

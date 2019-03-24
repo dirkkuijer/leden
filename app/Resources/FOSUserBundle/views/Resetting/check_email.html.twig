@@ -3,6 +3,15 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
+
+{% block stylesheet %}
+            {% stylesheets filter='cssrewrite' output="css/main.css"
+                "%kernel.root_dir%/Resources/assets/css/main.css" %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}  
+{% endblock %}
+
+<h3>E-mail</h3>
 <p>
 {{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}
 </p>

@@ -1,6 +1,14 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
+{% block stylesheet %}
+            {% stylesheets filter='cssrewrite' output="css/main.css"
+                "%kernel.root_dir%/Resources/assets/css/main.css" %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}  
+{% endblock %}
+
+<h3>Gebruiker</h3>
 <div class="fos_user_user_show">
     <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
     <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>

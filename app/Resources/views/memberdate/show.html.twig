@@ -6,8 +6,13 @@
 {% endblock %}
 {% block body %}
 
-    <h1>Ledenlijst</h1>
+        
+
+    <h3>Ledenlijst</h3>
  <a href="{{ path('memberdate_index') }}">Terug naar lijst</a>
+ <p>
+ {% if is_granted('ROLE_ADMIN') %}
+   
     <table>
         <tbody>
             <tr>
@@ -70,5 +75,8 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+{% else %}
+<p> U bent niet bevoegd om deze inhoud te zien. <p>
 
+{% endif %}
 {% endblock %}
