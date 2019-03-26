@@ -8,11 +8,22 @@
             {% endstylesheets %}  
         {% endblock %}
         <meta charset="UTF-8" />
+
+        
     </head>
    
     <body>
 
-        <img src="./images/header.jpg" title="Baarns mannenkoor" /><p>
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $("#element-to-animate").addClass("animation"); 
+    });
+   </script>
+   
+   
+        <img src="{{ asset('images/header.jpg') }}" title="Baarns mannenkoor" />
+
+        <p>
 
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
@@ -47,5 +58,7 @@
 
             
         </div>
+
+        {%include "footer.html.twig"%}
     </body>
 </html>

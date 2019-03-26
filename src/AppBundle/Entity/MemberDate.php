@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * MemberDate
@@ -18,6 +19,7 @@ class MemberDate
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * 
      */
     private $id;
 
@@ -25,6 +27,7 @@ class MemberDate
      * @var string
      *
      * @ORM\Column(name="firstName", type="string", length=255)
+     * @Assert\NotBlank
      */
     private $firstName;
 
@@ -32,6 +35,7 @@ class MemberDate
      * @var string
      *
      * @ORM\Column(name="lastName", type="string", length=255)
+     * @Assert\NotBlank
      */
     private $lastName;
 
@@ -39,6 +43,7 @@ class MemberDate
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
+     * @Assert\NotBlank
      */
     private $email;
 
@@ -46,6 +51,7 @@ class MemberDate
      * @var string
      *
      * @ORM\Column(name="street", type="string", length=255)
+     * @Assert\NotBlank
      */
     private $street;
 
@@ -53,13 +59,15 @@ class MemberDate
      * @var string
      *
      * @ORM\Column(name="houseNumber", type="string", length=255)
+     * 
      */
     private $houseNumber;
     
     /**
      * @var string
      *
-     * @ORM\Column(name="houseNumberAddition", type="string", length=255)
+     * @ORM\Column(name="houseNumberAddition", type="string", length=255, nullable=true)
+     * 
      */
     private $houseNumberAddition;
 
@@ -67,6 +75,7 @@ class MemberDate
      * @var string
      *
      * @ORM\Column(name="zipCode", type="string", length=255)
+     * @Assert\NotBlank
      */
     private $zipCode;
 
@@ -74,6 +83,7 @@ class MemberDate
      * @var string
      *
      * @ORM\Column(name="city", type="string", length=255)
+     * @Assert\NotBlank
      */
     private $city;
     
@@ -81,6 +91,7 @@ class MemberDate
      * @var int
      *
      * @ORM\Column(name="telephone", type="integer", length=14)
+     * @Assert\NotBlank
      */
     private $telephone;
     
@@ -88,6 +99,7 @@ class MemberDate
      * @var date
      *
      * @ORM\Column(name="dateOfBirth", type="date", length=255)
+     * @Assert\NotBlank
      */
     private $dateOfBirth;
 

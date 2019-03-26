@@ -58,23 +58,18 @@
             <tr>
                 <th>Geboortedatum</th>
                 <td>{{ memberDate.dateOfBirth | date('j F Y')}}</td>
-            </tr>
+     
+
+    <table><tr><td>
+            <a class="button" href="{{ path('memberdate_edit', { 'id': memberDate.id }) }}">Bewerken</a>
+                {{ form_start(delete_form) }}
+            </td>
+            <td>
+                    <button class="button" type="submit" value="Verwijderen">Verwijderen</button>
+                {{ form_end(delete_form) }}
+        </tr>
         </tbody>
     </table>
-
-    <ul>
-     
-           
-        
-        <li>
-            <a class="button" href="{{ path('memberdate_edit', { 'id': memberDate.id }) }}">Bewerken</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input class="button" type="submit" value="Verwijderen">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
 {% else %}
 <p> U bent niet bevoegd om deze inhoud te zien. <p>
 
