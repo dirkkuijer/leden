@@ -24,9 +24,9 @@ class TypeMember
     /**
      * @var string
      *
-     * @ORM\Column(name="type_member", type="string", length=255)
+     * @ORM\Column(name="typeFunction", type="string", length=255)
      */
-    private $typeMember;
+    private $typeFunction;
 
 
     /**
@@ -40,27 +40,27 @@ class TypeMember
     }
 
     /**
-     * Set typeMember
+     * Set typeFunction
      *
-     * @param string $typeMember
+     * @param string $typeFunction
      *
      * @return TypeMember
      */
-    public function setTypeMember($typeMember)
+    public function setTypeFunction($typeFunction)
     {
-        $this->typeMember = $typeMember;
+        $this->typeFunction = $typeFunction;
 
         return $this;
     }
 
     /**
-     * Get typeMember
+     * Get typeFunction
      *
      * @return string
      */
-    public function getTypeMember()
+    public function getTypeFunction()
     {
-        return $this->typeMember;
+        return $this->typeFunction;
     }
 }
 

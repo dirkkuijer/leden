@@ -6,17 +6,18 @@
     
 }
 
-/* no idea.... check this */
+/* validation message */
 #appbundle_memberdate li { color:red; }
 
 /* checkbox hidden in loginform */
 #remember_me { visibility: hidden; }
 
-.button {
+.button, input[type=submit] {
     color: white;
     margin: 0.5rem 0.5rem;
     display: flex;
     justify-content: center;
+    border: none;
     width: 5rem;
     height: 1.5rem;
     background-color: #2377AF;
@@ -26,10 +27,53 @@
     padding: 0.2rem;
 }
 
-.button:hover  {
+.button:hover, input[type=submit]:hover  {
     background-color: rgb(65, 53, 119);
     box-shadow: 3px 3px 3px black;
 }
+
+/* dropdown menu for users */
+.dropdown {
+    letter-spacing: 3px;
+    position: relative;
+    display: inline-block;
+    left: 80%;
+    background-color: #2377AF;
+    color:white;
+    padding: 0.5rem 0.5rem;
+    border-radius: 5px; 
+    box-shadow: 3px 3px 3px black;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    color: white;
+    padding: 0.5rem 1.2rem 0.5rem 0.5rem; 
+    background-color: #2377AF;
+    min-width: 100px;
+    letter-spacing: 3px;
+    box-shadow: 3px 3px 3px rgb(18, 20, 122);
+    border-radius: 5px;
+    z-index: 1;
+
+}
+
+.dropdown-content li { 
+    list-style-type: none; 
+  
+ }
+
+.dropdown-content li a { 
+    color: white; 
+    text-decoration-line: none;
+}
+.dropdown-content li a:hover { text-decoration: underline} 
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+/* end of dropdown menu */
 
 .footer {
     position: fixed;

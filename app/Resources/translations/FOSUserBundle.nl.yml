@@ -24,7 +24,7 @@ profile:
     flash:
         updated: 'Het profiel is bijgewerkt.'
 change_password:
-    submit: 'Wachtwoord wijzigen'
+    submit: 'Wijzigen'
     flash:
         success: 'Het wachtwoord is gewijzigd.'
 registration:
@@ -53,13 +53,13 @@ resetting:
 
     request:
         username: 'Gebruikersnaam of e-mailadres'
-        submit: 'Reset wachtwoord'
+        submit: 'Bevestigen'
     reset:
-        submit: 'Wijzig wachtwoord'
+        submit: 'Bevestigen'
     flash:
         success: 'Het wachtwoord is succesvol gereset.'
     email:
-        subject: 'Reset wachtwoord'
+        subject: 'Bevestigen'
         message: |
             Hallo %username%!
 

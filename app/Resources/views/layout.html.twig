@@ -14,11 +14,7 @@
    
     <body>
 
-    <script type="text/javascript">
-    $(document).ready(function() {
-    $("#element-to-animate").addClass("animation"); 
-    });
-   </script>
+
    
    
         <img src="{{ asset('images/header.jpg') }}" title="Baarns mannenkoor" />
@@ -35,7 +31,6 @@
             {% endif %}
         </div> 
 
-
         
        
         {% if app.request.hasPreviousSession %}
@@ -48,16 +43,28 @@
             {% endfor %}
         {% endif %}
 
+{% if is_granted('ROLE_ADMIN') %}
+<div class="dropdown">Gebruiker
+    <div class="dropdown-content">
+        <ul>
+            <li><a href=" {{ path('fos_user_registration_register') }} ">Toevoegen</a></li>
+            <li><a href=" {{ path('fos_user_profile_edit') }} ">Aanpassen</a></li>
+            <li><a href=" {{ path('fos_user_resetting_request') }} ">Resetten</a></li>
+            <li><a href=" {{ path('fos_user_change_password') }} ">Wachtwoord veranderen</a></li>
+        </ul>
+    </div>
+</div>
+{% endif %}
 
 
-        <div>
+     
             {% block body %}{% endblock %}
 
             {% block fos_user_content %}
             {% endblock fos_user_content %}
 
             
-        </div>
+        
 
         {%include "footer.html.twig"%}
     </body>
