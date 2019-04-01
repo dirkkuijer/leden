@@ -8,28 +8,143 @@
  <a href="{{ path('memberdate_index') }}">Terug naar lijst</a>
 <p>
 
-<table align="center">
-<tr><td>
+
 {% if is_granted('ROLE_ADMIN') %}
     {{ form_start(edit_form) }}
+
+        {# begin paste #}  
+          <div class="grid-x grid-padding-x">
+        <div class="cell medium-4"></div>
+            <div class="cell medium-2">
+                {{ form_label(edit_form.firstName) }}
+            </div>
+            <div class="cell medium-3">
+                {{ form_widget(edit_form.firstName) }}
+            </div>
+        <div class="cell medium-3"></div>
+    </div>
+    
+    <div class="grid-x grid-padding-x">
+        <div class="cell medium-4"></div>
+            <div class="cell medium-2">
+                {{ form_label(edit_form.lastName) }}
+            </div>
+            <div class="cell medium-3">
+                {{ form_widget(edit_form.lastName) }}
+            </div>
+        <div class="cell medium-3"></div>
+    </div>
+    
+    <div class="grid-x grid-padding-x">
+        <div class="cell medium-4"></div>
+            <div class="cell medium-2">
+                {{ form_label(edit_form.email) }}
+            </div>
+            <div class="cell medium-3">
+                {{ form_widget(edit_form.email) }}
+            </div>
+        <div class="cell medium-3"></div>
+    </div>
+    
+    <div class="grid-x grid-padding-x">
+        <div class="cell medium-4"></div>
+            <div class="cell medium-2">
+                {{ form_label(edit_form.street) }}
+            </div>
+            <div class="cell medium-3">
+                {{ form_widget(edit_form.street) }}
+            </div>
+        <div class="cell medium-3"></div>
+    </div>
+    
+    <div class="grid-x grid-padding-x">
+        <div class="cell medium-4"></div>
+            <div class="cell medium-2">
+                {{ form_label(edit_form.houseNumber) }}
+            </div>
+            <div class="cell medium-3">
+                {{ form_widget(edit_form.houseNumber) }}
+            </div>
+        <div class="cell medium-3"></div>
+    </div>
+    
+    <div class="grid-x grid-padding-x">
+        <div class="cell medium-4"></div>
+            <div class="cell medium-2">
+                {{ form_label(edit_form.houseNumberAddition) }}
+            </div>
+            <div class="cell medium-3">
+                {{ form_widget(edit_form.houseNumberAddition) }}
+            </div>
+        <div class="cell medium-3"></div>
+    </div>
+    
+    <div class="grid-x grid-padding-x">
+        <div class="cell medium-4"></div>
+            <div class="cell medium-2">
+                {{ form_label(edit_form.zipCode) }}
+            </div>
+            <div class="cell medium-3">
+                {{ form_widget(edit_form.zipCode) }}
+            </div>
+        <div class="cell medium-3"></div>
+    </div>
+    
+    <div class="grid-x grid-padding-x">
+        <div class="cell medium-4"></div>
+            <div class="cell medium-2">
+                {{ form_label(edit_form.city) }}
+            </div>
+            <div class="cell medium-3">
+                {{ form_widget(edit_form.city) }}
+            </div>
+        <div class="cell medium-3"></div>
+    </div>
+    
+    <div class="grid-x grid-padding-x">
+        <div class="cell medium-4"></div>
+            <div class="cell medium-2">
+                {{ form_label(edit_form.telephone) }}
+            </div>
+            <div class="cell medium-3">
+                {{ form_widget(edit_form.telephone) }}
+            </div>
+        <div class="cell medium-3"></div>
+    </div>
+    
+    <div class="grid-x grid-padding-x">
+        <div class="cell medium-4"></div>
+            <div class="cell medium-2">
+                {{ form_label(edit_form.dateOfBirth) }}
+            </div>
+            <div class="cell medium-3">
+                <div class="grid-x grid-padding-x">
+                    <div class="cell medium-4">{{ form_widget(edit_form.dateOfBirth.day) }}</div>
+                    <div class="cell medium-4">{{ form_widget(edit_form.dateOfBirth.month) }}</div>
+                    <div class="cell medium-4">{{ form_widget(edit_form.dateOfBirth.year) }}</div>
+                </div>
+            </div>
+        <div class="cell medium-3"></div>
+    </div> 
+        {# end paste #}
         {{ form_widget(edit_form) }}
         
-    </td></tr>
-</table>
-<table align="center">
-    <tr><td>
-        <button class="button" type="submit">Bewerken</button>
-    {{ form_end(edit_form) }}
-    </td>
-    <td>
-    </td><td>
-            {{ form_start(delete_form) }}
+    <div class="grid-x grid-padding-x">
+        <div class="cell medium-4"></div>
+            <div class="cell medium-2">  
+                <button class="button" type="submit">Bewerken</button>
+                {{ form_end(edit_form) }}
+                </div> 
+        <div class="cell medium-2"> {{ form_start(delete_form) }}
                 <input  class="button" type="submit" value="Verwijderen">
-            {{ form_end(delete_form) }}
-        </td></tr>
-</table>
+            {{ form_end(delete_form) }}</div>   
+    <div class="cell medium-4"></div>
+           
     {% else %}
 <p> U bent niet bevoegd om deze inhoud te zien of te bewerken. <p>
 
 {% endif %}
+{% endblock %}
+
+{% block footer %}
 {% endblock %}

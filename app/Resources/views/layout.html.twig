@@ -3,24 +3,23 @@
     <head>
         {% block stylesheet %}
             {% stylesheets filter='cssrewrite' output="css/main.css"
-                "%kernel.root_dir%/Resources/assets/css/main.css" %}
+                "%kernel.root_dir%/Resources/assets/css/foundation.css"
+                "%kernel.root_dir%/Resources/assets/css/main.css"
+            %}
             <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}  
         {% endblock %}
+        
         <meta charset="UTF-8" />
-
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
     </head>
    
     <body>
 
+        <img src="{{ asset('images/header.jpg') }}" class="header" title="Baarns mannenkoor" />
 
-   
-   
-        <img src="{{ asset('images/header.jpg') }}" title="Baarns mannenkoor" />
-
-        <p>
-
+        <br />
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
                 <a href="{{ path('fos_user_security_logout') }}">
@@ -29,10 +28,8 @@
             {% else %}
                 <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
             {% endif %}
-        </div> 
-
-        
        
+
         {% if app.request.hasPreviousSession %}
             {% for type, messages in app.session.flashbag.all() %}
                 {% for message in messages %}
@@ -43,7 +40,11 @@
             {% endfor %}
         {% endif %}
 
+
+{# menu  #}
 {% if is_granted('ROLE_ADMIN') %}
+
+
 <div class="dropdown">Gebruiker
     <div class="dropdown-content">
         <ul>
@@ -56,16 +57,20 @@
 </div>
 {% endif %}
 
-
-     
-            {% block body %}{% endblock %}
+            {% block body %}
+              
+              
+            {% endblock %}
 
             {% block fos_user_content %}
             {% endblock fos_user_content %}
+                
+            {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                {% include "start_text.html.twig" %}
+            {% endif %}
 
-            
-        
-
+    {% block footer %}
         {%include "footer.html.twig"%}
+    {% endblock %}
     </body>
 </html>

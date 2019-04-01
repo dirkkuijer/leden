@@ -13,63 +13,72 @@
  <p>
  {% if is_granted('ROLE_ADMIN') %}
    
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ memberDate.id }}</td>
-            </tr>
-            <tr>
-                <th>Voornaam</th>
-                <td>{{ memberDate.firstName }}</td>
-            </tr>
-            <tr>
-                <th>Achternaam</th>
-                <td>{{ memberDate.lastName }}</td>
-            </tr>
-            <tr>
-                <th>E-mail</th>
-                <td>{{ memberDate.email }}</td>
-            </tr>
-            <tr>
-                <th>Straat</th>
-                <td>{{ memberDate.street }}</td>
-            </tr>
-            <tr>
-                <th>Huisnummer</th>
-                <td>{{ memberDate.houseNumber }}</td>
-            </tr>
-            <tr>
-                <th>Toevoeging</th>
-                <td>{{ memberDate.houseNumberAddition }}</td>
-            </tr>
-            <tr>
-                <th>Postcode</th>
-                <td>{{ memberDate.zipCode }}</td>
-            </tr>
-            <tr>
-                <th>Woonplaats</th>
-                <td>{{ memberDate.city }}</td>
-            </tr>
-            <tr>
-                <th>Telephone</th>
-                <td>{{ memberDate.telephone }}</td>
-            </tr>
-            <tr>
-                <th>Geboortedatum</th>
-                <td>{{ memberDate.dateOfBirth | date('j F Y')}}</td>
-     
+<div class="grid-x">
+    <div class="cell medium-2"></div>
+        <div class="cell medium-8">
+        <table class="stack">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ memberDate.id }}</td>
+                </tr>
+                <tr>
+                    <th>Voornaam</th>
+                    <td>{{ memberDate.firstName }}</td>
+                </tr>
+                <tr>
+                    <th>Achternaam</th>
+                    <td>{{ memberDate.lastName }}</td>
+                </tr>
+                <tr>
+                    <th>E-mail</th>
+                    <td>{{ memberDate.email }}</td>
+                </tr>
+                <tr>
+                    <th>Straat</th>
+                    <td>{{ memberDate.street }}</td>
+                </tr>
+                <tr>
+                    <th>Huisnummer</th>
+                    <td>{{ memberDate.houseNumber }}</td>
+                </tr>
+                <tr>
+                    <th>Toevoeging</th>
+                    <td>{{ memberDate.houseNumberAddition }}</td>
+                </tr>
+                <tr>
+                    <th>Postcode</th>
+                    <td>{{ memberDate.zipCode }}</td>
+                </tr>
+                <tr>
+                    <th>Woonplaats</th>
+                    <td>{{ memberDate.city }}</td>
+                </tr>
+                <tr>
+                    <th>Telephone</th>
+                    <td>{{ memberDate.telephone }}</td>
+                </tr>
+                <tr>
+                    <th>Geboortedatum</th>
+                    <td>{{ memberDate.dateOfBirth | date('j F Y')}}</td>
+                </tr>
 
-    <table><tr><td>
-            <a class="button" href="{{ path('memberdate_edit', { 'id': memberDate.id }) }}">Bewerken</a>
-                {{ form_start(delete_form) }}
-            </td>
-            <td>
-                    <button class="button" type="submit" value="Verwijderen">Verwijderen</button>
-                {{ form_end(delete_form) }}
-        </tr>
-        </tbody>
-    </table>
+                <tr><td>
+                <div class="grid-x">
+                    <div class="cell small-8"></div>
+                        <div class="cell small-4">
+                            <a class="button" href="{{ path('memberdate_edit', { 'id': memberDate.id }) }}">Bewerken</a>
+                        </div>
+                    </div>
+                  </td><td>  {{ form_start(delete_form) }}
+                        <button class="button" type="submit" value="Verwijderen">Verwijderen</button>
+                    {{ form_end(delete_form) }}
+                </td></tr>
+            </tbody>
+        </table>
+    </div>
+<div class="cell medium-2"></div>
+</div>
 {% else %}
 <p> U bent niet bevoegd om deze inhoud te zien. <p>
 
