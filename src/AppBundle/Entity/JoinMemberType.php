@@ -49,17 +49,17 @@ class JoinMemberType
 
     /**
      * 
-     * @ORM\ManyToOne(targetEntity="MemberDate")
+     * @ORM\ManyToOne(targetEntity="MemberDate", inversedBy="type")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $MemberDate;
+    private $memberDate;
 
     /**
-     * 
-     * @ORM\ManyToOne(targetEntity="MemberDate")
+     * TypeMember was eerste MemberDate.
+     * @ORM\ManyToOne(targetEntity="TypeMember", inversedBy="member")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $TypeMember;
+    private $typeMember;
 
 // Getters and Setters
     /**

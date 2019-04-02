@@ -4,23 +4,45 @@
 {% extends 'layout.html.twig' %}
     {% block stylesheet %}
         <link rel="stylesheet" type="text/css" href="{{ asset("css/main.css") }}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" 
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     {% endblock %}
+
+{% block Javascript %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+{% endblock %}
 
 {% block body %}
 
         <h3>Ledenlijst</h3>
-   <ul>
-        <li>
+
         {% if is_granted('ROLE_ADMIN') %}
-            <a href="{{ path('memberdate_new') }}">Nieuw lid aanmaken</a>
+        <div class="grid-x grid-padding-x">
+            <div class="cell medium-2">
+                <a href="{{ path('memberdate_new') }}">Nieuw lid aanmaken</a>
+            </div>
+            <div class="cell medium-7"></div>
+                <div class="cell medium-3">
+                    <input id="myInput" type="text" placeholder="Zoeken.." />
+                </div>
+                <script>
+                    function emptyForm() {
+                    document.getElementById("zoeken").reset();
+                    }
+                </script>
+            </div>
+        </div>
+    
         {% endif %}
-        </li>
-    </ul>
-    <table class="stack">
+    
+    <table class="stack" id="table">
         <thead>
             <tr>
                {% if is_granted('ROLE_ADMIN')%}
                
+
+                
+
                 <th>Id</th>
                 {% endif %}
                 <th>Voornaam</th>
@@ -32,29 +54,40 @@
                 {% endif %}
             </tr>
         </thead>
-        <tbody>
+        <tbody id="myTable">
         {% for memberDate in memberDates %}
             <tr>
             {% if is_granted('ROLE_ADMIN')%}
                 <td><a href="{{ path('memberdate_show', { 'id': memberDate.id }) }}">{{ memberDate.id }}</a></td>
             {% endif %}
-                <td>{{ memberDate.firstName }}</td> 
-                <td>{{ memberDate.lastName }}</td>
-                <td>{{ memberDate.email }}</td>
-                <td>{{ memberDate.dateOfBirth | date('j F Y') }}</td>
-                <td>
+                <td id="td">{{ memberDate.firstName }}</td> 
+                <td id="td">{{ memberDate.lastName }}</td>
+                <td id="td">{{ memberDate.email }}</td>
+                <td id="td">{{ memberDate.dateOfBirth | date('j-m-Y', "Europe/Amsterdam" ) }}</td>
+                <td id="td">
+
                 {% if is_granted('ROLE_ADMIN') %}
                    
-                            <a class="button" href="{{ path('memberdate_show', { 'id': memberDate.id }) }}">Inzien</a>
+                            <a class="button primary" href="{{ path('memberdate_show', { 'id': memberDate.id }) }}">Inzien</a>
                         
-                            <a class="button" href="{{ path('memberdate_edit', { 'id': memberDate.id }) }}">Bewerken</a>
+                            <a class="button primary" href="{{ path('memberdate_edit', { 'id': memberDate.id }) }}">Bewerken</a>
                        
                 {% endif %}
                 </td>
             </tr>
         {% endfor %}
+    
         </tbody>
     </table>
-
+ <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            });
+    </script>
  
 {% endblock %}

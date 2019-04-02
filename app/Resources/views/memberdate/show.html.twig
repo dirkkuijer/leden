@@ -4,6 +4,8 @@
 <link rel="stylesheet" type="text/css" href="{{ asset("css/main.css") }}">
 
 {% endblock %}
+
+
 {% block body %}
 
         
@@ -12,7 +14,8 @@
  <a href="{{ path('memberdate_index') }}">Terug naar lijst</a>
  <p>
  {% if is_granted('ROLE_ADMIN') %}
-   
+
+
 <div class="grid-x">
     <div class="cell medium-2"></div>
         <div class="cell medium-8">
@@ -55,30 +58,27 @@
                     <td>{{ memberDate.city }}</td>
                 </tr>
                 <tr>
-                    <th>Telephone</th>
+                    <th>Telefoon</th>
                     <td>{{ memberDate.telephone }}</td>
                 </tr>
                 <tr>
                     <th>Geboortedatum</th>
-                    <td>{{ memberDate.dateOfBirth | date('j F Y')}}</td>
+                    <td>{{ memberDate.dateOfBirth | date('j-m-Y', "Europe/Amsterdam" ) }}</td>
                 </tr>
-
-                <tr><td>
-                <div class="grid-x">
-                    <div class="cell small-8"></div>
+            </tbody>
+        </table>
+                <div class="grid-x grid-padding-x">
+                    <div class="cell small-2"></div>
                         <div class="cell small-4">
                             <a class="button" href="{{ path('memberdate_edit', { 'id': memberDate.id }) }}">Bewerken</a>
                         </div>
-                    </div>
-                  </td><td>  {{ form_start(delete_form) }}
+                    <div class="cell small-4">
+                        {{ form_start(delete_form) }}
                         <button class="button" type="submit" value="Verwijderen">Verwijderen</button>
-                    {{ form_end(delete_form) }}
-                </td></tr>
-            </tbody>
-        </table>
-    </div>
-<div class="cell medium-2"></div>
-</div>
+                        {{ form_end(delete_form) }}
+                    </div>
+                    <div class="cell medium-2"></div>
+                </div>
 {% else %}
 <p> U bent niet bevoegd om deze inhoud te zien. <p>
 

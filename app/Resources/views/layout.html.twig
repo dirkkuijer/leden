@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+
         {% block stylesheet %}
             {% stylesheets filter='cssrewrite' output="css/main.css"
                 "%kernel.root_dir%/Resources/assets/css/foundation.css"
@@ -8,6 +9,9 @@
             %}
             <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}  
+        {% endblock %}
+        {% block Javascript %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
         {% endblock %}
         
         <meta charset="UTF-8" />
@@ -22,11 +26,13 @@
         <br />
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                <a href="{{ path('fos_user_security_logout') }}">
+                <a class="button tiny" href="{{ path('fos_user_security_logout') }}">
                     {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                 </a>
             {% else %}
-                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+
+                <a class="button primary" href="{{ path('fos_user_security_login') }}"
+                style="margin-left:1rem">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
             {% endif %}
        
 
@@ -52,14 +58,18 @@
             <li><a href=" {{ path('fos_user_profile_edit') }} ">Aanpassen</a></li>
             <li><a href=" {{ path('fos_user_resetting_request') }} ">Resetten</a></li>
             <li><a href=" {{ path('fos_user_change_password') }} ">Wachtwoord veranderen</a></li>
+            <li><a href=" {{ path('memberdate_index') }} ">Leden</a></li>
         </ul>
     </div>
 </div>
 {% endif %}
 
             {% block body %}
-              
-              
+                <p>
+                <noscript>
+                    <div class="callout alert center"> Zet uw Javascript aan in de browser!</div>
+                </noscript>      
+
             {% endblock %}
 
             {% block fos_user_content %}
@@ -69,8 +79,5 @@
                 {% include "start_text.html.twig" %}
             {% endif %}
 
-    {% block footer %}
-        {%include "footer.html.twig"%}
-    {% endblock %}
-    </body>
+      </body>
 </html>

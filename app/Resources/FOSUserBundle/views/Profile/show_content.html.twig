@@ -1,4 +1,4 @@
-
+{% extends "layout.html.twig" %}
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block stylesheet %}
@@ -8,6 +8,7 @@
             {% endstylesheets %}  
 {% endblock %}
 
+{% block body %}
 
 <h3>Gebruiker</h3>
 <div class="fos_user_user_show">
@@ -15,3 +16,5 @@
     <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
     
 </div>
+
+{% endblock %}

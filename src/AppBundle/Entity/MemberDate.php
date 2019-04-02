@@ -15,7 +15,6 @@ class MemberDate
 {
     /**
      * @var int
-     *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -23,6 +22,13 @@ class MemberDate
      */
     private $id;
 
+     /**
+     * @var int
+     *
+     * @ORM\OneToMany(targetEntity="JoinMemberType", mappedBy="Memberdate")
+     */
+    private $type;
+    
     /**
      * @var string
      *
@@ -353,5 +359,46 @@ class MemberDate
     {
         return $this->dateOfBirth;
     }
-}
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->type = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add type
+     *
+     * @param \AppBundle\Entity\JoinMemberType $type
+     *
+     * @return MemberDate
+     */
+    public function addType(\AppBundle\Entity\JoinMemberType $type)
+    {
+        $this->type[] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Remove type
+     *
+     * @param \AppBundle\Entity\JoinMemberType $type
+     */
+    public function removeType(\AppBundle\Entity\JoinMemberType $type)
+    {
+        $this->type->removeElement($type);
+    }
+
+    /**
+     * Get type
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+}

@@ -15,7 +15,7 @@
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
         {% endif %}
         
-    <div class="grid-x">
+    <div class="grid-x grid-padding-x">
         <div class="cell medium-4"></div>
             <div class="cell medium-1">
                 <label for="username">{{ 'security.login.username'|trans }}</label>
@@ -26,7 +26,7 @@
         <div class="cell medium-3"></div>
     </div>
 
-    <div class="grid-x">
+    <div class="grid-x grid-padding-x">
         <div class="cell medium-4"></div>
             <div class="cell medium-1">
             <label for="password">{{ 'security.login.password'|trans }}</label>
@@ -37,10 +37,10 @@
         <div class="cell medium-3"></div>
     </div>
        
-       <div class="grid-x">
+       <div class="grid-x grid-padding-x">
             <div class="cell medium-4"></div> 
                 <div class="cell medium-6">
-                    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+                    <input class="button" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
                 </div>
             <div class="cell medium-2"></div> 
         </div>
