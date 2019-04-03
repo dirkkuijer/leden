@@ -19,15 +19,13 @@
         {% if is_granted('ROLE_ADMIN') %}
         <div class="grid-x grid-padding-x">
             <div class="cell medium-2">
-                <a href="{{ path('memberdate_new') }}">Nieuw lid aanmaken</a>
+                <a href="{{ path('member_new') }}">Nieuw lid aanmaken</a>
             </div>
             <div class="cell medium-7"></div>
                 <div class="cell medium-3">
-           
-                
-                        <input id="myInput" type="text" placeholder="Zoeken.."/>
-                        <i class="fas fa-search"></i>
-        
+                    <i class="fas fa-search">
+                        <input id="myInput" type="text" placeholder="Zoeken" />
+                    </i>
                 </div>
                 <script>
                     function emptyForm() {
@@ -59,22 +57,22 @@
             </tr>
         </thead>
         <tbody id="myTable">
-        {% for memberDate in memberDates %}
+        {% for member in member %}
             <tr>
             {% if is_granted('ROLE_ADMIN')%}
-                <td><a href="{{ path('memberdate_show', { 'id': memberDate.id }) }}">{{ memberDate.id }}</a></td>
+                <td><a href="{{ path('member_show', { 'id': member.id }) }}">{{ member.id }}</a></td>
             {% endif %}
-                <td id="td">{{ memberDate.firstName }}</td> 
-                <td id="td">{{ memberDate.lastName }}</td>
-                <td id="td">{{ memberDate.email }}</td>
-                <td id="td">{{ memberDate.dateOfBirth | date('j-m-Y', "Europe/Amsterdam" ) }}</td>
+                <td id="td">{{ member.firstName }}</td> 
+                <td id="td">{{ member.lastName }}</td>
+                <td id="td">{{ member.email }}</td>
+                <td id="td">{{ member.dateOfBirth | date('j-m-Y', "Europe/Amsterdam" ) }}</td>
                 <td id="td">
 
                 {% if is_granted('ROLE_ADMIN') %}
                    
-                            <a class="button primary" href="{{ path('memberdate_show', { 'id': memberDate.id }) }}">Inzien</a>
+                            <a class="button primary" href="{{ path('member_show', { 'id': member.id }) }}">Inzien</a>
                         
-                            <a class="button primary" href="{{ path('memberdate_edit', { 'id': memberDate.id }) }}">Bewerken</a>
+                            <a class="button primary" href="{{ path('member_edit', { 'id': member.id }) }}">Bewerken</a>
                        
                 {% endif %}
                 </td>

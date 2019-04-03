@@ -7,7 +7,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Voice
  *
- * @ORM\Table(name="type_voice")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\VoiceRepository")
  */
 class Voice
@@ -29,5 +28,38 @@ class Voice
     private $typeVoice;
 
 
-}
 
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set typeVoice
+     *
+     * @param string $typeVoice
+     *
+     * @return Voice
+     */
+    public function setTypeVoice($typeVoice)
+    {
+        $this->typeVoice = $typeVoice;
+
+        return $this;
+    }
+
+    /**
+     * Get typeVoice
+     *
+     * @return string
+     */
+    public function getTypeVoice()
+    {
+        return $this->typeVoice;
+    }
+}

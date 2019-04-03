@@ -23,7 +23,7 @@ security:
                 csrf_token_generator: security.csrf.token_manager
          #added after video's from codereviewvideos    
                 always_use_default_target_path: true
-                default_target_path:            /memberdate/
+                default_target_path:            /member/
                 use_referer: true
                 failure_path: /login
             logout:       true
@@ -34,3 +34,4 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/member, role: ROLE_ADMIN }

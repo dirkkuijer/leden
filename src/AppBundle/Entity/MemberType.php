@@ -6,12 +6,11 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * TypeMember
+ * MemberType
  *
- * @ORM\Table(name="type_member")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\TypeMemberRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\MemberTypeRepository")
  */
-class TypeMember
+class MemberType
 {
     /**
      * @var int
@@ -23,7 +22,7 @@ class TypeMember
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="JoinMemberType", mappedBy="TypeMember")
+     * @ORM\OneToMany(targetEntity="MemberMemberType", mappedBy="memberType")
      */
     private $member;
 
@@ -50,7 +49,7 @@ class TypeMember
      *
      * @param string $typeFunction
      *
-     * @return TypeMember
+     * @return MemberType
      */
     public function setTypeFunction($typeFunction)
     {

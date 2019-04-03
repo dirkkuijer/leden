@@ -8,9 +8,9 @@ use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use AppBundle\Form\JoinMemberTypeType;
+use AppBundle\Form\MemberMemberTypeType;
 
-class MemberDateType extends AbstractType
+class MemberType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -30,7 +30,7 @@ class MemberDateType extends AbstractType
                 ->add('telephone')
                 ->add('dateOfBirth', BirthDayType::Class)
                 ->add('type', CollectionType::Class, [
-                    'entry_type'    => JoinMemberTypeType::Class, 
+                    'entry_type'    => MemberMemberTypeType::Class, 
                     'allow_add'     => true,
                     'prototype'     => true,
                     'by_reference'  => false
@@ -44,7 +44,7 @@ class MemberDateType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\MemberDate'
+            'data_class' => 'AppBundle\Entity\Member'
         ));
     }
 
@@ -53,7 +53,7 @@ class MemberDateType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_memberdate';
+        return 'appbundle_member';
     }
 
 

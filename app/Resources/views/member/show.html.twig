@@ -11,7 +11,7 @@
         
 
     <h3>Ledenlijst</h3>
- <a href="{{ path('memberdate_index') }}">Terug naar lijst</a>
+ <a href="{{ path('member_index') }}">Terug naar lijst</a>
  <p>
  {% if is_granted('ROLE_ADMIN') %}
 
@@ -23,54 +23,54 @@
             <tbody>
                 <tr>
                     <th>Id</th>
-                    <td>{{ memberDate.id }}</td>
+                    <td>{{ member.id }}</td>
                 </tr>
                 <tr>
                     <th>Voornaam</th>
-                    <td>{{ memberDate.firstName }}</td>
+                    <td>{{ member.firstName }}</td>
                 </tr>
                 <tr>
                     <th>Achternaam</th>
-                    <td>{{ memberDate.lastName }}</td>
+                    <td>{{ member.lastName }}</td>
                 </tr>
                 <tr>
                     <th>E-mail</th>
-                    <td>{{ memberDate.email }}</td>
+                    <td>{{ member.email }}</td>
                 </tr>
                 <tr>
                     <th>Straat</th>
-                    <td>{{ memberDate.street }}</td>
+                    <td>{{ member.street }}</td>
                 </tr>
                 <tr>
                     <th>Huisnummer</th>
-                    <td>{{ memberDate.houseNumber }}</td>
+                    <td>{{ member.houseNumber }}</td>
                 </tr>
                 <tr>
                     <th>Toevoeging</th>
-                    <td>{{ memberDate.houseNumberAddition }}</td>
+                    <td>{{ member.houseNumberAddition }}</td>
                 </tr>
                 <tr>
                     <th>Postcode</th>
-                    <td>{{ memberDate.zipCode }}</td>
+                    <td>{{ member.zipCode }}</td>
                 </tr>
                 <tr>
                     <th>Woonplaats</th>
-                    <td>{{ memberDate.city }}</td>
+                    <td>{{ member.city }}</td>
                 </tr>
                 <tr>
                     <th>Telefoon</th>
-                    <td>{{ memberDate.telephone }}</td>
+                    <td>{{ member.telephone }}</td>
                 </tr>
                 <tr>
                     <th>Geboortedatum</th>
-                    <td>{{ memberDate.dateOfBirth | date('j-m-Y', "Europe/Amsterdam" ) }}</td>
+                    <td>{{ member.dateOfBirth | date('j-m-Y', "Europe/Amsterdam" ) }}</td>
                 </tr>
             </tbody>
         </table>
                 <div class="grid-x grid-padding-x">
                     <div class="cell small-2"></div>
                         <div class="cell small-4">
-                            <a class="button" href="{{ path('memberdate_edit', { 'id': memberDate.id }) }}">Bewerken</a>
+                            <a class="button" href="{{ path('member_edit', { 'id': member.id }) }}">Bewerken</a>
                         </div>
                     <div class="cell small-4">
                         {{ form_start(delete_form) }}

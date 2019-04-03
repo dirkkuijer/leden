@@ -6,7 +6,7 @@
             {% stylesheets filter='cssrewrite' output="css/main.css"
                 "%kernel.root_dir%/Resources/assets/css/foundation.css"
                 "%kernel.root_dir%/Resources/assets/css/main.css"
-                "%kernel.root_dir%/Resources/assets/css/app.css"
+                "%kernel.root_dir%/Resources/assets/css/all.css"
             %}
             <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}  
@@ -59,7 +59,7 @@
             <li><a href=" {{ path('fos_user_profile_edit') }} ">Aanpassen</a></li>
             <li><a href=" {{ path('fos_user_resetting_request') }} ">Resetten</a></li>
             <li><a href=" {{ path('fos_user_change_password') }} ">Wachtwoord veranderen</a></li>
-            <li><a href=" {{ path('memberdate_index') }} ">Leden</a></li>
+            <li><a href=" {{ path('member_index') }} ">Leden</a></li>
         </ul>
     </div>
 </div>

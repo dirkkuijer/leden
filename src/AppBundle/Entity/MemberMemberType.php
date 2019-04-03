@@ -7,8 +7,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * MemberMemberType
- *
- * @ORM\Table(name="MemberMemberType")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\MemberMemberTypeRepository")
  */
 class MemberMemberType
@@ -33,15 +31,15 @@ class MemberMemberType
    /**
      * @var date
      *
-     * @ORM\Column(name="till_date", type="date", length=255)
+     * @ORM\Column(name="till_date", type="date", length=255, nullable=true)
      */
     private $tillDate;
 
     /**
      * @var text
      * 
-     * @ORM\Column(name="reason", type="text", length=255)
-     * 
+     * @ORM\Column(name="reason", type="text", length=255, nullable=true)
+     * @
      */
     private $reason;
 
@@ -54,12 +52,141 @@ class MemberMemberType
 
     /**
      * TypeMember was eerste Member.
-     * @ORM\ManyToOne(targetEntity="Member", inversedBy="member")
+     * @ORM\ManyToOne(targetEntity="MemberType", inversedBy="member")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $MemberType;
+    private $memberType;
 
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set fromDate
+     *
+     * @param \DateTime $fromDate
+     *
+     * @return MemberMemberType
+     */
+    public function setFromDate($fromDate)
+    {
+        $this->fromDate = $fromDate;
+
+        return $this;
+    }
+
+    /**
+     * Get fromDate
+     *
+     * @return \DateTime
+     */
+    public function getFromDate()
+    {
+        return $this->fromDate;
+    }
+
+    /**
+     * Set tillDate
+     *
+     * @param \DateTime $tillDate
+     *
+     * @return MemberMemberType
+     */
+    public function setTillDate($tillDate)
+    {
+        $this->tillDate = $tillDate;
+
+        return $this;
+    }
+
+    /**
+     * Get tillDate
+     *
+     * @return \DateTime
+     */
+    public function getTillDate()
+    {
+        return $this->tillDate;
+    }
+
+    /**
+     * Set reason
+     *
+     * @param string $reason
+     *
+     * @return MemberMemberType
+     */
+    public function setReason($reason)
+    {
+        $this->reason = $reason;
+
+        return $this;
+    }
+
+    /**
+     * Get reason
+     *
+     * @return string
+     */
+    public function getReason()
+    {
+        return $this->reason;
+    }
+
+    /**
+     * Set member
+     *
+     * @param \AppBundle\Entity\Member $member
+     *
+     * @return MemberMemberType
+     */
+    public function setMember(\AppBundle\Entity\Member $member)
+    {
+        $this->member = $member;
+
+        return $this;
+    }
+
+    /**
+     * Get member
+     *
+     * @return \AppBundle\Entity\Member
+     */
+    public function getMember()
+    {
+        return $this->member;
+    }
+
+    /**
+     * Set memberType
+     *
+     * @param \AppBundle\Entity\Member $memberType
+     *
+     * @return MemberMemberType
+     */
+    public function setMemberType(\AppBundle\Entity\Member $memberType)
+    {
+        $this->memberType = $memberType;
+
+        return $this;
+    }
+
+    /**
+     * Get memberType
+     *
+     * @return \AppBundle\Entity\Member
+     */
+    public function getMemberType()
+    {
+        return $this->memberType;
+    }
 }
-
