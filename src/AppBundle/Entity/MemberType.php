@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * TypeMember
@@ -78,11 +79,11 @@ class TypeMember
     /**
      * Add member
      *
-     * @param \AppBundle\Entity\JoinMemberType $member
+     * @param \AppBundle\Entity\MemberMemberType $member
      *
-     * @return TypeMember
+     * @return MemberType
      */
-    public function addMember(\AppBundle\Entity\JoinMemberType $member)
+    public function addMember(\AppBundle\Entity\MemberMemberType $member)
     {
         $this->member[] = $member;
 
@@ -92,9 +93,9 @@ class TypeMember
     /**
      * Remove member
      *
-     * @param \AppBundle\Entity\JoinMemberType $member
+     * @param \AppBundle\Entity\MemberMemberType $member
      */
-    public function removeMember(\AppBundle\Entity\JoinMemberType $member)
+    public function removeMember(\AppBundle\Entity\MemberMemberType $member)
     {
         $this->member->removeElement($member);
     }
