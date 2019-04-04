@@ -11,8 +11,10 @@
             <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}  
         {% endblock %}
+
         {% block Javascript %}
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+            {# <script src="{{ asset('js/vendor/jquery.js') }} "></script>  #}
         {% endblock %}
         
         <meta charset="UTF-8" />
@@ -25,6 +27,7 @@
         <img src="{{ asset('images/header.jpg') }}" class="header" title="Baarns mannenkoor" />
 
         <br />
+<div style="display:flex;flex-shrink:2">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
                 <a class="button tiny" href="{{ path('fos_user_security_logout') }}">
@@ -35,8 +38,8 @@
                 <a class="button primary" href="{{ path('fos_user_security_login') }}"
                 style="margin-left:1rem">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
             {% endif %}
-       
-
+     
+ 
         {% if app.request.hasPreviousSession %}
             {% for type, messages in app.session.flashbag.all() %}
                 {% for message in messages %}
@@ -46,24 +49,24 @@
                 {% endfor %}
             {% endfor %}
         {% endif %}
-
-
-{# menu  #}
-{% if is_granted('ROLE_ADMIN') %}
-
-
-<div class="dropdown">Gebruiker
-    <div class="dropdown-content">
-        <ul>
-            <li><a href=" {{ path('fos_user_registration_register') }} ">Toevoegen</a></li>
-            <li><a href=" {{ path('fos_user_profile_edit') }} ">Aanpassen</a></li>
-            <li><a href=" {{ path('fos_user_resetting_request') }} ">Resetten</a></li>
-            <li><a href=" {{ path('fos_user_change_password') }} ">Wachtwoord veranderen</a></li>
-            <li><a href=" {{ path('member_index') }} ">Leden</a></li>
-        </ul>
-    </div>
 </div>
-{% endif %}
+
+    {# menu  #}
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="dropdown">Gebruiker
+            <div class="dropdown-content">
+                <ul>
+                    <li><a href=" {{ path('fos_user_registration_register') }} ">Toevoegen</a></li>
+                    <li><a href=" {{ path('fos_user_profile_edit') }} ">Aanpassen</a></li>
+                    <li><a href=" {{ path('fos_user_resetting_request') }} ">Resetten</a></li>
+                    <li><a href=" {{ path('fos_user_change_password') }} ">Wachtwoord veranderen</a></li>
+                    <li><a href=" {{ path('member_index') }} ">Leden</a></li>
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+
 
             {% block body %}
                 <p>

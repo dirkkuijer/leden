@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class MemberMemberTypeType extends AbstractType
@@ -20,8 +21,12 @@ class MemberMemberTypeType extends AbstractType
             ->add('fromDate', DateType::class)
             ->add('tillDate', DateType::class)
             ->add('reason', TextareaType::class)
-            // ->add('memberDate')
-            // ->add('typeMember')
+            ->add('memberType', EntityType::class, [
+                'class' => 'AppBundle:MemberType',
+
+                // uses the User.username property as the visible option string
+                'choice_label' => 'typeFunction',
+            ])
         ;
     }
     

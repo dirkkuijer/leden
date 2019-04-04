@@ -16,15 +16,11 @@
  {% if is_granted('ROLE_ADMIN') %}
 
 
-<div class="grid-x">
+<div class="grid-x grid-padding-x">
     <div class="cell medium-2"></div>
         <div class="cell medium-8">
         <table class="stack">
             <tbody>
-                <tr>
-                    <th>Id</th>
-                    <td>{{ member.id }}</td>
-                </tr>
                 <tr>
                     <th>Voornaam</th>
                     <td>{{ member.firstName }}</td>
@@ -68,16 +64,16 @@
             </tbody>
         </table>
                 <div class="grid-x grid-padding-x">
-                    <div class="cell small-2"></div>
-                        <div class="cell small-4">
+                    <div class="cell small-8"></div>
+                        <div class="cell small-2">
                             <a class="button" href="{{ path('member_edit', { 'id': member.id }) }}">Bewerken</a>
                         </div>
-                    <div class="cell small-4">
+                    <div class="cell small-2">
                         {{ form_start(delete_form) }}
                         <button class="button" type="submit" value="Verwijderen">Verwijderen</button>
                         {{ form_end(delete_form) }}
                     </div>
-                    <div class="cell medium-2"></div>
+               
                 </div>
 {% else %}
 <p> U bent niet bevoegd om deze inhoud te zien. <p>

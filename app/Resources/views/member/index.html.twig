@@ -40,13 +40,7 @@
     <table class="stack" id="table">
         <thead>
             <tr>
-               {% if is_granted('ROLE_ADMIN')%}
                
-
-                
-
-                <th>Id</th>
-                {% endif %}
                 <th>Voornaam</th>
                 <th>Achternaam</th>
                 <th>E-mail</th>
@@ -59,9 +53,7 @@
         <tbody id="myTable">
         {% for member in member %}
             <tr>
-            {% if is_granted('ROLE_ADMIN')%}
-                <td><a href="{{ path('member_show', { 'id': member.id }) }}">{{ member.id }}</a></td>
-            {% endif %}
+           
                 <td id="td">{{ member.firstName }}</td> 
                 <td id="td">{{ member.lastName }}</td>
                 <td id="td">{{ member.email }}</td>
@@ -70,9 +62,8 @@
 
                 {% if is_granted('ROLE_ADMIN') %}
                    
-                            <a class="button primary" href="{{ path('member_show', { 'id': member.id }) }}">Inzien</a>
-                        
-                            <a class="button primary" href="{{ path('member_edit', { 'id': member.id }) }}">Bewerken</a>
+                    <a class="button primary" href="{{ path('member_delete', { 'id': member.id }) }}">Verwijderen</a>
+                    <a class="button primary" href="{{ path('member_edit', { 'id': member.id }) }}">Bewerken</a>
                        
                 {% endif %}
                 </td>

@@ -85,6 +85,7 @@ class MemberType
     public function addMember(\AppBundle\Entity\MemberMemberType $member)
     {
         $this->member[] = $member;
+        $member->setMemberType($this);
 
         return $this;
     }

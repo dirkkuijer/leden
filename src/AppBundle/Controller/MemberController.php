@@ -44,7 +44,6 @@ class MemberController extends Controller
        
         $member = new Member();
        
-
         $form = $this->createForm('AppBundle\Form\MemberType', $member);
         
         $form->handleRequest($request);

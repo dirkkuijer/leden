@@ -23,7 +23,7 @@ class Member
      /**
      * @var int
      *
-     * @ORM\OneToMany(targetEntity="MemberMemberType", mappedBy="member")
+     * @ORM\OneToMany(targetEntity="MemberMemberType", mappedBy="member", cascade={"persist"})
      */
     private $type;
     
@@ -126,6 +126,7 @@ class Member
     public function addType(\AppBundle\Entity\MemberMemberType $type)
     {
         $this->type[] = $type;
+        $type->setMember($this);
 
         return $this;
     }

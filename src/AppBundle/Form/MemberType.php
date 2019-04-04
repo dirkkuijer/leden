@@ -32,8 +32,10 @@ class MemberType extends AbstractType
                 ->add('type', CollectionType::Class, [
                     'entry_type'    => MemberMemberTypeType::Class, 
                     'allow_add'     => true,
+                    'allow_delete'  => true,
                     'prototype'     => true,
-                    'by_reference'  => false
+                    'by_reference'  => false,
+                    'label'         => false,
                 ]); 
 
     }
