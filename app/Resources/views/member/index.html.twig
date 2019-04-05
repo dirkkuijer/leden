@@ -23,9 +23,7 @@
             </div>
             <div class="cell medium-7"></div>
                 <div class="cell medium-3">
-                    <i class="fas fa-search">
-                        <input id="myInput" type="text" placeholder="Zoeken" />
-                    </i>
+                        <input id="myInput" class="myInput" type="search" placeholder="Zoeken" />
                 </div>
                 <script>
                     function emptyForm() {
@@ -36,42 +34,47 @@
         </div>
     
         {% endif %}
-    
-    <table class="stack" id="table">
-        <thead>
-            <tr>
-               
-                <th>Voornaam</th>
-                <th>Achternaam</th>
-                <th>E-mail</th>
-                <th>Geboortedatum</th>
-                {% if is_granted('ROLE_ADMIN')%}
-                <th>Actie</th>
-                {% endif %}
-            </tr>
-        </thead>
-        <tbody id="myTable">
-        {% for member in member %}
-            <tr>
-           
-                <td id="td">{{ member.firstName }}</td> 
-                <td id="td">{{ member.lastName }}</td>
-                <td id="td">{{ member.email }}</td>
-                <td id="td">{{ member.dateOfBirth | date('j-m-Y', "Europe/Amsterdam" ) }}</td>
-                <td id="td">
+<div class="grid-x padding-grid-x">
+    <div class="cell medium-2"></div>
+        <div class="cell medium-8">
+            <table class="stack" id="table">
+                <thead>
+                    <tr>
+                    
+                        <th>Voornaam</th>
+                        <th>Achternaam</th>
+                        <th>E-mail</th>
+                        <th>Geboortedatum</th>
+                        {% if is_granted('ROLE_ADMIN')%}
+                        <th>Actie</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody id="myTable">
+                {% for member in member %}
+                    <tr>
+                
+                        <td id="td">{{ member.firstName }}</td> 
+                        <td id="td">{{ member.lastName }}</td>
+                        <td id="td">{{ member.email }}</td>
+                        <td id="td">{{ member.dateOfBirth | date('j-m-Y', "Europe/Amsterdam" ) }}</td>
+                        <td id="td">
 
-                {% if is_granted('ROLE_ADMIN') %}
-                   
-                    <a class="button primary" href="{{ path('member_delete', { 'id': member.id }) }}">Verwijderen</a>
-                    <a class="button primary" href="{{ path('member_edit', { 'id': member.id }) }}">Bewerken</a>
-                       
-                {% endif %}
-                </td>
-            </tr>
-        {% endfor %}
-    
-        </tbody>
-    </table>
+                        {% if is_granted('ROLE_ADMIN') %}
+                        
+                            <a class="button primary" href="{{ path('member_edit', { 'id': member.id }) }}">Bewerken</a>
+                            <a class="button primary" href="{{ path('member_delete', { 'id': member.id }) }}">Verwijderen</a>
+                            
+                        {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            
+                </tbody>
+            </table>
+        </div>
+    <div class="cell medium-2"></div>
+</div>
  <script>
         $(document).ready(function(){
             $("#myInput").on("keyup", function() {

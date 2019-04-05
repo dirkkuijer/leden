@@ -18,8 +18,12 @@ class MemberMemberTypeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fromDate', DateType::class)
-            ->add('tillDate', DateType::class)
+            ->add('fromDate', DateType::class, [
+                'widget' => 'single_text'
+            ])
+            ->add('tillDate', DateType::class, [
+                'widget' => 'single_text'
+            ])
             ->add('reason', TextareaType::class)
             ->add('memberType', EntityType::class, [
                 'class' => 'AppBundle:MemberType',

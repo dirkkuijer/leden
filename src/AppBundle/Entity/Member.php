@@ -23,7 +23,7 @@ class Member
      /**
      * @var int
      *
-     * @ORM\OneToMany(targetEntity="MemberMemberType", mappedBy="member", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="MemberMemberType", mappedBy="member", cascade={"persist","remove"})
      */
     private $type;
     
@@ -47,7 +47,9 @@ class Member
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
-     * @Assert\NotBlank
+     * * @Assert\Email(
+     *     message = "'{{ value }}' ongeldig e-mailadres",
+     *     checkMX = true)
      */
     private $email;
 
@@ -96,6 +98,7 @@ class Member
      *
      * @ORM\Column(name="telephone", type="integer", length=14)
      * @Assert\NotBlank
+     * 
      */
     private $telephone;
     

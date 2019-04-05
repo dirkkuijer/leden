@@ -23,11 +23,8 @@
     </head>
    
     <body>
-
-        <img src="{{ asset('images/header.jpg') }}" class="header" title="Baarns mannenkoor" />
-
-        <br />
-<div style="display:flex;flex-shrink:2">
+    <div class="container-user">
+        <div class="button-logout">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
                 <a class="button tiny" href="{{ path('fos_user_security_logout') }}">
@@ -35,22 +32,25 @@
                 </a>
             {% else %}
 
-                <a class="button primary" href="{{ path('fos_user_security_login') }}"
+                <a class="button" href="{{ path('fos_user_security_login') }}"
                 style="margin-left:1rem">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
             {% endif %}
      
  
-        {% if app.request.hasPreviousSession %}
-            {% for type, messages in app.session.flashbag.all() %}
-                {% for message in messages %}
-                    <div class="flash-{{ type }}">
-                        {{ message }}
-                    </div>
+            {% if app.request.hasPreviousSession %}
+                {% for type, messages in app.session.flashbag.all() %}
+                    {% for message in messages %}
+                        <div class="flash-{{ type }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
                 {% endfor %}
-            {% endfor %}
-        {% endif %}
-</div>
+            {% endif %}
+        </div>
+    </div>
 
+    <img src="{{ asset('images/header.jpg') }}" class="header" title="Baarns mannenkoor" />
+        <br />  
     {# menu  #}
 
     {% if is_granted('ROLE_ADMIN') %}

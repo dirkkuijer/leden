@@ -28,7 +28,9 @@ class MemberType extends AbstractType
                 ->add('houseNumberAddition')
                 ->add('zipCode')->add('city')
                 ->add('telephone')
-                ->add('dateOfBirth', BirthDayType::Class)
+                ->add('dateOfBirth', BirthDayType::Class, [
+                    'widget' => 'single_text',
+                ])
                 ->add('type', CollectionType::Class, [
                     'entry_type'    => MemberMemberTypeType::Class, 
                     'allow_add'     => true,

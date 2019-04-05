@@ -1,7 +1,7 @@
 
 
 
-* {
+*, #myInput {
     font-family: 'Calibri', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;    
 }
 
@@ -12,45 +12,71 @@ select {
     padding: 0;
 }
 
+.button-logout {
+    display:flex;
+    flex-shrink: 2;
+    margin-top: 1%;
+}
+
+.container-user {
+    display: flex;
+    float:right;
+    margin-right: 2%;
+}
 
 /* dropdown menu for users */
-.dropdown {
-    letter-spacing: 3px;
-    margin: 0 10% 0 60%;
-    position: relative;
-    display: inline-block;
-    background-color: #2377AF;
-    color:white;
-    padding: 0.5rem 0.5rem;
-    margin-bottom: 1rem;
-    border-radius: 2px;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    color: white;
-    padding: 0.5rem 1.2rem 0.5rem 0.5rem;
-    background-color: #2377AF;
-    min-width: 100px;
-    letter-spacing: 3px;
-    z-index: 1;
-
+@media only screen and (max-width: 600px) {
+    .dropdown {
+        letter-spacing: 3px;
+        margin-left: 5%;
+        position: relative;
+        display: inline-block;
+        background-color: #2377AF;
+        color:white;
+        padding: 0.5rem 0.5rem;
+        margin-bottom: 1rem;
+        border-radius: 2px;
+    }
 }
-
-.dropdown-content li { 
-    list-style-type: none; 
-  
- }
-
-.dropdown-content li a { 
-    color: white; 
-    text-decoration-line: none;
+@media only screen and (min-width: 600px) {
+    .dropdown {
+        letter-spacing: 3px;
+        margin-left: 3%;
+        position: relative;
+        display: inline-block;
+        background-color: #2377AF;
+        color:white;
+        padding: 0.5rem 0.5rem;
+        margin-bottom: 1rem;
+        border-radius: 2px;
+    }
 }
-.dropdown-content li a:hover { text-decoration: underline} 
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        color: white;
+        padding: 0.5rem 1.2rem 0.5rem 0.5rem;
+        background-color: #2377AF;
+        min-width: 100px;
+        letter-spacing: 3px;
+        z-index: 1;
+        border-radius: 2px;
+
+        }
+
+    .dropdown-content li { 
+        list-style-type: none; 
+    
+    }
+
+    .dropdown-content li a { 
+        color: white; 
+        text-decoration-line: none;
+    }
+    .dropdown-content li a:hover { text-decoration: underline} 
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
 
 /* end of dropdown menu */
 
@@ -84,7 +110,10 @@ select {
  .fos input { margin: 0 2rem; }
 
  /* image header.jpg */
- .header { justify-content: center; }
+ .header { 
+     display:flex;
+     justify-content: center;
+     }
  
  select, input[type]:not(.button) { 
     border-radius: 5px; 
