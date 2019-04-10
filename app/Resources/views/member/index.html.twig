@@ -16,7 +16,7 @@
 
         <h3>Ledenlijst</h3>
 
-        {% if is_granted('ROLE_ADMIN') %}
+{% if is_granted('ROLE_ADMIN') %}
         <div class="grid-x grid-padding-x">
             <div class="cell medium-2">
                 <a href="{{ path('member_new') }}">Nieuw lid aanmaken</a>
@@ -24,19 +24,22 @@
             <div class="cell medium-7"></div>
                 <div class="cell medium-3">
                         <input id="myInput" class="myInput" type="search" placeholder="Zoeken" />
-                </div>
+                 </div>
+           
                 <script>
                     function emptyForm() {
                     document.getElementById("zoeken").reset();
                     }
+
                 </script>
             </div>
         </div>
     
-        {% endif %}
+{% endif %}
+
 <div class="grid-x padding-grid-x">
-    <div class="cell medium-2"></div>
-        <div class="cell medium-8">
+    <div class="cell medium-1"></div>
+        <div class="cell medium-10">
             <table class="stack" id="table">
                 <thead>
                     <tr>
@@ -51,29 +54,30 @@
                     </tr>
                 </thead>
                 <tbody id="myTable">
-                {% for member in member %}
+            {% for member in member %}
                     <tr>
-                
+                 
                         <td id="td">{{ member.firstName }}</td> 
-                        <td id="td">{{ member.lastName }}</td>
+                        <td id="td" class="lastName">{{ member.lastName }}</td>
                         <td id="td">{{ member.email }}</td>
                         <td id="td">{{ member.dateOfBirth | date('j-m-Y', "Europe/Amsterdam" ) }}</td>
                         <td id="td">
-
-                        {% if is_granted('ROLE_ADMIN') %}
+                                    
+                {% if is_granted('ROLE_ADMIN') %}
                         
                             <a class="button primary" href="{{ path('member_edit', { 'id': member.id }) }}">Bewerken</a>
                             <a class="button primary" href="{{ path('member_delete', { 'id': member.id }) }}">Verwijderen</a>
+
                             
-                        {% endif %}
                         </td>
                     </tr>
-                {% endfor %}
+                {% endif %}
+            {% endfor %}
             
                 </tbody>
             </table>
         </div>
-    <div class="cell medium-2"></div>
+    <div class="cell medium-1"></div>
 </div>
  <script>
         $(document).ready(function(){
@@ -83,7 +87,7 @@
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
-            });
+        });
     </script>
  
 {% endblock %}

@@ -39,7 +39,6 @@ class MemberMemberType
      * @var text
      * 
      * @ORM\Column(name="reason", type="text", length=255, nullable=true)
-     * @
      */
     private $reason;
 
@@ -51,7 +50,6 @@ class MemberMemberType
     private $member;
 
     /**
-     * TypeMember was eerste Member.
      * @ORM\ManyToOne(targetEntity="MemberType", inversedBy="member")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -165,7 +163,8 @@ class MemberMemberType
     {
         return $this->member;
     }
-
+// kan de foutmelding na het indienen van die formulier hier van daan komen? r 175.
+// ongeldig argument.....
     /**
      * Set memberType
      *
@@ -173,7 +172,7 @@ class MemberMemberType
      *
      * @return MemberMemberType
      */
-    public function setMemberType(\AppBundle\Entity\Member $memberType)
+    public function setMemberType(\AppBundle\Entity\MemberType $memberType)
     {
         $this->memberType = $memberType;
 

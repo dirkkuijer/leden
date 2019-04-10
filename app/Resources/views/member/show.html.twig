@@ -11,7 +11,12 @@
         
 
     <h3>Ledenlijst</h3>
- <a href="{{ path('member_index') }}">Terug naar lijst</a>
+        <div class="grid-x grid-padding-x">
+                    <div class="cell medium-2">
+                        <a href="{{ path('member_index') }}">Terug naar lijst</a>
+                    </div>
+                    <div class="cell medium-10"></div>
+        </div>
  <p>
  {% if is_granted('ROLE_ADMIN') %}
 

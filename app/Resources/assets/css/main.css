@@ -22,6 +22,7 @@ select {
     display: flex;
     float:right;
     margin-right: 2%;
+    margin-top: 1%;
 }
 
 /* dropdown menu for users */
@@ -136,6 +137,11 @@ nav {
 
 nav td { padding: 0; } 
 
+#noResults {
+    text-align: center;
+    color: red;
+    font-size: 16pt;
+}
 p { text-align: center;}
 
 table th tr td {

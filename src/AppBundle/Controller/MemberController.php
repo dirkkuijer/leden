@@ -55,6 +55,9 @@ class MemberController extends Controller
 
             return $this->redirectToRoute('member_show', array('id' => $member->getId()));
         }
+        // else if ($form->isSubmitted()) {
+        //     dump($form->getErrors(true, false)); die();
+        // }
 
         return $this->render('member/new.html.twig', array(
             'member' => $member,

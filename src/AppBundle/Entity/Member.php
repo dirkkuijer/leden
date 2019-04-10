@@ -43,13 +43,14 @@ class Member
      */
     private $lastName;
 
+    // * @Assert\Email(
+    //     *     message = "'{{ value }}' ongeldig e-mailadres",
+    //     *     checkMX = true)
+        
     /**
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
-     * * @Assert\Email(
-     *     message = "'{{ value }}' ongeldig e-mailadres",
-     *     checkMX = true)
      */
     private $email;
 

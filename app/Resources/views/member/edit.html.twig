@@ -120,7 +120,7 @@
     </div>
     
   
-     <div class="grid-x grid-padding-x">
+    <div class="grid-x grid-padding-x">
         <div class="cell medium-4"></div>
             <div class="cell medium-2">
                 {{ form_label(edit_form.dateOfBirth) }}
@@ -128,8 +128,8 @@
                 <div class="cell medium-3">
                     {{ form_widget(edit_form.dateOfBirth) }}
                 </div>
-                <div class="cell medium-3"></div>
-            </div>
+        <div class="cell medium-3"></div>
+    </div>
 
      {# Second form for dates and reason membership #}
 <p>
@@ -158,23 +158,35 @@
                     <div class="cell medium-8"></div>
                 </div>
 {# first field: fromDate #}
-              <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-            <div class="cell medium-2">
-                {{ form_label(form.fromDate) }}
-            </div>
-                <div class="cell medium-3">
-                    {{ form_widget(form.fromDate) }}
-                </div>
-                <div class="cell medium-3"></div>
-            </div>
+                <div class="grid-x grid-padding-x">
+                    <div class="cell medium-4"></div>
+                    <div class="cell medium-2">
+                        {{ form_label(form.fromDate) }}
+                        {{ form_errors(form.fromDate) }}
+                    </div>
+                        <div class="cell medium-3">
+                            {{ form_widget(form.fromDate) }}
+                        </div>
+                        <div class="cell medium-3"></div>
+                    </div>
 {# second field: tillDate #}
-                    
+                 <div class="grid-x grid-padding-x">
+                    <div class="cell medium-4"></div>
+                    <div class="cell medium-2">
+                        {{ form_label(form.tillDate) }}
+                        {{ form_errors(form.tillDate) }}
+                    </div>
+                        <div class="cell medium-3">
+                            {{ form_widget(form.tillDate) }}
+                        </div>
+                        <div class="cell medium-3"></div>
+                    </div>
 {# third field: reason #}
                 <div class="grid-x grid-padding-x">
                         <div class="cell medium-4"></div>
                             <div class="cell medium-2">
                                 {{ form_label(form.reason) }}
+                                {{ form_errors(form.reason) }}
                             </div>
                             <div class="cell medium-3">
                                 {{ form_widget(form.reason) }}
@@ -195,14 +207,25 @@
                     <div class="cell medium-4"></div>
                         <div class="cell medium-2">
                             {{ form_label(form.memberType) }}
+                            {{ form_errors(form.memberType) }}
                         </div>
                         <div class="cell medium-3">
                             {{ form_widget(form.memberType) }}
                         </div>
                     <div class="cell medium-3"></div>
                 </div>
-    
-        {% endmacro %}
+
+            {# gekopieerd uit new.html.twig #}
+        <div class="grid-x grid-padding-x">
+            <div class="cell medium-8"></div>
+                <div class="cell medium-2">
+                    <a href="javascript:void(0);" class="button tiny collection-remove"
+                    data-collection-item-class="collection-item">- Eigenschappen</a>
+                </div>
+            <div class="cell medium-2"></div>
+        </div>
+
+{% endmacro %}
 
       
                     <div id="memberTypes" data-prototype="
@@ -212,12 +235,16 @@
                         {% endfor %}
                     </div>
                     
-                        <a href="#" class="button primary" id="collection-add" 
-                         data-collection="memberTypes">
+            <div class="grid-x grid-padding-x">
+                <div class="cell medium-8"></div>    
+                <div class="cell medium-2">    
+                    <a href="#" class="button tiny" id="collection-add" data-collection="memberTypes" data-index="{{ edit_form.type|length }}">
                         + Eigenschappen</a>
-                    
-                    <div class="cell medium-2"></div>
-                </div>  
+                </div>
+                <div class="cell medium-2">  
+                </div>
+            </div>
+
         </div>
     </div>       
 </div>
@@ -232,7 +259,7 @@
         jQuery(document).ready(function() {
             $(document).on('click', '#collection-add', function () {
 
-                console.log('Item toegevoegd!!!');
+                console.log('Item toegevoegd.');
 
                 var $collectionContainer = $('#' + $(this).data('collection'));
                // hier gebruike we de tweede regel niet.
@@ -282,22 +309,23 @@
                 return false;
             });
         });
-
+ 
     </script>
 
+
     <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
+        <div class="cell medium-6"></div>
             <div class="cell medium-2">  
                 <input class="button" type="submit" value="Opslaan"/>
                 {{ form_end(edit_form) }}
             </div> 
-        <div class="cell medium-2"> {{ form_start(delete_form) }}
+        <div class="cell medium-1"> {{ form_start(delete_form) }}
                 <input class="button" type="submit" value="Verwijderen" />
             {{ form_end(delete_form) }}</div>   
-    <div class="cell medium-4"></div>
+    <div class="cell medium-3"></div>
            
     {% else %}
-<p> U bent niet bevoegd om deze inhoud te zien of te bewerken. <p>
+<p> U bent niet bevoegd om deze inhoud te zien of te bewerken. </p>
 
 {% endif %}
 <p>
