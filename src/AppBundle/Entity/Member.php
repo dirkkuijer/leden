@@ -43,6 +43,7 @@ class Member
      */
     private $lastName;
 
+    // Dit gaf problemen met het opslaan van het formulier
     // * @Assert\Email(
     //     *     message = "'{{ value }}' ongeldig e-mailadres",
     //     *     checkMX = true)

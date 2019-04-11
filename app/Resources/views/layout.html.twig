@@ -9,14 +9,17 @@
                 "%kernel.root_dir%/Resources/assets/css/all.css"
             %}
             <link rel="stylesheet" href="{{ asset_url }}" />
-            {% endstylesheets %}  
+            {% endstylesheets %}
         {% endblock %}
 
-        {% block Javascript %}
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
-            {# <script src="{{ asset('js/vendor/jquery.js') }} "></script>  #}
-        {% endblock %}
-        
+   
+    
+         {% javascripts "%kernel.root_dir%/Resources/assets/js/vendor/jquery.js"
+                        "%kernel.root_dir%/Resources/assets/js/functions.js"
+                        "%kernel.root_dir%/Resources/assets/js/AddForm.js" %}
+            <script src=" {{ asset_url }} "></script>
+        {% endjavascripts %}
+
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
@@ -67,6 +70,7 @@
         </div>
     {% endif %}
 
+            
 
             {% block body %}
                 <p>
@@ -82,6 +86,6 @@
             {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                 {% include "start_text.html.twig" %}
             {% endif %}
-
+  
       </body>
 </html>

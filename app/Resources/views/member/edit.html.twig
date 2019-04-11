@@ -145,7 +145,6 @@
                 {% set name = widget.vars.full_name %}
             {% endif %} 
 
-
 <div data-content="{{ name }}"  class="panel panel-default">
     <div class="panel-body">
         <div class="collection-item">
@@ -162,7 +161,6 @@
                     <div class="cell medium-4"></div>
                     <div class="cell medium-2">
                         {{ form_label(form.fromDate) }}
-                        {{ form_errors(form.fromDate) }}
                     </div>
                         <div class="cell medium-3">
                             {{ form_widget(form.fromDate) }}
@@ -174,26 +172,25 @@
                     <div class="cell medium-4"></div>
                     <div class="cell medium-2">
                         {{ form_label(form.tillDate) }}
-                        {{ form_errors(form.tillDate) }}
                     </div>
                         <div class="cell medium-3">
                             {{ form_widget(form.tillDate) }}
                         </div>
                         <div class="cell medium-3"></div>
-                    </div>
+                </div>
+
 {# third field: reason #}
                 <div class="grid-x grid-padding-x">
-                        <div class="cell medium-4"></div>
-                            <div class="cell medium-2">
-                                {{ form_label(form.reason) }}
-                                {{ form_errors(form.reason) }}
-                            </div>
-                            <div class="cell medium-3">
-                                {{ form_widget(form.reason) }}
-                            </div>
-                        <div class="cell medium-3"></div>
+                    <div class="cell medium-4"></div>
+                        <div class="cell medium-2">
+                            {{ form_label(form.reason) }}
+                        </div>
+                        <div class="cell medium-3">
+                            {{ form_widget(form.reason) }}
+                        </div>
+                    <div class="cell medium-3"></div>
                 </div>
-            </div>
+          
 {#  title third form#}
             <div class="grid-x grid-padding-x">
                 <div class="cell medium-4"></div>
@@ -202,12 +199,12 @@
                 </div>
                 <div class="cell medium-8"></div>
             </div>
+
 {# fourth field: memberType #}
                 <div class="grid-x grid-padding-x">
                     <div class="cell medium-4"></div>
                         <div class="cell medium-2">
                             {{ form_label(form.memberType) }}
-                            {{ form_errors(form.memberType) }}
                         </div>
                         <div class="cell medium-3">
                             {{ form_widget(form.memberType) }}
@@ -215,7 +212,6 @@
                     <div class="cell medium-3"></div>
                 </div>
 
-            {# gekopieerd uit new.html.twig #}
         <div class="grid-x grid-padding-x">
             <div class="cell medium-8"></div>
                 <div class="cell medium-2">
@@ -224,17 +220,16 @@
                 </div>
             <div class="cell medium-2"></div>
         </div>
-
 {% endmacro %}
 
       
-                    <div id="memberTypes" data-prototype="
-                        {{ forms.memberTypeRow(edit_form.type.vars.prototype)|e('html_attr') }}">
-                        {% for type in edit_form.type %}
-                            {{ form_row(edit_form.type) }}
-                        {% endfor %}
-                    </div>
-                    
+            <div id="memberTypes" data-prototype="
+                {{ forms.memberTypeRow(edit_form.type.vars.prototype)|e('html_attr') }}">
+                {% for type in edit_form.type %}
+                    {{ form_row(edit_form.type) }}
+                {% endfor %}
+            </div>
+            
             <div class="grid-x grid-padding-x">
                 <div class="cell medium-8"></div>    
                 <div class="cell medium-2">    
@@ -249,68 +244,6 @@
     </div>       
 </div>
 {# end second form #}
-
-    {# submit button all forms #}
-
-    {{ form_end(edit_form) }}
-
-    <script>
- 
-        jQuery(document).ready(function() {
-            $(document).on('click', '#collection-add', function () {
-
-                console.log('Item toegevoegd.');
-
-                var $collectionContainer = $('#' + $(this).data('collection'));
-               // hier gebruike we de tweede regel niet.
-                var insertOrder = $(this).data('insert-order') || 'last';
-                var prototype = $collectionContainer.attr('data-prototype');
-                var prototypeName = $collectionContainer.attr('data-prototype-name') || '__name__';
-
-
-                var lastCollectionItem = $collectionContainer.children().last();
-                var lastCollectionItemInputName = $('input', lastCollectionItem).first().attr('name');
-
-                var newIndex = 0;
-
-                if (!$collectionContainer.attr('data-index')) {
-                    if ($collectionContainer.children().length > 0) {
-                        var prototypeInputName = $('input', $(prototype)).first().attr('name');
-                        var splittedStr = prototypeInputName.split(prototypeName);
-                        var leftSideStr = splittedStr[0];
-                        var rightSideStr = splittedStr[1];
-
-                        newIndex = parseInt(lastCollectionItemInputName.replace(leftSideStr, '').replace(rightSideStr, '')) + 1;
-                    }
-                } else {
-                    /* NEWERER method to determine next input index */
-                    $collectionContainer.attr('data-index', function(idx, val) {
-                        newIndex = parseInt(val) + 1
-                        return newIndex
-                    });
-                }
-
-                var prototypeRegExp = new RegExp(prototypeName, "g");
-                var item = prototype.replace(prototypeRegExp, newIndex);
-
-                if (insertOrder == 'last' || (typeof insertOrder === typeof undefined && insertOrder === false)) {
-                    $collectionContainer.append(item);
-                } else {
-                    $collectionContainer.prepend(item);
-                }
-
-                return false;
-            });
-
-            $(document).on('click', '.collection-remove', function () {
-                var $collectionItem = $(this).closest('.' + $(this).data('collection-item-class'));
-                $collectionItem.remove();
-
-                return false;
-            });
-        });
- 
-    </script>
 
 
     <div class="grid-x grid-padding-x">
@@ -328,5 +261,9 @@
 <p> U bent niet bevoegd om deze inhoud te zien of te bewerken. </p>
 
 {% endif %}
-<p>
+
+
+{# Dit stond boven de 2 knoppen (250 - 260) #}
+    {# {{ form_end(edit_form) }} #}
+
 {% endblock %}

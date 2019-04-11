@@ -18,14 +18,17 @@ class MemberMemberTypeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fromDate', DateType::class, [
-                //'widget' => 'single_text'
+            ->add('fromDate', DateType::Class, [
+                'widget' => 'single_text'
             ])
-            ->add('tillDate', DateType::class, [
-                //'widget' => 'single_text'
+            ->add('tillDate', DateType::Class, [
+                'widget' => 'single_text',
+                'required' => false
             ])
-            ->add('reason', TextareaType::class)
-            ->add('memberType', EntityType::class, [
+            ->add('reason', TextareaType::Class, [
+                'required' => false
+            ])
+            ->add('memberType', EntityType::Class, [
                 'class' => 'AppBundle:MemberType',
 
                 // uses the User.username property as the visible option string
@@ -45,7 +48,7 @@ class MemberMemberTypeType extends AbstractType
     }
 
     /**
-     * Dit block is voor de benaming in twig. Alles klein
+     * This block is for naming in twig.
      * {@inheritdoc}
      */
     public function getBlockPrefix()

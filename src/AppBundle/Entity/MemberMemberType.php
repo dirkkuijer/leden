@@ -20,11 +20,11 @@ class MemberMemberType
      */
     private $id;
 
+    //     * @Assert\NotBlank
     /**
      * @var date
      *
      * @ORM\Column(name="from_date", type="date", length=255)
-     * @Assert\NotBlank
      */
     private $fromDate;
 

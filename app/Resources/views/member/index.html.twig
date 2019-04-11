@@ -9,13 +9,14 @@
     {% endblock %}
 
 {% block Javascript %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   
 {% endblock %}
 
 {% block body %}
 
         <h3>Ledenlijst</h3>
 
+            
 {% if is_granted('ROLE_ADMIN') %}
         <div class="grid-x grid-padding-x">
             <div class="cell medium-2">
@@ -23,23 +24,18 @@
             </div>
             <div class="cell medium-7"></div>
                 <div class="cell medium-3">
-                        <input id="myInput" class="myInput" type="search" placeholder="Zoeken" />
-                 </div>
-           
-                <script>
-                    function emptyForm() {
-                    document.getElementById("zoeken").reset();
-                    }
-
-                </script>
-            </div>
+                    <input id="myInput" class="myInput" type="search" placeholder="Zoeken" />
+                </div>
         </div>
     
 {% endif %}
 
+                        
+
 <div class="grid-x padding-grid-x">
     <div class="cell medium-1"></div>
         <div class="cell medium-10">
+
             <table class="stack" id="table">
                 <thead>
                     <tr>
@@ -48,9 +44,9 @@
                         <th>Achternaam</th>
                         <th>E-mail</th>
                         <th>Geboortedatum</th>
-                        {% if is_granted('ROLE_ADMIN')%}
+                    {% if is_granted('ROLE_ADMIN')%}
                         <th>Actie</th>
-                        {% endif %}
+                    {% endif %}
                     </tr>
                 </thead>
                 <tbody id="myTable">
@@ -61,14 +57,12 @@
                         <td id="td" class="lastName">{{ member.lastName }}</td>
                         <td id="td">{{ member.email }}</td>
                         <td id="td">{{ member.dateOfBirth | date('j-m-Y', "Europe/Amsterdam" ) }}</td>
-                        <td id="td">
                                     
                 {% if is_granted('ROLE_ADMIN') %}
                         
+                        <td id="td">
                             <a class="button primary" href="{{ path('member_edit', { 'id': member.id }) }}">Bewerken</a>
                             <a class="button primary" href="{{ path('member_delete', { 'id': member.id }) }}">Verwijderen</a>
-
-                            
                         </td>
                     </tr>
                 {% endif %}
@@ -79,15 +73,16 @@
         </div>
     <div class="cell medium-1"></div>
 </div>
+
  <script>
-        $(document).ready(function(){
+        {# $(document).ready(function(){
             $("#myInput").on("keyup", function() {
                 var value = $(this).val().toLowerCase();
                 $("#myTable tr").filter(function() {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
-        });
+        }); #}
     </script>
  
 {% endblock %}

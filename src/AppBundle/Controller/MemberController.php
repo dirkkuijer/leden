@@ -52,9 +52,12 @@ class MemberController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($member);
             $em->flush();
+            
+            $this->showFlash();
 
             return $this->redirectToRoute('member_show', array('id' => $member->getId()));
         }
+        // added by Sander
         // else if ($form->isSubmitted()) {
         //     dump($form->getErrors(true, false)); die();
         // }
@@ -95,6 +98,9 @@ class MemberController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            
+            // added by Dirk
+            $this->showFlash();
 
             return $this->redirectToRoute('member_edit', array('id' => $member->getId()));
         }
@@ -121,8 +127,12 @@ class MemberController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->remove($member);
             $em->flush();
+            
+            
         }
-
+        // added by Dirk
+        $this->showFlash();
+        
         return $this->redirectToRoute('member_index');
     }
 
@@ -140,5 +150,10 @@ class MemberController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    // added by Dirk to show flash messages after submitting form
+    public function showFlash() {
+        return $this->addFlash('success', 'Actie succesvol uitgevoerd.');
     }
 }
