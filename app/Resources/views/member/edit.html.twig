@@ -212,14 +212,14 @@
                     <div class="cell medium-3"></div>
                 </div>
 
-        <div class="grid-x grid-padding-x">
-            <div class="cell medium-8"></div>
-                <div class="cell medium-2">
-                    <a href="javascript:void(0);" class="button tiny collection-remove"
-                    data-collection-item-class="collection-item">- Eigenschappen</a>
-                </div>
-            <div class="cell medium-2"></div>
-        </div>
+            <div class="grid-x grid-padding-x">
+                <div class="cell medium-8"></div>
+                    <div class="cell medium-2">
+                        <a href="javascript:void(0);" class="button tiny collection-remove"
+                        data-collection-item-class="collection-item">- Eigenschappen</a>
+                    </div>
+                <div class="cell medium-2"></div>
+            </div>
 {% endmacro %}
 
       
@@ -250,7 +250,7 @@
         <div class="cell medium-6"></div>
             <div class="cell medium-2">  
                 <input class="button" type="submit" value="Opslaan"/>
-                {{ form_end(edit_form) }}
+                {# {{ form_end(edit_form) }} #}
             </div> 
         <div class="cell medium-1"> {{ form_start(delete_form) }}
                 <input class="button" type="submit" value="Verwijderen" />
@@ -263,7 +263,7 @@
 {% endif %}
 
 
-{# Dit stond boven de 2 knoppen (250 - 260) #}
-    {# {{ form_end(edit_form) }} #}
+{# Einde formulier stond op regel 253 uncommented en deze  #}
+    {{ form_end(edit_form) }}
 
 {% endblock %}

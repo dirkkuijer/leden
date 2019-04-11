@@ -29,6 +29,9 @@ framework:
     http_method_override: true
     assets: ~
     templating:
+        form:
+            resources:
+                - 'members'
         engines:
             twig
     php_errors:
@@ -38,6 +41,8 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    form_themes:
+        - 'member/content.html.twig'
 
 # Doctrine Configuration
 doctrine:
