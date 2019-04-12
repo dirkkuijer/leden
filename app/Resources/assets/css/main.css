@@ -125,6 +125,7 @@ select {
 
  /* image header.jpg */
  .header { 
+     padding-left: 5%;
      display:flex;
      justify-content: center;
      }
@@ -138,6 +139,10 @@ h3 {
     background-color:  #2377AF;
     color: white !important;
     text-align: center;
+}
+
+h5 {
+    padding: 2rem 0;
 }
 
 nav {

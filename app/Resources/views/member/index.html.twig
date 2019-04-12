@@ -3,13 +3,11 @@
 
 {% extends 'layout.html.twig' %}
     {% block stylesheet %}
-        <link rel="stylesheet" type="text/css" href="{{ asset("css/main.css") }}">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" 
-        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+       {{ parent() }}
     {% endblock %}
 
 {% block Javascript %}
-   
+   {{ parent() }}
 {% endblock %}
 
 {% block body %}
@@ -52,12 +50,12 @@
                 <tbody id="myTable">
             {% for member in member %}
                     <tr>
-                 
+             
                         <td id="td">{{ member.firstName }}</td> 
                         <td id="td" class="lastName">{{ member.lastName }}</td>
                         <td id="td">{{ member.email }}</td>
                         <td id="td">{{ member.dateOfBirth | date('j-m-Y', "Europe/Amsterdam" ) }}</td>
-                                    
+                   
                 {% if is_granted('ROLE_ADMIN') %}
                         
                         <td id="td">
@@ -67,7 +65,7 @@
                     </tr>
                 {% endif %}
             {% endfor %}
-            
+
                 </tbody>
             </table>
         </div>

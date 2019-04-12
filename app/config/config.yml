@@ -31,7 +31,7 @@ framework:
     templating:
         form:
             resources:
-                - 'members'
+                - 'views/form'
         engines:
             twig
     php_errors:
@@ -42,7 +42,7 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     form_themes:
-        - 'member/content.html.twig'
+        - 'form/content.html.twig'
 
 # Doctrine Configuration
 doctrine:

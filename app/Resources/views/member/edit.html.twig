@@ -1,7 +1,16 @@
+{% form_theme edit_form 'form/content.html.twig' %}  
 {% extends 'layout.html.twig' %}
-    {% block stylesheet %}
-        <link rel="stylesheet" type="text/css" href="{{ asset("css/main.css") }}">
+     
+  {% block stylesheet %}
+            {% stylesheets filter='cssrewrite' output="css/main.css"
+                "%kernel.root_dir%/Resources/assets/css/foundation.css"
+                "%kernel.root_dir%/Resources/assets/css/main.css"
+                "%kernel.root_dir%/Resources/assets/css/all.css"
+            %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}  
     {% endblock %}
+
 
 {% block body %}
     <h3>Lid bewerken</h3>
@@ -14,122 +23,19 @@
     </div>
 <p>
 
-
 {% if is_granted('ROLE_ADMIN') %}
     {{ form_start(edit_form) }}
+    {{ form_row(edit_form.firstName) }}
+    {{ form_row(edit_form.lastName) }}
+    {{ form_row(edit_form.email) }}
+    {{ form_row(edit_form.street) }}
+    {{ form_row(edit_form.houseNumber) }}
+    {{ form_row(edit_form.houseNumberAddition) }}
+    {{ form_row(edit_form.zipCode) }}
+    {{ form_row(edit_form.city) }}
+    {{ form_row(edit_form.telephone) }}
+    {{ form_row(edit_form.dateOfBirth) }}
 
-            
-          <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-            <div class="cell medium-2">
-                {{ form_label(edit_form.firstName) }}
-            </div>
-            <div class="cell medium-3">
-                {{ form_widget(edit_form.firstName) }}
-            </div>
-        <div class="cell medium-3"></div>
-    </div>
-    
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-            <div class="cell medium-2">
-                {{ form_label(edit_form.lastName) }}
-            </div>
-            <div class="cell medium-3">
-                {{ form_widget(edit_form.lastName) }}
-            </div>
-        <div class="cell medium-3"></div>
-    </div>
-    
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-            <div class="cell medium-2">
-                {{ form_label(edit_form.email) }}
-            </div>
-            <div class="cell medium-3">
-                {{ form_widget(edit_form.email) }}
-                {{ form_errors(edit_form.email) }}
-            </div>
-        <div class="cell medium-3"></div>
-    </div>
-    
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-            <div class="cell medium-2">
-                {{ form_label(edit_form.street) }}
-            </div>
-            <div class="cell medium-3">
-                {{ form_widget(edit_form.street) }}
-            </div>
-        <div class="cell medium-3"></div>
-    </div>
-    
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-            <div class="cell medium-2">
-                {{ form_label(edit_form.houseNumber) }}
-            </div>
-            <div class="cell medium-3">
-                {{ form_widget(edit_form.houseNumber) }}
-            </div>
-        <div class="cell medium-3"></div>
-    </div>
-    
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-            <div class="cell medium-2">
-                {{ form_label(edit_form.houseNumberAddition) }}
-            </div>
-            <div class="cell medium-3">
-                {{ form_widget(edit_form.houseNumberAddition) }}
-            </div>
-        <div class="cell medium-3"></div>
-    </div>
-    
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-            <div class="cell medium-2">
-                {{ form_label(edit_form.zipCode) }}
-            </div>
-            <div class="cell medium-3">
-                {{ form_widget(edit_form.zipCode) }}
-            </div>
-        <div class="cell medium-3"></div>
-    </div>
-    
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-            <div class="cell medium-2">
-                {{ form_label(edit_form.city) }}
-            </div>
-            <div class="cell medium-3">
-                {{ form_widget(edit_form.city) }}
-            </div>
-        <div class="cell medium-3"></div>
-    </div>
-    
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-            <div class="cell medium-2">
-                {{ form_label(edit_form.telephone) }}
-            </div>
-            <div class="cell medium-3">
-                {{ form_widget(edit_form.telephone) }}
-            </div>
-        <div class="cell medium-3"></div>
-    </div>
-    
-  
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-            <div class="cell medium-2">
-                {{ form_label(edit_form.dateOfBirth) }}
-            </div>
-                <div class="cell medium-3">
-                    {{ form_widget(edit_form.dateOfBirth) }}
-                </div>
-        <div class="cell medium-3"></div>
-    </div>
 
      {# Second form for dates and reason membership #}
 <p>
@@ -145,84 +51,34 @@
                 {% set name = widget.vars.full_name %}
             {% endif %} 
 
-<div data-content="{{ name }}"  class="panel panel-default">
-    <div class="panel-body">
-        <div class="collection-item">
+{# theme template form/content.html.twig #}
 
-                <div class="grid-x grid-padding-x">
-                    <div class="cell medium-4"></div>
-                        <div class="cell medium-4">
-                            <h5>Datums:</h5>
-                        </div>
-                    <div class="cell medium-8"></div>
-                </div>
-{# first field: fromDate #}
-                <div class="grid-x grid-padding-x">
-                    <div class="cell medium-4"></div>
-                    <div class="cell medium-2">
-                        {{ form_label(form.fromDate) }}
-                    </div>
-                        <div class="cell medium-3">
-                            {{ form_widget(form.fromDate) }}
-                        </div>
-                        <div class="cell medium-3"></div>
-                    </div>
-{# second field: tillDate #}
-                 <div class="grid-x grid-padding-x">
-                    <div class="cell medium-4"></div>
-                    <div class="cell medium-2">
-                        {{ form_label(form.tillDate) }}
-                    </div>
-                        <div class="cell medium-3">
-                            {{ form_widget(form.tillDate) }}
-                        </div>
-                        <div class="cell medium-3"></div>
-                </div>
+    <div class="collection-item">
+  
+        <div class="grid-x grid-padding-x">
+            <div class="cell medium-4"></div>
+                    <h5>Aanvullende Eigenschappen:</h5>
+            <div class="cell medium-8"></div>
+        </div>
+            
+    
+        {{ form(form)}}
+        {{ form_widget(form) }}
 
-{# third field: reason #}
-                <div class="grid-x grid-padding-x">
-                    <div class="cell medium-4"></div>
-                        <div class="cell medium-2">
-                            {{ form_label(form.reason) }}
-                        </div>
-                        <div class="cell medium-3">
-                            {{ form_widget(form.reason) }}
-                        </div>
-                    <div class="cell medium-3"></div>
-                </div>
-          
-{#  title third form#}
-            <div class="grid-x grid-padding-x">
-                <div class="cell medium-4"></div>
+    {# hier is ook het veld "soort lid in verwerkt. Deze staat in een andere tabel" #}
+        <div class="grid-x grid-padding-x">
+            <div class="cell medium-8"></div>
                 <div class="cell medium-2">
-                    <h5>Soort lid:</h5>
+                    <a href="javascript:void(0);" class="button tiny collection-remove"
+                    data-collection-item-class="collection-item">- Eigenschappen</a>
                 </div>
-                <div class="cell medium-8"></div>
-            </div>
-
-{# fourth field: memberType #}
-                <div class="grid-x grid-padding-x">
-                    <div class="cell medium-4"></div>
-                        <div class="cell medium-2">
-                            {{ form_label(form.memberType) }}
-                        </div>
-                        <div class="cell medium-3">
-                            {{ form_widget(form.memberType) }}
-                        </div>
-                    <div class="cell medium-3"></div>
-                </div>
-
-            <div class="grid-x grid-padding-x">
-                <div class="cell medium-8"></div>
-                    <div class="cell medium-2">
-                        <a href="javascript:void(0);" class="button tiny collection-remove"
-                        data-collection-item-class="collection-item">- Eigenschappen</a>
-                    </div>
-                <div class="cell medium-2"></div>
-            </div>
+            <div class="cell medium-2"></div>
+        </div>
+    {# </div>       
+</div> #}
 {% endmacro %}
 
-      
+      {# Geprobeerd boven endmacro: werkt niet #}
             <div id="memberTypes" data-prototype="
                 {{ forms.memberTypeRow(edit_form.type.vars.prototype)|e('html_attr') }}">
                 {% for type in edit_form.type %}
@@ -240,9 +96,8 @@
                 </div>
             </div>
 
-        </div>
-    </div>       
-</div>
+    </div>
+
 {# end second form #}
 
 
@@ -250,7 +105,7 @@
         <div class="cell medium-6"></div>
             <div class="cell medium-2">  
                 <input class="button" type="submit" value="Opslaan"/>
-                {# {{ form_end(edit_form) }} #}
+                {{ form_end(edit_form) }}
             </div> 
         <div class="cell medium-1"> {{ form_start(delete_form) }}
                 <input class="button" type="submit" value="Verwijderen" />
@@ -261,9 +116,7 @@
 <p> U bent niet bevoegd om deze inhoud te zien of te bewerken. </p>
 
 {% endif %}
-
-
-{# Einde formulier stond op regel 253 uncommented en deze  #}
     {{ form_end(edit_form) }}
+
 
 {% endblock %}

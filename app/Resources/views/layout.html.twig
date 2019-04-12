@@ -13,19 +13,18 @@
         {% endblock %}
 
    
-    
-         {% javascripts "%kernel.root_dir%/Resources/assets/js/vendor/jquery.js"
-                        "%kernel.root_dir%/Resources/assets/js/functions.js"
-                        "%kernel.root_dir%/Resources/assets/js/AddForm.js" %}
-            <script src=" {{ asset_url }} "></script>
-        {% endjavascripts %}
-
+        {% block Javascript %} 
+            {% javascripts "%kernel.root_dir%/Resources/assets/js/vendor/jquery.js"
+                            "%kernel.root_dir%/Resources/assets/js/functions.js"
+                            "%kernel.root_dir%/Resources/assets/js/AddForm.js" %}
+                <script src=" {{ asset_url }} "></script>
+            {% endjavascripts %}
+        {% endblock %}
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{#         
-        {% block theme %}
-            {% form_theme form 'content.html.twig' %}   
-        {% endblock %} #}
+        
+
+
     </head>
    
     <body>

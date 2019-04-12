@@ -1,6 +1,6 @@
-
+{% form_theme form 'form/content.html.twig' %}   
 {% extends 'layout.html.twig' %}
-                
+     
   {% block stylesheet %}
             {% stylesheets filter='cssrewrite' output="css/main.css"
                 "%kernel.root_dir%/Resources/assets/css/foundation.css"
@@ -10,7 +10,6 @@
             <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}  
     {% endblock %}
-
 
 {% block body %}
     <h3>Lid aanmaken</h3>
@@ -26,116 +25,18 @@
         {{ form_errors(form) }}
         {{ form_widget(form._token) }}
 
-{# first field: firstName #}
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-            <div class="cell medium-2">             
-                 {{ form_label(form.firstName) }}
-            </div>
-            <div class="cell medium-3">
-                {{ form_widget(form.firstName) }}
-            </div>
-            <div class="cell medium-3"></div>
-    </div>
-{# second field: lastName #}
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-            <div class="cell medium-2">
-                {{ form_label(form.lastName) }}
-            </div>
-            <div class="cell medium-3">
-                {{ form_widget(form.lastName) }}
-            </div>
-        <div class="cell medium-3"></div>
-    </div>
-{# third field: email #}
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-            <div class="cell medium-2">
-                {{ form_label(form.email) }}
-            </div>
-            <div class="cell medium-3">
-                {{ form_widget(form.email) }}
-            </div>
-        <div class="cell medium-3"></div>
-    </div>
-{# fourth field: street #}
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-            <div class="cell medium-2">
-                {{ form_label(form.street) }}
-            </div>
-            <div class="cell medium-3">
-                {{ form_widget(form.street) }}
-            </div>
-        <div class="cell medium-3"></div>
-    </div>
-{# fith field: houseNumber #}
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-            <div class="cell medium-2">
-                {{ form_label(form.houseNumber) }}
-            </div>
-            <div class="cell medium-3">
-                {{ form_widget(form.houseNumber) }}
-            </div>
-        <div class="cell medium-3"></div>
-    </div>
-{# sixth field: houseNumberAddition #}
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-            <div class="cell medium-2">
-                {{ form_label(form.houseNumberAddition) }}
-            </div>
-            <div class="cell medium-3">
-                {{ form_widget(form.houseNumberAddition) }}
-            </div>
-        <div class="cell medium-3"></div>
-    </div>
-{# seventh field: zipCode #}
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-            <div class="cell medium-2">
-                {{ form_label(form.zipCode) }}
-            </div>
-            <div class="cell medium-3">
-                {{ form_widget(form.zipCode) }}
-            </div>
-        <div class="cell medium-3"></div>
-    </div>
-{# eigth field: city #}
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-            <div class="cell medium-2">
-                {{ form_label(form.city) }}
-            </div>
-            <div class="cell medium-3">
-                {{ form_widget(form.city) }}
-            </div>
-        <div class="cell medium-3"></div>
-    </div>
-{# ninth field: telephone #}
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-            <div class="cell medium-2">
-                {{ form_label(form.telephone) }}
-            </div>
-            <div class="cell medium-3">
-                {{ form_widget(form.telephone) }}
-            </div>
-        <div class="cell medium-3"></div>
-    </div>
-{# tenth field: dateOfBirth #}
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-            <div class="cell medium-2">
-                {{ form_label(form.dateOfBirth) }}
-            </div>
-                <div class="cell medium-2">
-                    {{ form_widget(form.dateOfBirth) }}
-                </div>
-                <div class="cell medium-4"></div>
-            </div>
+
+    {{ form_row(form.firstName) }}
+    {{ form_row(form.lastName) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.street) }}
+    {{ form_row(form.houseNumber) }}
+    {{ form_row(form.houseNumberAddition) }}
+    {{ form_row(form.zipCode) }}
+    {{ form_row(form.city) }}
+    {{ form_row(form.telephone) }}
+    {{ form_row(form.dateOfBirth) }}
+
 
 {# Second form with the dates and reasons #}
         {% import _self as forms %}
@@ -149,75 +50,24 @@
                 {% set name = widget.vars.full_name %}
             {% endif %} 
 
-<div data-content="{{ name }}"  class="panel panel-default">
-    <div class="panel-body">
-        <div class="collection-item">
+
+    <div class="collection-item">
   
-        <div class="grid-x grid-padding-x">
+         <div class="grid-x grid-padding-x">
             <div class="cell medium-4"></div>
-                <div class="cell medium-2">
-                    <h5>Datums:</h5>
-                </div>
-            <div class="cell medium-6"></div>
+                    <h5>Aanvullende Eigenschappen:</h5>
+            <div class="cell medium-8"></div>
         </div>
             
-{# first field: fromDate #}
-        <div class="grid-x grid-padding-x">
-            <div class="cell medium-4"></div>
-                <div class="cell medium-2">   
-                    {{ form_label(form.fromDate) }}
-                </div>
-                <div class="cell medium-2">
-                    {{ form_widget(form.fromDate) }}
-                </div>
-                <div class="cell medium-4"></div>
-        </div>
 
-{# second field: tillDate #}
+        {{ form(form)}}
+        {{ form_widget(form.fromDate) }}
 
-        <div class="grid-x grid-padding-x">
-            <div class="cell medium-4"></div>
-                <div class="cell medium-2"> 
-                    {{ form_label(form.tillDate) }}
-                </div>
-                <div class="cell medium-2">
-                    {{ form_widget(form.tillDate) }}
-                </div>
-                <div class="cell medium-4"></div>     
-        </div>
-      
-{# third field: reason #}
-        <div class="grid-x grid-padding-x">
-            <div class="cell medium-4"></div>
-            <div class="cell medium-2"> 
-                {{ form_label(form.reason) }}
-            </div>
-            <div class="cell medium-3">
-                {{ form_widget(form.reason) }}
-            </div>
-            <div class="cell medium-3"></div>     
-        </div>
+        {{ form_widget(form.tillDate) }}
 
-{#  title third form #}
-        <div class="grid-x grid-padding-x">
-            <div class="cell medium-4"></div>
-                <div class="cell medium-2">
-                    <h5>Soort lid:</h5>
-                </div>
-            <div class="cell medium-6"></div>
-        </div>  
+        {{ form_widget(form.reason) }}
 
-{# fourth field: memberType #}
-        <div class="grid-x grid-padding-x">
-            <div class="cell medium-4"></div>
-            <div class="cell medium-2">    
-                {{ form_label(form.memberType) }}
-                </div>
-            <div class="cell medium-2">
-                {{ form_widget(form.memberType) }}
-            </div>     
-        </div>
-
+    {# hier is ook het veld "soort lid in verwerkt. Deze staat in een andere tabel" #}
         <div class="grid-x grid-padding-x">
             <div class="cell medium-8"></div>
                 <div class="cell medium-2">
@@ -248,9 +98,8 @@
                 <div class="cell medium-2"></div>
             </div>
 
-        </div>      
-    </div>       
-</div>
+    </div>      
+ 
 {# end second form #}
 
     {# submit button all forms #}

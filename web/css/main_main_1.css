@@ -1,5 +1,5 @@
-.flash-success {
-    background-color: rgba(134, 226, 213, 0.8);
+    .flash-success {
+    background-color: rgba(134, 226, 213, 0.5);
     border-radius: 5px;
     position: fixed;
     width: 15%;
@@ -125,6 +125,7 @@ select {
 
  /* image header.jpg */
  .header { 
+     padding-left: 5%;
      display:flex;
      justify-content: center;
      }
@@ -138,6 +139,10 @@ h3 {
     background-color:  #2377AF;
     color: white !important;
     text-align: center;
+}
+
+h5 {
+    padding: 2rem 0;
 }
 
 nav {
