@@ -105,11 +105,10 @@
                     </button>
                 </div> 
                 <div class="cell medium-1"> 
-                    {# {{ form_start(delete_form) }} #}
-                    <button class="button" type="submit" value="Verwijderen" title="Verwijderen" />
-                        {# {{ form_end(delete_form) }}  #}
-                        <i class="far fa-trash-alt"></i>
-                    </button> 
+                    {{ form_start(delete_form) }}
+                    <a class="button primary" href="{{ path('member_delete', { 'id': member.id }) }}" title="Verwijderen">
+                            <i class="far fa-trash-alt"></i>
+                        </a>
                 </div>   
                 <div class="cell medium-3"></div>
             </div>

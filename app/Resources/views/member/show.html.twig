@@ -36,12 +36,12 @@
                     <tr>
                         <td>
 
-                        {# assets/js/functions.js #}
-                        <div class="flash-success">
+                        {# # assets/js/functions.js #}
+                        {# <div class="flash-success">
                             {% for msg in app.session.flashBag.get('success') %}
                                 <div class="msg">{{ msg }}</div>
                             {% endfor %}        
-                        </div>
+                        </div> #}
                         </td>   
                     </tr>
                     <tr>
@@ -84,9 +84,49 @@
                         <th>Geboortedatum</th>
                         <td>{{ member.dateOfBirth | date('j-m-Y', "Europe/Amsterdam" ) }}</td>
                     </tr>
+                    {# <tr>
+                        <th>Soort stem</th>
+                        <td>{{ member.typeVoice }}</td>
+                    </tr> #}
+                    <tr>            
+                        <th colspan="2"><h4>Historie:</h4></th>
+                    </tr>           
+                    <tr>
+                        <td>
+                    {% for form in member.type %}
+                    <tr><th colspan="2">Periode</th>
+                    </tr>
+                    <tr>
+                        <td>Lid vanaf</td>
+                        <td>{{ form.fromDate | date('j-m-Y') }}</td>
+                    </tr>
+                    <tr>
+                        <td>Lid geweest tot</td>
+                        <td>{% if form.tillDate is not empty %}
+                                {{ form.tillDate | date('j-m-Y') }}
+                            {% else %}
+                            Geen resultaat.
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Reden</td>
+                        <td>{{ form.reason }}</td>
+                    </tr>
+                    <tr>
+                        <td>Soort lid</td>
+                        <td>{{ form.MemberType.typeFunction }}</td>
+                    </tr>
+     
+                    {% endfor %}    
+                        {% if member.type | length == 0 %}
+                        Geen historie bekend.
+                        {% endif %}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
-            {{ dump(member.type) }}
+ 
 
                     <div class="grid-x grid-padding-x">
                         <div class="cell small-8"></div>
