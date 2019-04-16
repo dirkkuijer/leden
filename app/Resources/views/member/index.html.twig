@@ -18,12 +18,14 @@
 {% if is_granted('ROLE_ADMIN') %}
         <div class="grid-x grid-padding-x">
             <div class="cell medium-2">
-                <a href="{{ path('member_new') }}">Nieuw lid aanmaken</a>
+                <a class="button" href="{{ path('member_new') }}"><i class="fas fa-user-plus"></i></a>
             </div>
             <div class="cell medium-7"></div>
-                <div class="cell medium-3">
+            <div class="cell medium-3">
+                <div class="wrapper_searchField">
                     <input id="myInput" class="myInput" type="search" placeholder="Zoeken" />
                 </div>
+            </div>
         </div>
     
 {% endif %}
@@ -32,43 +34,52 @@
 
 <div class="grid-x padding-grid-x">
     <div class="cell medium-1"></div>
-        <div class="cell medium-10">
+    <div class="cell medium-10">
 
-            <table class="stack" id="table">
-                <thead>
-                    <tr>
-                    
-                        <th>Voornaam</th>
-                        <th>Achternaam</th>
-                        <th>E-mail</th>
-                        <th>Geboortedatum</th>
-                    {% if is_granted('ROLE_ADMIN')%}
-                        <th>Actie</th>
-                    {% endif %}
-                    </tr>
-                </thead>
-                <tbody id="myTable">
-            {% for member in member %}
-                    <tr>
-             
-                        <td id="td">{{ member.firstName }}</td> 
-                        <td id="td" class="lastName">{{ member.lastName }}</td>
-                        <td id="td">{{ member.email }}</td>
-                        <td id="td">{{ member.dateOfBirth | date('j-m-Y', "Europe/Amsterdam" ) }}</td>
+        <table class="stack" id="table">
+            <thead>
+                <tr>
+                
+                    <th>Voornaam</th>
+                    <th>Achternaam</th>
+                    <th>E-mail</th>
+                    <th>Geboortedatum</th>
+                {% if is_granted('ROLE_ADMIN')%}
+                    <th>Actie</th>
+                {% endif %}
+                </tr>
+            </thead>
+            <tbody id="myTable">
+        {% for member in member %}
+                <tr>
+            {% if member is empty %}
+                Geen leden opgeslagen.
+            {% endif %}
+                    <td id="td">{{ member.firstName }}</td> 
+                    <td id="td" class="lastName">{{ member.lastName }}</td>
+                    <td id="td">{{ member.email }}</td>
+                    <td id="td">{{ member.dateOfBirth | date('j-m-Y', "Europe/Amsterdam" ) }}</td>
                    
                 {% if is_granted('ROLE_ADMIN') %}
-                        
-                        <td id="td">
-                            <a class="button primary" href="{{ path('member_edit', { 'id': member.id }) }}">Bewerken</a>
-                            <a class="button primary" href="{{ path('member_delete', { 'id': member.id }) }}">Verwijderen</a>
-                        </td>
-                    </tr>
+                    <p id="results"></p>
+                    <td id="td">
+                        <a class="button primary" href="{{ path('member_show', { 'id': member.id }) }}" title="Bekijken">
+                            <i class="far fa-eye"></i>
+                        </a>
+                        <a class="button primary" href="{{ path('member_edit', { 'id': member.id }) }}" title="Bewerken">
+                            <i class="far fa-edit"></i>
+                        </a>
+                        <a class="button primary" href="{{ path('member_delete', { 'id': member.id }) }}" title="Verwijderen">
+                            <i class="far fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
                 {% endif %}
-            {% endfor %}
+        {% endfor %}
 
-                </tbody>
-            </table>
-        </div>
+            </tbody>
+        </table>
+    </div>
     <div class="cell medium-1"></div>
 </div>
 

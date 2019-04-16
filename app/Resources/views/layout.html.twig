@@ -7,8 +7,12 @@
                 "%kernel.root_dir%/Resources/assets/css/foundation.css"
                 "%kernel.root_dir%/Resources/assets/css/main.css"
                 "%kernel.root_dir%/Resources/assets/css/all.css"
+                "%kernel.root_dir%/Resources/assets/css/fontawesome.css"
+                
             %}
             <link rel="stylesheet" href="{{ asset_url }}" />
+            {# <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" 
+            integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> #}
             {% endstylesheets %}
         {% endblock %}
 
@@ -16,24 +20,27 @@
         {% block Javascript %} 
             {% javascripts "%kernel.root_dir%/Resources/assets/js/vendor/jquery.js"
                             "%kernel.root_dir%/Resources/assets/js/functions.js"
-                            "%kernel.root_dir%/Resources/assets/js/AddForm.js" %}
+                            "%kernel.root_dir%/Resources/assets/js/AddForm.js" 
+                            "%kernel.root_dir%/Resources/assets/js/all.js" 
+            %}
                 <script src=" {{ asset_url }} "></script>
             {% endjavascripts %}
         {% endblock %}
+        
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
 
 
     </head>
-   
+
     <body>
     <div class="container-user">
         <div class="button-logout">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                <a class="button tiny" href="{{ path('fos_user_security_logout') }}">
-                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                <a class="button tiny" href="{{ path('fos_user_security_logout') }}" title="Uitloggen">
+                   <i class="fas fa-sign-out-alt"></i>
                 </a>
             {% else %}
 
@@ -45,7 +52,8 @@
             {% if app.request.hasPreviousSession %}
                 {% for type, messages in app.session.flashbag.all() %}
                     {% for message in messages %}
-                       <br /><div class="flash-{{ type }}">
+                       <br />
+                        <div class="flash-{{ type }}">
                             {{ message }}
                         </div>
                     {% endfor %}
@@ -59,7 +67,7 @@
     {# menu  #}
 
     {% if is_granted('ROLE_ADMIN') %}
-        <div class="dropdown">Gebruiker
+        <div class="dropdown"> <i class="fas fa-bars"> </i>
             <div class="dropdown-content">
                 <ul>
                     <li><a href=" {{ path('fos_user_registration_register') }} ">Toevoegen</a></li>
@@ -89,5 +97,5 @@
                 {% include "start_text.html.twig" %}
             {% endif %}
   
-      </body>
+    </body>
 </html>

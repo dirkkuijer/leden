@@ -23,9 +23,15 @@ class Member
      /**
      * @var int
      *
-     * @ORM\OneToMany(targetEntity="MemberMemberType", mappedBy="member", cascade={"persist","remove"})
+     * @ORM\OneToMany(targetEntity="MemberMemberType", mappedBy="member", cascade={"persist","remove"}, fetch="EAGER")
      */
     private $type;
+    
+    /**
+     * @var int
+     * @ORM\ManyToOne(targetEntity="Voice")
+     */
+    private $voice;
     
     /**
      * @var string
@@ -404,5 +410,29 @@ class Member
     public function getDateOfBirth()
     {
         return $this->dateOfBirth;
+    }
+
+    /**
+     * Set voice
+     *
+     * @param \AppBundle\Entity\Voice $voice
+     *
+     * @return Member
+     */
+    public function setVoice(\AppBundle\Entity\Voice $voice = null)
+    {
+        $this->voice = $voice;
+
+        return $this;
+    }
+
+    /**
+     * Get voice
+     *
+     * @return \AppBundle\Entity\Voice
+     */
+    public function getVoice()
+    {
+        return $this->voice;
     }
 }

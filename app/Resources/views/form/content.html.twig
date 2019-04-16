@@ -2,18 +2,21 @@
 
 {% block form_row %}
   
-        <div class="form_row">
-            <div class="grid-x grid-padding-x">
-                <div class="cell medium-4"></div>
-                    <div class="cell medium-2">
-                        {{ form_label(form) }}
-                        {{ form_errors(form)}}
-                    </div>
-                    <div class="cell medium-3">
-                        {{ form_widget(form) }}
-                    </div>
-                <div class="cell medium-3"></div>
+    <div class="form_row">
+
+        <div class="grid-x grid-padding-x">
+            <div class="cell medium-4">
+                {{ form_errors(form) }}
             </div>
+            <div class="cell medium-2">
+                {{ form_label(form) }}
+            </div>
+            <div class="cell medium-3">
+                {{ form_widget(form) }}
+            </div>
+            <div class="cell medium-3"></div>
         </div>
+
+    </div>
   
 {% endblock %}

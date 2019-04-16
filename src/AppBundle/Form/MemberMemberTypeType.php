@@ -19,7 +19,7 @@ class MemberMemberTypeType extends AbstractType
     {
         $builder
             ->add('fromDate', DateType::Class, [
-                'widget' => 'single_text'
+                'widget' => 'single_text',
             ])
             ->add('tillDate', DateType::Class, [
                 'widget' => 'single_text',
@@ -27,7 +27,7 @@ class MemberMemberTypeType extends AbstractType
             ])
             ->add('reason', TextareaType::Class, [
                 'required' => false
-            ])
+            ]) 
             ->add('memberType', EntityType::Class, [
                 'class' => 'AppBundle:MemberType',
 

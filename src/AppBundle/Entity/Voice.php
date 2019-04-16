@@ -6,7 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Voice
- *
  * @ORM\Entity(repositoryClass="AppBundle\Repository\VoiceRepository")
  */
 class Voice

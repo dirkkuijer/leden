@@ -2,13 +2,7 @@
 {% extends 'layout.html.twig' %}
      
   {% block stylesheet %}
-            {% stylesheets filter='cssrewrite' output="css/main.css"
-                "%kernel.root_dir%/Resources/assets/css/foundation.css"
-                "%kernel.root_dir%/Resources/assets/css/main.css"
-                "%kernel.root_dir%/Resources/assets/css/all.css"
-            %}
-            <link rel="stylesheet" href="{{ asset_url }}" />
-            {% endstylesheets %}  
+           {{ parent() }}
     {% endblock %}
 
 {% block body %}
@@ -16,7 +10,7 @@
 
     <div class="grid-x grid-padding-x">
         <div class="cell medium-3">
-            <a href="{{ path('member_index') }}">Terug naar overzicht</a>
+            <a class="button" href="{{ path('member_index') }}" title="Overzicht"><i class="fas fa-clipboard-list"></i></a>
         </div>
             <div class="cell medium-9"></div>   
     </div>
@@ -24,19 +18,18 @@
     {{ form_start(form) }}
         {{ form_errors(form) }}
         {{ form_widget(form._token) }}
-
-
-    {{ form_row(form.firstName) }}
-    {{ form_row(form.lastName) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.street) }}
-    {{ form_row(form.houseNumber) }}
-    {{ form_row(form.houseNumberAddition) }}
-    {{ form_row(form.zipCode) }}
-    {{ form_row(form.city) }}
-    {{ form_row(form.telephone) }}
-    {{ form_row(form.dateOfBirth) }}
-
+        {{ form_row(form.firstName) }}
+        {{ form_row(form.lastName) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.street) }}
+        {{ form_row(form.houseNumber) }}
+        {{ form_row(form.houseNumberAddition) }}
+        {{ form_row(form.zipCode) }}
+        {{ form_row(form.city) }}
+        {{ form_row(form.telephone) }}
+        {{ form_row(form.dateOfBirth) }}
+        {{ form_row(form.voice) }}
+      
 
 {# Second form with the dates and reasons #}
         {% import _self as forms %}
@@ -60,45 +53,48 @@
         </div>
             
 
-        {{ form(form)}}
-        {{ form_widget(form.fromDate) }}
-
-        {{ form_widget(form.tillDate) }}
-
-        {{ form_widget(form.reason) }}
-
+        {# {{ form(form)}} #}
+        {{ form_widget(form) }}
+    
     {# hier is ook het veld "soort lid in verwerkt. Deze staat in een andere tabel" #}
         <div class="grid-x grid-padding-x">
             <div class="cell medium-8"></div>
-                <div class="cell medium-2">
-                    <a href="javascript:void(0);" class="button tiny collection-remove"
-                    data-collection-item-class="collection-item">- Eigenschappen</a>
-                </div>
+            <div class="cell medium-2">
+                <a href="javascript:void(0);" class="button tiny collection-remove"
+                    data-collection-item-class="collection-item" title="Eigenschappen">
+                <i class="fas fa-minus-square"></i></a>
+            </div>
             <div class="cell medium-2"></div>
         </div>
+
+    </div> 
+
 {% endmacro %}
         
            
-            <div id="memberTypes" data-prototype="
-                {{ forms.memberTypeRow(form.type.vars.prototype)|e('html_attr') }}">
-                {% for type in form.type %}
-                    {{ form_row(form.type) }}
-                {% endfor %}
-            </div>
-        
-            <div class="grid-x grid-padding-x">
-                <div class="cell medium-6"></div>    
-                <div class="cell medium-2">    
-                    <a href="#" class="button tiny" id="collection-add" data-collection="memberTypes" data-index="{{ form.type|length }}">
-                        + Eigenschappen</a>
-                </div>
-                <div class="cell medium-2">
-                    <input class="button primary" type="submit" value="Opslaan" />
-                </div>
-                <div class="cell medium-2"></div>
-            </div>
+    <div id="memberTypes" data-prototype="
+        {{ forms.memberTypeRow(form.type.vars.prototype)|e('html_attr') }}">
+        {% for type in form.type %}
+            {{ form_widget(type) }}
+        {% endfor %}
+    </div>
 
-    </div>      
+    <div class="grid-x grid-padding-x">
+        <div class="cell medium-6"></div>    
+        <div class="cell medium-2">    
+            <a href="#" class="button tiny" id="collection-add" data-collection="memberTypes"
+                data-index="{{ form.type|length }}" title="Eigenschappen">
+                <i class="fas fa-plus-square"></i></a>
+        </div>
+        <div class="cell medium-2">
+            <button class="button" type="submit"  title="Opslaan"/>
+                <i class="far fa-save"></i>
+            </button>
+        </div>
+        <div class="cell medium-2"></div>
+    </div>
+
+        
  
 {# end second form #}
 

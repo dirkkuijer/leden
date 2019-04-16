@@ -54,13 +54,14 @@ class MemberController extends Controller
             $em->flush();
             
             $this->showFlash();
-
+            
             return $this->redirectToRoute('member_show', array('id' => $member->getId()));
+            
         }
         // added by Sander
-        // else if ($form->isSubmitted()) {
-        //     dump($form->getErrors(true, false)); die();
-        // }
+        else if ($form->isSubmitted()) {
+            dump($form->getErrors(true, false)); die();
+        }
 
         return $this->render('member/new.html.twig', array(
             'member' => $member,
@@ -101,8 +102,9 @@ class MemberController extends Controller
             
             // added by Dirk
             $this->showFlash();
-
+            
             return $this->redirectToRoute('member_edit', array('id' => $member->getId()));
+            
         }
 
         return $this->render('member/edit.html.twig', array(
@@ -130,8 +132,9 @@ class MemberController extends Controller
             
             
         }
-        // added by Dirk
-        $this->showFlash();
+        
+         // added by Dirk
+         $this->showFlash();
         
         return $this->redirectToRoute('member_index');
     }

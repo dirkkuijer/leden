@@ -10,7 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use AppBundle\Form\MemberMemberTypeType;
-
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class MemberType extends AbstractType
 {
@@ -28,7 +28,8 @@ class MemberType extends AbstractType
                 ->add('street')
                 ->add('houseNumber')
                 ->add('houseNumberAddition')
-                ->add('zipCode')->add('city')
+                ->add('zipCode')
+                ->add('city')
                 ->add('telephone')
                 ->add('dateOfBirth', BirthDayType::Class, [
                     'widget' => 'single_text',
@@ -40,7 +41,12 @@ class MemberType extends AbstractType
                     'prototype'     => true,
                     'by_reference'  => false,
                     'label'         => false,
-                ]); 
+                ])
+                ->add('voice', EntityType::Class, [
+                    'class' => 'AppBundle:Voice',
+                    'choice_label' => 'typeVoice',
+                ])
+            ;
 
     }
     

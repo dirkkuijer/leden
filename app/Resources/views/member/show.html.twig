@@ -1,13 +1,14 @@
 {% extends 'layout.html.twig' %}
 {% block stylesheet %}
-
+    {{ parent() }}
 <link rel="stylesheet" type="text/css" href="{{ asset("css/main.css") }}">
 
 {% endblock %}
 
  {% block javascript %}
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
-        {% endblock %}
+        {{ parent() }}
+{% endblock %}
+
 {% block body %}
 
         
@@ -15,7 +16,10 @@
     <h3>Ledenlijst</h3>
         <div class="grid-x grid-padding-x">
                     <div class="cell medium-2">
-                        <a href="{{ path('member_index') }}">Terug naar lijst</a>
+                        <a class="button" href="{{ path('member_index') }}"
+                        title="Terug naar lijst">
+                            <i class="fas fa-clipboard-list"></i>
+                        </a>
                     </div>
                     <div class="cell medium-10"></div>
         </div>
@@ -24,76 +28,79 @@
  {% if is_granted('ROLE_ADMIN') %}
 
 
-<div class="grid-x grid-padding-x">
-    <div class="cell medium-2"></div>
-        <div class="cell medium-8">
-        <table class="stack">
-            <tbody>
-                <tr>
-                     <td>
+    <div class="grid-x grid-padding-x">
+        <div class="cell medium-2"></div>
+            <div class="cell medium-8">
+            <table class="stack">
+                <tbody>
+                    <tr>
+                        <td>
 
-                     {# assets/js/functions.js #}
-                     <div class="flash-success">
-                        {% for msg in app.session.flashBag.get('success') %}
-                            <div class="msg">{{ msg }}</div>
-                        {% endfor %}        
-                     </div>
-                     </td>   
-                </tr>
-                <tr>
-                    <th>Voornaam</th>
-                    <td>{{ member.firstName }}</td>
-                </tr>
-                <tr>
-                    <th>Achternaam</th>
-                    <td>{{ member.lastName }}</td>
-                </tr>
-                <tr>
-                    <th>E-mail</th>
-                    <td>{{ member.email }}</td>
-                </tr>
-                <tr>
-                    <th>Straat</th>
-                    <td>{{ member.street }}</td>
-                </tr>
-                <tr>
-                    <th>Huisnummer</th>
-                    <td>{{ member.houseNumber }}</td>
-                </tr>
-                <tr>
-                    <th>Toevoeging</th>
-                    <td>{{ member.houseNumberAddition }}</td>
-                </tr>
-                <tr>
-                    <th>Postcode</th>
-                    <td>{{ member.zipCode }}</td>
-                </tr>
-                <tr>
-                    <th>Woonplaats</th>
-                    <td>{{ member.city }}</td>
-                </tr>
-                <tr>
-                    <th>Telefoon</th>
-                    <td>{{ member.telephone }}</td>
-                </tr>
-                <tr>
-                    <th>Geboortedatum</th>
-                    <td>{{ member.dateOfBirth | date('j-m-Y', "Europe/Amsterdam" ) }}</td>
-                </tr>
-            </tbody>
-        </table>
-                <div class="grid-x grid-padding-x">
-                    <div class="cell small-8"></div>
+                        {# assets/js/functions.js #}
+                        <div class="flash-success">
+                            {% for msg in app.session.flashBag.get('success') %}
+                                <div class="msg">{{ msg }}</div>
+                            {% endfor %}        
+                        </div>
+                        </td>   
+                    </tr>
+                    <tr>
+                        <th>Voornaam</th>
+                        <td>{{ member.firstName }}</td>
+                    </tr>
+                    <tr>
+                        <th>Achternaam</th>
+                        <td>{{ member.lastName }}</td>
+                    </tr>
+                    <tr>
+                        <th>E-mail</th>
+                        <td>{{ member.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Straat</th>
+                        <td>{{ member.street }}</td>
+                    </tr>
+                    <tr>
+                        <th>Huisnummer</th>
+                        <td>{{ member.houseNumber }}</td>
+                    </tr>
+                    <tr>
+                        <th>Toevoeging</th>
+                        <td>{{ member.houseNumberAddition }}</td>
+                    </tr>
+                    <tr>
+                        <th>Postcode</th>
+                        <td>{{ member.zipCode }}</td>
+                    </tr>
+                    <tr>
+                        <th>Woonplaats</th>
+                        <td>{{ member.city }}</td>
+                    </tr>
+                    <tr>
+                        <th>Telefoon</th>
+                        <td>{{ member.telephone }}</td>
+                    </tr>
+                    <tr>
+                        <th>Geboortedatum</th>
+                        <td>{{ member.dateOfBirth | date('j-m-Y', "Europe/Amsterdam" ) }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            {{ dump(member.type) }}
+
+                    <div class="grid-x grid-padding-x">
+                        <div class="cell small-8"></div>
                         <div class="cell small-2">
-                            <a class="button" href="{{ path('member_edit', { 'id': member.id }) }}">Bewerken</a>
+                            <a class="button" href="{{ path('member_edit', { 'id': member.id }) }}" title="Bewerken">
+                            <i class="far fa-edit"></i></a>
                         </div>
                             {{ form_start(delete_form) }}
-                            <button class="button" type="submit" value="Verwijderen">Verwijderen</button>
+                            <button class="button" type="submit" title="Verwijderen">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
                             {{ form_end(delete_form) }}
-                    <div class="cell small-2">
-                    </div>
-               
-                </div>
+                        <div class="cell small-2"></div>
+    </div>
 {% else %}
 <p> U bent niet bevoegd om deze inhoud te zien. <p>
 
