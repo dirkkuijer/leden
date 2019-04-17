@@ -63,9 +63,11 @@
                 {% if is_granted('ROLE_ADMIN') %}
                     <p id="results"></p>
                     <td id="td">
+                    {% if is_granted('ROLE_USER') %}
                         <a class="button primary" href="{{ path('member_show', { 'id': member.id }) }}" title="Bekijken">
                             <i class="far fa-eye"></i>
                         </a>
+                    {% endif %}
                         <a class="button primary" href="{{ path('member_edit', { 'id': member.id }) }}" title="Bewerken">
                             <i class="far fa-edit"></i>
                         </a>

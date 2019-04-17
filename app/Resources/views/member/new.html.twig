@@ -10,17 +10,20 @@
 
     <div class="grid-x grid-padding-x">
         <div class="cell medium-3">
-            <a class="button" href="{{ path('member_index') }}" title="Overzicht"><i class="fas fa-clipboard-list"></i></a>
+            <a class="button" href="{{ path('member_index') }}" title="Overzicht"><i class="fas fa-list-alt"></i></a>
         </div>
             <div class="cell medium-9"></div>   
     </div>
-    
-    {{ form_start(form) }}
+
+    {{ form_start(form, { 'attr' : {'data-abide' : '', 'novalidation' : ''}}) }}
         {{ form_errors(form) }}
         {{ form_widget(form._token) }}
         {{ form_row(form.firstName) }}
         {{ form_row(form.lastName) }}
+
         {{ form_row(form.email) }}
+        
+
         {{ form_row(form.street) }}
         {{ form_row(form.houseNumber) }}
         {{ form_row(form.houseNumberAddition) }}
@@ -29,7 +32,7 @@
         {{ form_row(form.telephone) }}
         {{ form_row(form.dateOfBirth) }}
         {{ form_row(form.voice) }}
-      
+ 
 
 {# Second form with the dates and reasons #}
         {% import _self as forms %}
@@ -56,7 +59,7 @@
         {# {{ form(form)}} #}
         {{ form_widget(form) }}
     
-    {# hier is ook het veld "soort lid in verwerkt. Deze staat in een andere tabel" #}
+    {# hier is ook het veld "soort lid" in verwerkt. Deze staat in een andere tabel #}
         <div class="grid-x grid-padding-x">
             <div class="cell medium-8"></div>
             <div class="cell medium-2">
@@ -99,7 +102,6 @@
 {# end second form #}
 
     {# submit button all forms #}
-
     {{ form_end(form) }}
 
    

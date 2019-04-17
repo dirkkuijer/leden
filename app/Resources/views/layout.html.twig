@@ -22,6 +22,8 @@
                             "%kernel.root_dir%/Resources/assets/js/functions.js"
                             "%kernel.root_dir%/Resources/assets/js/AddForm.js" 
                             "%kernel.root_dir%/Resources/assets/js/all.js" 
+                            "%kernel.root_dir%/Resources/assets/js/fontawesome.js"
+                            "%kernel.root_dir%/Resources/assets/js/vendor/foundation.min.js"
             %}
                 <script src=" {{ asset_url }} "></script>
             {% endjavascripts %}
@@ -97,5 +99,8 @@
                 {% include "start_text.html.twig" %}
             {% endif %}
   
+            <script>
+                $(document).foundation();
+            </script>
     </body>
 </html>

@@ -104,7 +104,7 @@ class Member
     /**
      * @var int
      *
-     * @ORM\Column(name="telephone", type="integer", length=14)
+     * @ORM\Column(name="telephone", type="string", length=14)
      * @Assert\NotBlank
      * 
      */
@@ -367,7 +367,7 @@ class Member
     /**
      * Set telephone
      *
-     * @param integer $telephone
+     * @param string $telephone
      *
      * @return Member
      */
@@ -381,7 +381,7 @@ class Member
     /**
      * Get telephone
      *
-     * @return integer
+     * @return string
      */
     public function getTelephone()
     {

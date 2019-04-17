@@ -58,10 +58,10 @@ class MemberController extends Controller
             return $this->redirectToRoute('member_show', array('id' => $member->getId()));
             
         }
-        // added by Sander
-        else if ($form->isSubmitted()) {
-            dump($form->getErrors(true, false)); die();
-        }
+        // // added by Sander
+        // else if ($form->isSubmitted()) {
+        //     dump($form->getErrors(true, false)); die();
+        // }
 
         return $this->render('member/new.html.twig', array(
             'member' => $member,
@@ -93,7 +93,7 @@ class MemberController extends Controller
      */
     public function editAction(Request $request, Member $member)
     {
-        $deleteForm = $this->createDeleteForm($member);
+       
         $editForm = $this->createForm('AppBundle\Form\MemberType', $member);
         $editForm->handleRequest($request);
 
@@ -110,7 +110,6 @@ class MemberController extends Controller
         return $this->render('member/edit.html.twig', array(
             'member' => $member,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 

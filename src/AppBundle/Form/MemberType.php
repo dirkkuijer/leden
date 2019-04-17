@@ -7,8 +7,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use AppBundle\Form\MemberMemberTypeType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
@@ -24,7 +25,9 @@ class MemberType extends AbstractType
         $builder
                 ->add('firstName')
                 ->add('lastName')
-                ->add('email')
+                ->add('email', EmailType::class, [
+                    
+                ])
                 ->add('street')
                 ->add('houseNumber')
                 ->add('houseNumberAddition')

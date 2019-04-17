@@ -1,22 +1,26 @@
 
 
 {% block form_row %}
-  
+
+
     <div class="form_row">
 
         <div class="grid-x grid-padding-x">
+            <div class="cell large-2"></div>       
             <div class="cell large-2 medium-4">
-                {{ form_errors(form) }}
-            </div>
-            <div class="cell large-3 medium-2">
                 {{ form_label(form) }}
-            </div>
+            </div> 
+             <div class="cell large-3 medium-2">
+                {{ form_errors(form) }}
+            </div> 
             <div class="cell large-4 medium-3">
-                {{ form_widget(form) }}
+                {{ form_widget(form, { 'attr' : { 'aria-errormessage' : form.vars.id ~ '_emailError' } }) }}
+                <span class="form-error" id="{{ form.vars.id }}_emailError">Uw invoer klopt niet.</span>
             </div>
-            <div class="cell large-auto medium-3"></div>
-        </div>
+            <div class="cell large-2 medium-3">
+            </div>
+        </div> 
 
-    </div>
-  
+    </div> 
 {% endblock %}
+  
