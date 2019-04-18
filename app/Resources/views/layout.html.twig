@@ -40,10 +40,12 @@
     <div class="container-user">
         <div class="button-logout">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                <a class="button tiny" href="{{ path('fos_user_security_logout') }}" title="Uitloggen">
-                   <i class="fas fa-sign-out-alt"></i>
-                </a>
+                <div id="userLoggedIn">
+                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                </div>
+                 |  <a class="button tiny" href="{{ path('fos_user_security_logout') }}" title="Uitloggen">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
             {% else %}
 
                 <a class="button" href="{{ path('fos_user_security_login') }}"
@@ -69,7 +71,7 @@
     {# menu  #}
 
     {% if is_granted('ROLE_ADMIN') %}
-        <div class="dropdown"> <i class="fas fa-bars"> </i>
+        <div class="dropdown"> <i class="fas fa-bars" style="min-width:50px"> </i>
             <div class="dropdown-content">
                 <ul>
                     <li><a href=" {{ path('fos_user_registration_register') }} ">Toevoegen</a></li>

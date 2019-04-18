@@ -15,15 +15,12 @@
             <div class="cell medium-9"></div>   
     </div>
 
-    {{ form_start(form, { 'attr' : {'data-abide' : '', 'novalidation' : ''}}) }}
+    {{ form_start(form) }}
         {{ form_errors(form) }}
         {{ form_widget(form._token) }}
         {{ form_row(form.firstName) }}
         {{ form_row(form.lastName) }}
-
         {{ form_row(form.email) }}
-        
-
         {{ form_row(form.street) }}
         {{ form_row(form.houseNumber) }}
         {{ form_row(form.houseNumberAddition) }}

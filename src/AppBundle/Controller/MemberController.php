@@ -53,7 +53,9 @@ class MemberController extends Controller
             $em->persist($member);
             $em->flush();
             
-            $this->showFlash();
+            // Added bij Dirk
+            $state = "Persoon is toegevoegd.";
+            $this->showFlash($state);
             
             return $this->redirectToRoute('member_show', array('id' => $member->getId()));
             
@@ -101,7 +103,9 @@ class MemberController extends Controller
             $this->getDoctrine()->getManager()->flush();
             
             // added by Dirk
-            $this->showFlash();
+            $state = "Persoon is aangepast.";
+            
+            $this->showFlash($state);
             
             return $this->redirectToRoute('member_edit', array('id' => $member->getId()));
             
@@ -131,9 +135,9 @@ class MemberController extends Controller
             
             
         }
-        
+        $state = "Persoon is verwijderd.";
          // added by Dirk
-         $this->showFlash();
+         $this->showFlash($state);
         
         return $this->redirectToRoute('member_index');
     }
@@ -155,7 +159,7 @@ class MemberController extends Controller
     }
 
     // added by Dirk to show flash messages after submitting form
-    public function showFlash() {
-        return $this->addFlash('success', 'Actie succesvol uitgevoerd.');
+    public function showFlash(String $state) {
+        return $this->addFlash('success', $state);
     }
 }

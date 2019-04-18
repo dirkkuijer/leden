@@ -1,4 +1,9 @@
+{% form_theme form 'form/content.html.twig' %}   
 {% extends ('layout.html.twig')%}
+
+{% block stylesheet %}
+    {{ parent() }}
+{% endblock %}
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block body %}
@@ -7,43 +12,22 @@
 
         {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
 
-            <div class="grid-x grid-padding-x">
-                <div class="cell medium-4"></div>
-                <div class="cell medium-2">{{ form_label(form.username) }}</div>
-                <div class="cell medium-2">{{ form_widget(form.username) }}</div>
-                <div class="cell medium-4"></div>
-            </div>
-            
-            <div class="grid-x grid-padding-x">
-                <div class="cell medium-4"></div>
-                <div class="cell medium-2">{{ form_label(form.email) }}</div>
-                <div class="cell medium-2">{{ form_widget(form.email) }}</div>
-                <div class="cell medium-4"></div>
-            </div>
-
-            <div class="grid-x grid-padding-x">
-                <div class="cell medium-4"></div>
-                <div class="cell medium-2">{{ form_label(form.plainPassword.first) }}</div>
-                <div class="cell medium-2">{{ form_widget(form.plainPassword.first) }}</div>
-                <div class="cell medium-4"></div>
-            </div>
-
-            <div class="grid-x grid-padding-x">
-                <div class="cell medium-4"></div>
-                <div class="cell medium-2">{{ form_label(form.plainPassword.second) }}</div>
-                <div class="cell medium-2">{{ form_widget(form.plainPassword.second) }}</div>
-                <div class="cell medium-4"></div>
-            </div>
-            
+   
+                {{ form_row(form.username) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.plainPassword.first) }}
+                {{ form_row(form.plainPassword.second) }}            
+           
             <div class="grid-x grid-padding-x">
                 <div class="cell medium-6"></div>
                     <div class="cell medium-2">
-                        <input class="button primary" type="submit" value="{{ 'registration.submit'|trans }}" />
+                        <button class="button primary" type="submit" value="{{ 'registration.submit'|trans }}" />
+                            <i class="far fa-save"></i>
+                        </button>
                         {{ form_end(form) }}
                     </div>
                 <div class="cell medium-6"></div>
             </div>
 
-        {% block footer %}
-        {% endblock%}
-    {% endblock %}
+     
+{% endblock %}

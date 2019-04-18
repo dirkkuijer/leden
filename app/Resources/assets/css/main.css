@@ -1,18 +1,39 @@
-    .flash-success {
+.flash-success {
     background-color: rgba(134, 226, 213, 0.5);
-    border-radius: 5px;
-    padding-bottom: 1rem;
+    border-radius: 2px;
+    padding: 2rem;
     position: fixed;
     width: 15%;
     height: 7%;
     right: 0;
     bottom: 20%;
     z-index: 1;
+    overflow: auto;
 }
 
 .flash-success msg {
     color: black;
-    padding: 1rem 1rem;
+    padding: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+.flash-success {
+    background-color: rgba(134, 226, 213, 0.5);
+    border-radius: 2px;
+    padding: 2rem;
+    position: fixed;
+    width: 50%;
+    height: 15%;
+    right: 0;
+    bottom: 20%;
+    z-index: 1;
+    overflow: auto;
+    }
+
+.flash-success msg {
+        color: black;
+        padding: 2rem;
+    }
 }
 
 *, #myInput {
@@ -125,12 +146,23 @@ select {
  .fos input { margin: 0 2rem; }
 
  /* image header.jpg */
+ @keyframes move {
+     0% { padding-left: 5%; }
+     50% { padding-left: 8%;}
+     100% { padding-left: 5%;}
+
+}
  .header { 
      padding-left: 5%;
      display:flex;
      justify-content: center;
      }
- 
+
+.header:hover {
+    animation-name: move;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
  select, input[type]:not(.button) { 
     border-radius: 5px; 
     height: 1.5rem;
@@ -176,3 +208,4 @@ ul{
     list-style: none;
 
 }
+

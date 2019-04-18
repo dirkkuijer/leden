@@ -50,18 +50,16 @@
                 </tr>
             </thead>
             <tbody id="myTable">
+
         {% for member in member %}
-                <tr>
-            {% if member is empty %}
-                Geen leden opgeslagen.
-            {% endif %}
+        
+                <tr id="tr">
                     <td id="td">{{ member.firstName }}</td> 
-                    <td id="td" class="lastName">{{ member.lastName }}</td>
+                    <td id="td">{{ member.lastName }}</td>
                     <td id="td">{{ member.email }}</td>
                     <td id="td">{{ member.dateOfBirth | date('j-m-Y', "Europe/Amsterdam" ) }}</td>
                    
                 {% if is_granted('ROLE_ADMIN') %}
-                    <p id="results"></p>
                     <td id="td">
                     {% if is_granted('ROLE_USER') %}
                         <a class="button primary" href="{{ path('member_show', { 'id': member.id }) }}" title="Bekijken">
@@ -74,10 +72,15 @@
                         <a class="button primary" href="{{ path('member_delete', { 'id': member.id }) }}" title="Verwijderen">
                             <i class="far fa-trash-alt"></i>
                         </a>
-                    </td>
-                </tr>
                 {% endif %}
+                    </td>
+                   
+                </tr>
         {% endfor %}
+   <script>
+
+   
+   </script>
 
             </tbody>
         </table>

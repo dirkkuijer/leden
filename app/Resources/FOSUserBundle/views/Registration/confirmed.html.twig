@@ -2,18 +2,14 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
-
 {% block fos_user_content %}
 {% block stylesheet %}
-            {% stylesheets filter='cssrewrite' output="css/main.css"
-                "%kernel.root_dir%/Resources/assets/css/main.css" %}
-            <link rel="stylesheet" href="{{ asset_url }}" />
-            {% endstylesheets %}  
+           {{ parent() }} 
 {% endblock %}
 
 <h3>Registratie voltooid</h3>
     <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
     {% if targetUrl %}
-    <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+    <p><a class="button" href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
     {% endif %}
 {% endblock fos_user_content %}
