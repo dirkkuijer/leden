@@ -1,0 +1,28 @@
+{% form_theme form 'form/content.html.twig' %}   
+{% extends 'layout.html.twig' %}
+     
+  {% block stylesheet %}
+           {{ parent() }}
+    {% endblock %}
+{% block body %}
+    
+    <h3>Gebruiker aanmaken</h3>
+
+    <div class="grid-x grid-padding-x">
+        <div class="cell medium-3">
+            <a class="button" href="{{ path('user_index') }}" title="Overzicht">
+                <i class="fas fa-list-alt"></i>
+            </a>
+        </div>
+            <div class="cell medium-9"></div>   
+    </div>
+
+    {{ form_start(form) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form._token) }}
+        {{ form_widget(form) }}
+        <input class="button" type="submit" value="Create" />
+    {{ form_end(form) }}
+
+
+{% endblock %}
