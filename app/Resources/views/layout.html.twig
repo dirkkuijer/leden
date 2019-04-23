@@ -73,12 +73,20 @@
     {% if is_granted('ROLE_ADMIN') %}
         <div class="dropdown"> <i class="fas fa-bars" style="min-width:50px"> </i>
             <div class="dropdown-content">
+                
                 <ul>
-                    <li><a href=" {{ path('fos_user_registration_register') }} ">Toevoegen</a></li>
-                    <li><a href=" {{ path('fos_user_profile_edit') }} ">Aanpassen</a></li>
-                    <li><a href=" {{ path('fos_user_resetting_request') }} ">Resetten</a></li>
-                    <li><a href=" {{ path('fos_user_change_password') }} ">Wachtwoord veranderen</a></li>
-                    <li><a href=" {{ path('member_index') }} ">Leden</a></li>
+                    <li>Gebruikers
+                        <ul>
+                            <li><a href=" {{ path('user_index') }} ">Overzicht</a></li>
+                            <li><a href=" {{ path('user_new') }} ">Nieuw</a></li>
+                        </ul>
+                    </li>
+                    <li>Leden
+                        <ul>
+                            <li><a href=" {{ path('member_index') }} ">Overzicht</a></li>
+                            <li><a href=" {{ path('member_new') }} ">Nieuw</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

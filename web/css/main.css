@@ -6376,7 +6376,7 @@ a.thumbnail {
     right: 0;
     bottom: 20%;
     z-index: 1;
-    overflow: auto;
+    text-align: left;
 }
 
 .flash-success msg {
@@ -6514,22 +6514,12 @@ select {
  .fos input { margin: 0 2rem; }
 
  /* image header.jpg */
- @keyframes move {
-     0% { padding-left: 5%; }
-     50% { padding-left: 8%;}
-     100% { padding-left: 5%;}
-
-}
  .header { 
      padding-left: 5%;
      display:flex;
      justify-content: center;
      }
 
-.header:hover {
-    animation-name: move;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
 }
  select, input[type]:not(.button) { 
     border-radius: 5px; 

@@ -45,13 +45,18 @@ class UserController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $user->setEnabled(true);
             $em->persist($user);
             $em->flush();
+            
+            // Added bij Dirk
+            $state = "Persoon is toegevoegd.";
+            $this->showFlash($state);
 
             return $this->redirectToRoute('user_show', array('id' => $user->getId()));
         }
 
-        return $this->render('user/new.html.twig', array(
+        return $this->render('user/content.html.twig', array(
             'user' => $user,
             'form' => $form->createView(),
         ));
@@ -87,13 +92,18 @@ class UserController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            
+             // added by Dirk
+             $state = "Persoon is aangepast.";
+            
+             $this->showFlash($state);
 
             return $this->redirectToRoute('user_edit', array('id' => $user->getId()));
         }
 
-        return $this->render('user/edit.html.twig', array(
+        return $this->render('user/content.html.twig', array(
             'user' => $user,
-            'edit_form' => $editForm->createView(),
+            'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -114,6 +124,10 @@ class UserController extends Controller
             $em->remove($user);
             $em->flush();
         }
+        
+        $state = "Persoon is verwijderd.";
+        // added by Dirk
+        $this->showFlash($state);
 
         return $this->redirectToRoute('user_index');
     }
@@ -132,5 +146,10 @@ class UserController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+      // added by Dirk to show flash messages after submitting form
+      public function showFlash(String $state) {
+        return $this->addFlash('success', $state);
     }
 }

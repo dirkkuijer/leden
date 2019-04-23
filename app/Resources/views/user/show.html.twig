@@ -28,16 +28,33 @@
                     <table class="stack">
                 <tbody>
                     <tr>
-                        <th>Id</th>
-                        <td>{{ user.id }}</td>
-                    </tr>
-                    <tr>
                         <th>Gebruiker</th>
-                        <td>{{  user.username}}</td>
+                        <td>{{  user.username }}</td>
                     </tr>
                     <tr>
                         <th>E-mail</th>
-                        <td>{{ user.email}}</td>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Rol</th>
+                        <td>{% for role in user.roles %}
+                                 
+                                {%if role == 'ROLE_ADMIN' %}
+                                    Admin
+                                {% endif %}
+                                {% if role == 'ROLE_USER' %}
+                                    Gebruiker
+                                {% endif %}
+                                {% endfor %}  
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Actief</th>
+                        <td>{% if user.enabled == 1 %}
+                                ja
+                            {% else %}
+                                nee
+                            {% endif %}</td>
                     </tr>
                 </tbody>
             </table>

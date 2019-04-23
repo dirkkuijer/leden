@@ -42,7 +42,7 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     form_themes:
-        - 'form/content.html.twig'
+        - 'form/theme.html.twig'
 
 # Doctrine Configuration
 doctrine:
