@@ -5,7 +5,8 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * User controller.
@@ -116,9 +117,13 @@ class UserController extends Controller
      */
     public function deleteAction(Request $request, User $user)
     {
+        if ($user->getSystem()) 
+        {
+            return $this->redirectToRoute('user_index');
+        }
+        
         $form = $this->createDeleteForm($user);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($user);
@@ -128,8 +133,9 @@ class UserController extends Controller
         $state = "Persoon is verwijderd.";
         // added by Dirk
         $this->showFlash($state);
-
+        
         return $this->redirectToRoute('user_index');
+        
     }
 
     /**
@@ -147,6 +153,7 @@ class UserController extends Controller
             ->getForm()
         ;
     }
+  
 
       // added by Dirk to show flash messages after submitting form
       public function showFlash(String $state) {

@@ -10,7 +10,7 @@
         {% if user.id is not null %}
             Gebruiker bewerken
         {% else %}
-            Gebruiker opslaan
+            Nieuwe gebruiker
         {% endif %}
     </h3>
 
@@ -35,6 +35,7 @@
             {{ form_row(form.plainPassword.first) }}
             {{ form_row(form.plainPassword.second) }}
         {% endif %}
+        {{ form_row(form.roles) }}
     
     </div></div>
     <div class="grid-x grid-padding-x">

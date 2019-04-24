@@ -17,10 +17,37 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+    
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $system = false;
 
     public function __construct()
     {
         parent::__construct();
         
+    }
+
+    
+
+    /**
+     * Get the value of system
+     */ 
+    public function getSystem()
+    {
+        return $this->system;
+    }
+
+    /**
+     * Set the value of system
+     *
+     * @return  self
+     */ 
+    public function setSystem($system)
+    {
+        $this->system = $system;
+
+        return $this;
     }
 }
