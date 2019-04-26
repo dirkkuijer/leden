@@ -24,7 +24,7 @@ profile:
     flash:
         updated: 'Het profiel is bijgewerkt.'
 change_password:
-    submit: 'Wijzigen'
+    submit: 'Wachtwoord wijzigen'
     flash:
         success: 'Het wachtwoord is gewijzigd.'
 registration:
@@ -42,7 +42,7 @@ registration:
             U moet uw account nog valideren, ga naar %confirmationUrl%
 
             Vriendelijke groeten,
-            het Baarns mannenkoor.
+            Het Baarns mannenkoor.
 
 resetting:
     check_email: |
@@ -53,20 +53,20 @@ resetting:
 
     request:
         username: 'Gebruikersnaam of e-mailadres'
-        submit: 'Bevestigen'
+        submit: 'Reset wachtwoord'
     reset:
-        submit: 'Bevestigen'
+        submit: 'Wijzig wachtwoord'
     flash:
         success: 'Het wachtwoord is succesvol gereset.'
     email:
-        subject: 'Bevestigen'
+        subject: 'Reset wachtwoord'
         message: |
             Hallo %username%!
 
             Om uw wachtwoord te resetten, klikt u op de volgende link %confirmationUrl%
 
             Met vriendelijke groet,
-            het Baarns mannenkoor.
+            Het Baarns mannenkoor.
 
 layout:
     logout: Uitloggen

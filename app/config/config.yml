@@ -70,9 +70,16 @@ doctrine:
 swiftmailer:
     transport: '%mailer_transport%'
     host: '%mailer_host%'
+    port: '%mailer_port%'
     username: '%mailer_user%'
     password: '%mailer_password%'
-    spool: { type: memory }
+    encryption: '%mailer_encryption%'
+    #spool: { type: memory }
+    # later toegevoegd om uit te proberen. Alleen hiermee doet hij het.
+    stream_options:
+        ssl:
+            allow_self_signed: true
+            verify_peer: false
 
     # FOSUserBundle Configuration
 fos_user:
@@ -80,8 +87,8 @@ fos_user:
     firewall_name: main
     user_class: AppBundle\Entity\User
     from_email:
-        address: "null"
-        sender_name: "null"
+        address: '%mailer_user%'
+        sender_name: "Baarns mannenkoor, de Voorzitter"
 
 assetic:
     debug:          '%kernel.debug%'

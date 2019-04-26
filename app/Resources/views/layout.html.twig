@@ -37,80 +37,80 @@
     </head>
 
     <body>
-    <div class="container-user">
-        <div class="button-logout">
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                <div id="userLoggedIn">
-                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
-                </div>
-                 |  <a class="button tiny" href="{{ path('fos_user_security_logout') }}" title="Uitloggen">
-                        <i class="fas fa-sign-out-alt"></i>
-                    </a>
-            {% else %}
+        <div class="container-user">
+            <div class="button-logout">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <div id="userLoggedIn">
+                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                    </div>
+                    |  <a class="button tiny" href="{{ path('fos_user_security_logout') }}" title="Uitloggen">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </a>
+                {% else %} 
 
-                <a class="button" href="{{ path('fos_user_security_login') }}"
-                style="margin-left:1rem">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-            {% endif %}
-     
- 
-            {% if app.request.hasPreviousSession %}
-                {% for type, messages in app.session.flashbag.all() %}
-                    {% for message in messages %}
-                       <br />
-                        <div class="flash-{{ type }}">
-                            {{ message }}
-                        </div>
+                    <a class="button" href="{{ path('fos_user_security_login') }}"
+                    style="margin-left:1rem">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                {% endif %}
+        
+                {% if app.request.hasPreviousSession %}
+                    {% for type, messages in app.session.flashbag.all() %}
+                        {% for message in messages %}
+                        <br />
+                            <div class="flash-{{ type }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
                     {% endfor %}
-                {% endfor %}
-            {% endif %}
-        </div>
-    </div>
-
-    <img src="{{ asset('images/header.jpg') }}" class="header" title="Baarns mannenkoor" />
-        <br />  
-    {# menu  #}
-
-    {% if is_granted('ROLE_ADMIN') %}
-        <div class="dropdown"> <i class="fas fa-bars" style="min-width:50px"> </i>
-            <div class="dropdown-content">
-                
-                <ul>
-                    <li>Gebruikers
-                        <ul>
-                            <li><a href=" {{ path('user_index') }} ">Overzicht</a></li>
-                            <li><a href=" {{ path('user_new') }} ">Nieuw</a></li>
-                        </ul>
-                    </li>
-                    <li>Leden
-                        <ul>
-                            <li><a href=" {{ path('member_index') }} ">Overzicht</a></li>
-                            <li><a href=" {{ path('member_new') }} ">Nieuw</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                {% endif %}
             </div>
         </div>
-    {% endif %}
 
+        <img src="{{ asset('images/header.jpg') }}" class="header" title="Baarns mannenkoor" />
+            <br />  
+        {# menu  #}
+
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="dropdown"> <i class="fas fa-bars" style="min-width:50px"> </i>
+                <div class="dropdown-content">
+                    
+                    <ul>
+                        <li>Gebruikers
+                            <ul>
+                                <li><a href=" {{ path('user_index') }} ">Overzicht</a></li>
+                                <li><a href=" {{ path('user_new') }} ">Nieuw</a></li>
+                            </ul>
+                        </li>
+                        <li>Leden
+                            <ul>
+                                <li><a href=" {{ path('member_index') }} ">Overzicht</a></li>
+                                <li><a href=" {{ path('member_new') }} ">Nieuw</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if is_granted('ROLE_USER') %}
+            <a href=" {{ path('user_help') }} " style="position:absolute;right:3%">Help</a>
+        {% endif %}            
+
+        {% block body %}
+        {% endblock %}
+        
+        <noscript>
+            <div class="callout alert center"> Zet uw Javascript aan in de browser!</div>
+        </noscript> 
+        
+        {% block fos_user_content %}
+        {% endblock fos_user_content %}
             
+        {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            {% include "start_text.html.twig" %}
+        {% endif %}
 
-            {% block body %}
-                <p>
-                <noscript>
-                    <div class="callout alert center"> Zet uw Javascript aan in de browser!</div>
-                </noscript>      
-
-            {% endblock %}
-
-            {% block fos_user_content %}
-            {% endblock fos_user_content %}
-                
-            {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-                {% include "start_text.html.twig" %}
-            {% endif %}
-  
-            <script>
-                $(document).foundation();
-            </script>
+        <script>
+            $(document).foundation();
+        </script>
     </body>
 </html>

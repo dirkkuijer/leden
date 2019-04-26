@@ -6366,6 +6366,11 @@ a.thumbnail {
   -webkit-animation-delay: 700ms !important;
           animation-delay: 700ms !important; }
 
+
+a:hover {
+    text-decoration: underline;
+    color: blue;
+}
 .flash-success {
     background-color: rgba(134, 226, 213, 0.5);
     border-radius: 5px;

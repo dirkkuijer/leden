@@ -27,7 +27,8 @@
     
 {% endif %}
 
-                        
+               
+              
 
 <div class="grid-x padding-grid-x">
     <div class="cell medium-1"></div>
@@ -49,8 +50,9 @@
             <tbody id="myTable">
 
         {% for member in member %}
-        
                 <tr id="tr">
+                <div id="value"></div>
+
                     <td id="td">{{ member.firstName }}</td> 
                     <td id="td">{{ member.lastName }}</td>
                     <td id="td">{{ member.email }}</td>
@@ -74,11 +76,8 @@
                    
                 </tr>
         {% endfor %}
-   <script>
 
-   
-   </script>
-
+               
             </tbody>
         </table>
     </div>

@@ -33,6 +33,15 @@ class UserController extends Controller
     }
 
     /**
+     * @Route("/help", name="user_help")
+     * @Method({"GET"})
+     */
+    public function showHelp()
+    {
+        return $this->render('user/help.html.twig');
+    }
+
+    /**
      * Creates a new user entity.
      *
      * @Route("/new", name="user_new")
@@ -153,7 +162,8 @@ class UserController extends Controller
             ->getForm()
         ;
     }
-  
+    
+    
 
       // added by Dirk to show flash messages after submitting form
       public function showFlash(String $state) {

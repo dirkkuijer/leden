@@ -47,46 +47,38 @@
             <tbody id="myTable">
             
             {% for user in users %}
-                
-                <tr id="tr">
-                    <td id="td">{{ user.username }}</td>
-                    <td id="td">{{ user.email }}</td>
-                    <td id="td">{% for role in user.roles %}
-                                     {% if role == 'ROLE_ADMIN' %}
-                                        Admin
-                                    {% endif %}
-                                    {% if role == 'ROLE_USER' %}
-                                        Gebruiker
-                                    {% endif %}
-                                {% endfor %}  
-                    </td>
-                    <td = id="td">{{ user.lastLogin | date('j-m-Y H:m:s') }}</td>
-                    {# <td = id="td">  {% if user.enabled == 1 %}
-                                        ja
-                                    {% else %}
-                                        nee
-                                    {% endif %}
-                    </td> #}
-                    <td id="td">
-  
-                    {# <a class="button" href="{{ path('user_show', { 'id': user.id }) }}" title="Bekijken">
-                        <i class="fas fa-eye"></i>
-                    </a> #}
-                    {% if user.system == false %}
-                    <a class="button" href="{{ path('user_edit', { 'id': user.id }) }}" title="Bewerken">
-                         <i class="far fa-edit"></i>
-                    </a>
-                     <a class="button primary" href="{{ path('user_delete', { 'id': user.id }) }}" title="Verwijderen">
-                            <i class="far fa-trash-alt"></i>
+                {% if user.username != "dirk" %}
+                    <tr id="tr">
+                        <td id="td">{{ user.username }}</td>
+                        <td id="td">{{ user.email }}</td>
+                        <td id="td">{% for role in user.roles %}
+                                        {% if role == 'ROLE_ADMIN' %}
+                                            Admin
+                                        {% endif %}
+                                        {% if role == 'ROLE_USER' %}
+                                            Gebruiker
+                                        {% endif %}
+                                    {% endfor %}  
+                        </td>
+                        <td = id="td">{{ user.lastLogin | date('j-m-Y H:m:s') }}</td>
+
+                        <td id="td">
+    
+                    
+                        {% if user.system == false %}
+                        <a class="button" href="{{ path('user_edit', { 'id': user.id }) }}" title="Bewerken">
+                            <i class="far fa-edit"></i>
                         </a>
-                    {% endif %}
-                    </td>
-                </tr>
+                        <a class="button primary" href="{{ path('user_delete', { 'id': user.id }) }}" title="Verwijderen">
+                                <i class="far fa-trash-alt"></i>
+                            </a>
+                        {% endif %}
+                        </td>
+                    </tr>
+                {% endif %}
             {% endfor %}
+
             </tbody>
         </table>
-
-
-           
 
 {% endblock %}

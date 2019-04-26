@@ -3,51 +3,53 @@
 
 {% block body %}
 
+    <h3>Inloggen</h3>
 
-<h3>Inloggen</h3>
-
-{% if error %}
-    <div style="text-align:center;color:red;size:18pt">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-{% endif %}
+    {% if error %}
+        <div style="text-align:center;color:red;size:18pt">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
 
     <form action="{{ path("fos_user_security_check") }}" method="post">
+
         {% if csrf_token %}
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
         {% endif %}
-        
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
+            
+        <div class="grid-x grid-padding-x">
+            <div class="cell medium-4"></div>
             <div class="cell medium-1">
                 <label for="username">{{ 'security.login.username'|trans }}</label>
             </div>
             <div class="cell medium-3">
                 <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" autofocus/>
             </div>
-        <div class="cell medium-3"></div>
-    </div>
+            <div class="cell medium-3"></div>
+        </div>
 
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
+        <div class="grid-x grid-padding-x">
+            <div class="cell medium-4"></div>
             <div class="cell medium-1">
-            <label for="password">{{ 'security.login.password'|trans }}</label>
+                <label for="password">{{ 'security.login.password'|trans }}</label>
             </div>
             <div class="cell medium-3">
-            <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
-         </div>
-        <div class="cell medium-3"></div>
-    </div>
-       
-       <div class="grid-x grid-padding-x">
-            <div class="cell medium-7"></div> 
+                <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
+            </div>
+            <div class="cell medium-3"></div>
+        </div>
+        
+        <div class="grid-x grid-padding-x">
+                <div class="cell medium-6"></div> 
+                <div class="cell medium-1">
+                    <a href=" {{ path('fos_user_resetting_request') }} ">wachtwoord?</a>
+                </div> 
                 <div class="cell medium-3">
                     {# Dit was eerst een input button samen met de waarde met "value" #}
                     <button class="button" type="submit" id="_submit" name="_submit" title="Inloggen" />
                         <i class="fas fa-sign-in-alt"></i>
                     </button>
-                    {# value="{{ 'security.login.submit'|trans }}" #}
                 </div>
-            <div class="cell medium-2"></div> 
-        </div>
+                <div class="cell medium-2"></div> 
+            </div>
     </form>
 
 {% endblock %}

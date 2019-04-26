@@ -1,0 +1,45 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <h3>Hulp</h3>
+<br />
+<p id="first_page" class="callout">
+Problemen? Ook hier hebben we daar een oplossing voor. Hieronder staan de meest gevraagde onderwerpen.
+Mocht u er nog niet uitkomen dan kunt u terecht bij de <a href="mailto:voorzitter@baarnsmannenkoor.nl?subject=Help">voorzitter</a>. 
+Of bij de <a href="mailto:dirkkuijer@hotmail.com?subject=Help">ontwikkelaar</a> voor echt technische problemen.
+</p>
+<br />
+<br />
+
+    <div class="grid-x grid-padding-x">
+        <div class="cell large-4"></div>
+        <div class="cell large-3">
+            <ul>
+            <u>Meest voorkomende problemen:</u>
+                <li>
+                    <a href=" {{ path('fos_user_resetting_request') }} ">Wachtwoord vergeten</a><br />
+                </li>
+                <li>
+                    <a href=" {{ path('fos_user_profile_show') }} ">Mijn profiel bekijken</a><br />
+                </li>
+                    <a href=" {{ path('member_new') }} ">Lid aanmaken</a>
+                <li>
+                    <a href=" {{ path('user_new') }} ">Gebruiker aanmaken</a><br />
+                </li>
+            </ul>
+        </div>       
+        <div class="cell large-2 medium-3">
+        </div>
+        <div class="cell large-5 medium-3"></div>
+    </div>
+           
+
+{% endblock %}

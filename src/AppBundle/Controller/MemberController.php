@@ -80,7 +80,7 @@ class MemberController extends Controller
     public function showAction(Member $member)
     {
         $deleteForm = $this->createDeleteForm($member);
-
+        
         return $this->render('member/show.html.twig', array(
             'member' => $member,
             'delete_form' => $deleteForm->createView(),
@@ -107,7 +107,7 @@ class MemberController extends Controller
             
             $this->showFlash($state);
             
-            return $this->redirectToRoute('member_edit', array('id' => $member->getId()));
+            return $this->redirectToRoute('member_show', array('id' => $member->getId()));
             
         }
 
