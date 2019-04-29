@@ -13,7 +13,7 @@
 <br />
 <p id="first_page" class="callout">
 Hieronder staan veelgestelde vragen. Mocht u er toch niet uitkomen dan kunt u contact opnemen met de 
-<a href="mailto:voorzitter@baarnsmannenkoor.nl?subject=Help">voorzitter</a>. 
+<a href=" {{ path('contact') }} ">voorzitter</a>. 
 
 </p>
 <br />
@@ -33,8 +33,7 @@ Hieronder staan veelgestelde vragen. Mocht u er toch niet uitkomen dan kunt u co
 
     <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
     <div class="accordion-content" data-tab-content>
-      Neem contact op met de 
-        <a href="mailto:voorzitter@baarnsmannenkoor.nl?subject=Help">voorzitter</a>. Deze zorgt ervoor dat u een E-mail ontvangt met een nieuw wachtwoord.</p>
+     Klik <a href=" {{ path('fos_user_resetting_request') }} ">hier</a> om naar het formulier te gaan om een nieuw wachtwoord aan te maken.</p>
       
     </div>
   </li>
@@ -80,7 +79,7 @@ Hieronder staan veelgestelde vragen. Mocht u er toch niet uitkomen dan kunt u co
 
     <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
     <div class="accordion-content" data-tab-content>
-        Iemand toevoegen kan alleen als je admin-rechten hebt, en ingelogt bent. Er is dan linksboven een menu zichtbaar.
+        Iemand toevoegen kan alleen als je admin-rechten hebt, en ingelogd bent. Er is dan linksboven een menu zichtbaar.
         Druk linksboven in het menu. Er verschijnt onder het kopje leden: "<a href=" {{ path('member_new') }} ">Nieuw</a>"
         Hier kunt u iemand toevoegen. Succes!
     </div>

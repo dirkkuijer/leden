@@ -52,7 +52,10 @@ select {
     margin-top: 1%;
 }
 
-/* colapps */
+#contact_message {
+    height: 5rem;
+    width: 25rem;
+}
 
 /* dropdown menu for users */
 @media only screen and (max-width: 600px) {
