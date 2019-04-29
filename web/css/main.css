@@ -3023,7 +3023,8 @@ select {
     border-bottom: 1px solid #e6e6e6;
     border-radius: 0 0 0 0; }
   .accordion-title:hover, .accordion-title:focus {
-    background-color: #e6e6e6; }
+    background-color: #2377AF; 
+    color: white; }
   .accordion-title::before {
     position: absolute;
     top: 50%;
@@ -3036,12 +3037,12 @@ select {
 .accordion-content {
   display: none;
   padding: 1rem;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #2377AF;
   border-bottom: 0;
   background-color: #fefefe;
   color: #0a0a0a; }
   :last-child > .accordion-content:last-child {
-    border-bottom: 1px solid #e6e6e6; }
+    border-bottom: 1px solid #2377AF; }
 
 .accordion-menu li {
   width: 100%; }
@@ -6420,6 +6421,8 @@ select {
     margin-top: 1%;
 }
 
+/* colapps */
+
 /* dropdown menu for users */
 @media only screen and (max-width: 600px) {
     .dropdown {
@@ -6538,11 +6541,6 @@ nav {
 
 nav td { padding: 0; } 
 
-#noResults {
-    text-align: center;
-    color: red;
-    font-size: 16pt;
-}
 p { text-align: center;}
 
 table th tr td {
@@ -6554,7 +6552,7 @@ td {
     padding: 0 2rem;
 }
 
-ul{
+ul {
     list-style: none;
 
 }

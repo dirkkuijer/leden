@@ -162,8 +162,6 @@ class UserController extends Controller
             ->getForm()
         ;
     }
-    
-    
 
       // added by Dirk to show flash messages after submitting form
       public function showFlash(String $state) {

@@ -52,6 +52,8 @@ select {
     margin-top: 1%;
 }
 
+/* colapps */
+
 /* dropdown menu for users */
 @media only screen and (max-width: 600px) {
     .dropdown {
@@ -170,11 +172,6 @@ nav {
 
 nav td { padding: 0; } 
 
-#noResults {
-    text-align: center;
-    color: red;
-    font-size: 16pt;
-}
 p { text-align: center;}
 
 table th tr td {
@@ -186,7 +183,7 @@ td {
     padding: 0 2rem;
 }
 
-ul{
+ul {
     list-style: none;
 
 }

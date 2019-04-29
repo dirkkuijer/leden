@@ -12,6 +12,11 @@
     <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
     <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
     
+    <p>
+    <a class="button" href="{{ path('user_edit', { 'id': user.id }) }}" title="Bewerken">
+                            <i class="far fa-edit"></i>
+                        </a>
+    </p>
 </div>
 
 {% endblock %}

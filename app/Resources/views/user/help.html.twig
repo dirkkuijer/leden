@@ -12,34 +12,98 @@
     <h3>Hulp</h3>
 <br />
 <p id="first_page" class="callout">
-Problemen? Ook hier hebben we daar een oplossing voor. Hieronder staan de meest gevraagde onderwerpen.
-Mocht u er nog niet uitkomen dan kunt u terecht bij de <a href="mailto:voorzitter@baarnsmannenkoor.nl?subject=Help">voorzitter</a>. 
-Of bij de <a href="mailto:dirkkuijer@hotmail.com?subject=Help">ontwikkelaar</a> voor echt technische problemen.
+Hieronder staan veelgestelde vragen. Mocht u er toch niet uitkomen dan kunt u contact opnemen met de 
+<a href="mailto:voorzitter@baarnsmannenkoor.nl?subject=Help">voorzitter</a>. 
+
 </p>
 <br />
 <br />
 
+         
+ 
     <div class="grid-x grid-padding-x">
         <div class="cell large-4"></div>
         <div class="cell large-3">
-            <ul>
-            <u>Meest voorkomende problemen:</u>
-                <li>
-                    <a href=" {{ path('fos_user_resetting_request') }} ">Wachtwoord vergeten</a><br />
-                </li>
-                <li>
+           
+
+    <ul class="accordion" data-accordion data-multi-expand="false" data-allow-all-closed="true">Vragen over gebruikers
+     <li class="accordion-item" data-accordion-item>
+    <!-- Accordion tab title -->
+    <a href="#" class="accordion-title">Wachtwoord vergeten?</a>
+
+    <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+    <div class="accordion-content" data-tab-content>
+      Neem contact op met de 
+        <a href="mailto:voorzitter@baarnsmannenkoor.nl?subject=Help">voorzitter</a>. Deze zorgt ervoor dat u een E-mail ontvangt met een nieuw wachtwoord.</p>
+      
+    </div>
+  </li>
+    
+     <li class="accordion-item" data-accordion-item>
+    <!-- Accordion tab title -->
+    <a href="#" class="accordion-title">Hoe pas ik mijn profiel aan?</a>
+
+    <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+    <div class="accordion-content" data-tab-content>
+      
+        Je profiel pas je aan door in te loggen met admin-rechten. Anders moet de Secretaris of 
+        de voorzitter dat voor je doen. Bekijk <a href=" {{ path('fos_user_profile_show') }} ">hier</a> je profiel.
+      
+    </div>
+  </li>
+    
+    </ul>
+                    {# <a href=" {{ path('fos_user_resetting_request') }} ">Wachtwoord vergeten</a>  <br />                  
+                
                     <a href=" {{ path('fos_user_profile_show') }} ">Mijn profiel bekijken</a><br />
-                </li>
-                    <a href=" {{ path('member_new') }} ">Lid aanmaken</a>
-                <li>
+                
+                    <a href=" {{ path('member_new') }} ">Lid aanmaken</a><br />
+                
                     <a href=" {{ path('user_new') }} ">Gebruiker aanmaken</a><br />
-                </li>
-            </ul>
+                #}
         </div>       
         <div class="cell large-2 medium-3">
         </div>
         <div class="cell large-5 medium-3"></div>
     </div>
+
+ {# Questions about members #}
+    <div class="grid-x grid-padding-x">
+        <div class="cell large-4"></div>
+        <div class="cell large-3">
            
+
+    <ul class="accordion" data-accordion data-multi-expand="false" data-allow-all-closed="true">Vragen over leden
+     <li class="accordion-item" data-accordion-item>
+    <!-- Accordion tab title -->
+    <a href="#" class="accordion-title">Iemand toevoegen</a>
+
+    <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+    <div class="accordion-content" data-tab-content>
+        Iemand toevoegen kan alleen als je admin-rechten hebt, en ingelogt bent. Er is dan linksboven een menu zichtbaar.
+        Druk linksboven in het menu. Er verschijnt onder het kopje leden: "<a href=" {{ path('member_new') }} ">Nieuw</a>"
+        Hier kunt u iemand toevoegen. Succes!
+    </div>
+  </li>
+    
+     <li class="accordion-item" data-accordion-item>
+    <!-- Accordion tab title -->
+    <a href="#" class="accordion-title">Hoe pas ik mijn gegevens aan?</a>
+
+    <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+    <div class="accordion-content" data-tab-content>
+      
+        Je gegevens pas je aan door in te loggen met admin-rechten. Hier kun je in het overzicht de knop bewerken gebruiken. 
+        Anders moet de secretaris of de voorzitter dat voor je doen. 
+      
+    </div>
+  </li>
+    
+    </ul>
+
+
+
+
+
 
 {% endblock %}

@@ -16,8 +16,6 @@ $(document).ready(function(){
 });
 
 
-
-
 // flash message
 setTimeout(function() {
     $('.flash-success').fadeOut('slow');
