@@ -1,12 +1,5 @@
+
+
 {% block fos_user_content %}
-
-    {% block stylesheet %}
-        {% stylesheets filter='cssrewrite' output="css/main.css"
-            "%kernel.root_dir%/Resources/assets/css/main.css" %}
-            <link rel="stylesheet" href="{{ asset_url }}" />
-        {% endstylesheets %}  
-    {% endblock %}
-
-    {% include "@FOSUser/Resetting/request_content.html.twig" %}
-
+{% include "@FOSUser/Resetting/request_content.html.twig" %}
 {% endblock fos_user_content %}

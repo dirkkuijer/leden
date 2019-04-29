@@ -6,34 +6,34 @@
     {{ parent() }}
 {% endblock %}
 
-{% block body %}
+{% block fos_user_content %}
 
-<h3>Reset verzoek</h3>
+    <h3>Reset verzoek</h3>
 
-<form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
-  
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-        <div class="cell medium-2">
-            <label for="username">{{ 'resetting.request.username'|trans }}</label>
+    <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
+    
+        <div class="grid-x grid-padding-x">
+            <div class="cell medium-4"></div>
+            <div class="cell medium-2">
+                <label for="username">{{ 'resetting.request.username'|trans }}</label>
+            </div>
+            <div class="cell medium-2">
+                <input type="text" id="username" name="username" required="required" />
+            </div>
+            <div class="cell medium-4"></div>
         </div>
-        <div class="cell medium-2">
-            <input type="text" id="username" name="username" required="required" />
-        </div>
-        <div class="cell medium-4"></div>
-    </div>
 
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-4"></div>
-        <div class="cell medium-2">
-            {#  value="{{ 'resetting.request.submit'|trans }}" / input button #}
-            <button class="button primary" type="submit">
-                <i class="far fa-paper-plane"></i>
-            </button>
+        <div class="grid-x grid-padding-x">
+            <div class="cell medium-4"></div>
+            <div class="cell medium-2">
+                {#  value="{{ 'resetting.request.submit'|trans }}" / input button #} 
+                <button class="button primary" type="submit">
+                    <i class="far fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="cell medium-6"></div>
         </div>
-        <div class="cell medium-6"></div>
-    </div>
 
-</form>
+    </form>
 
 {% endblock %}

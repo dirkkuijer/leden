@@ -1,20 +1,13 @@
-
 {% extends 'layout.html.twig' %}
-     
-  {% block stylesheet %}
-           {{ parent() }}
-    {% endblock %}
-{# {% block body %} #}
 
-{# {% extends "@FOSUser/layout.html.twig" %} #}
+{% block stylesheet %}
+    {{ parent() }}
+{% endblock %}
 
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
-
-  <h3>E-mail</h3>
-  <p>
-  {{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}
-  </p>
-  
+<p>
+{{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}
+</p>
 {% endblock %}
