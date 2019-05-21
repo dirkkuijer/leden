@@ -96,3 +96,39 @@ assetic:
     use_controller: '%kernel.debug%'
     filters:
         cssrewrite: ~
+    assets:
+        font-awesome-eot:
+            inputs: '%kernel.root_dir%/Resources/assets/webfonts/fa-brands-400.eot'
+            output: 'web\webfonts\fa-brands-400.eot'
+            inputs: '%kernel.root_dir%/Resources/assets/webfonts/fa-regular-400.eot'
+            output: 'web\webfonts\fa-regular-400.eot'
+            inputs: '%kernel.root_dir%/Resources/assets/webfonts/fa-brands-900.eot'
+            output: 'web\webfonts\fa-brands-900.eot'
+        font-awesome-svg:
+            inputs: '%kernel.root_dir%/Resources/assets/webfonts/fa-brands-400.svg'
+            output: 'web\webfonts\fa-brands-400.svg'
+            inputs: '%kernel.root_dir%/Resources/assets/webfonts/fa-regular-400.svg'
+            output: 'web\webfonts\fa-regular-400.svg'
+            inputs: '%kernel.root_dir%/Resources/assets/webfonts/fa-brands-900.svg'
+            output: 'web\webfonts\fa-brands-900.svg'
+        font-awesome-ttf:
+            inputs: '%kernel.root_dir%/Resources/assets/webfonts/fa-brands-400.ttf'
+            output: 'web\webfonts\fa-brands-400.ttf'
+            inputs: '%kernel.root_dir%/Resources/assets/webfonts/fa-regular-400.ttf'
+            output: 'web\webfonts\fa-regular-400.ttf'
+            inputs: '%kernel.root_dir%/Resources/assets/webfonts/fa-brands-900.ttf'
+            output: 'web\webfonts\fa-brands-900.ttf'
+        font-awesome-woff:
+            inputs: '%kernel.root_dir%/Resources/assets/webfonts/fa-brands-400.woff'
+            output: 'web\webfonts\fa-brands-400.woff'
+            inputs: '%kernel.root_dir%/Resources/assets/webfonts/fa-regular-400.woff'
+            output: 'web\webfonts\fa-regular-400.woff'
+            inputs: '%kernel.root_dir%/Resources/assets/webfonts/fa-solid-900.woff'
+            output: 'web\webfonts\fa-solid-900.woff'
+        font-awesome-woff2:
+            inputs: '%kernel.root_dir%/Resources/assets/webfonts/fa-brands-400.woff2'
+            output: 'web\webfonts\fa-brands-400.woff2'
+            inputs: '%kernel.root_dir%/Resources/assets/webfonts/fa-regular-400.woff2'
+            output: 'web\webfonts\fa-regular-400.woff2'
+            inputs: '%kernel.root_dir%/Resources/assets/webfonts/fa-solid-900.woff2'
+            output: 'web\webfonts\fa-solid-900.woff2'

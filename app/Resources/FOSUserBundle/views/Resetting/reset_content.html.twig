@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block body %}
-<h3>Reset Wachtwoord</h3>
+<h3>Reset wachtwoord</h3>
 <br>
 {{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'fos_user_resetting_reset' } }) }}
     {{ form_row(form.plainPassword.first) }}
