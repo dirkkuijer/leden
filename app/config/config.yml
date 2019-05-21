@@ -76,7 +76,8 @@ swiftmailer:
     password: '%mailer_password%'
     encryption: '%mailer_encryption%'
     #spool: { type: memory }
-    # later toegevoegd om uit te proberen. Alleen hiermee doet hij het.
+    # later toegevoegd om uit te proberen. Alleen hiermee doet hij het. 
+    # met testen deze opties weghalen.
     stream_options:
         ssl:
             allow_self_signed: true

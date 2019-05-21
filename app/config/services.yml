@@ -13,6 +13,15 @@ services:
         # this means you cannot fetch services directly from the container via $container->get()
         # if you need to do this, you can override this setting on individual services
         public: false
+        
+        #Uit de documentatie toegevoegd url: https://symfony.com/doc/3.4/event_dispatcher.html
+
+    
+    app.exception_listener:
+        class: AppBundle\EventListener\ExceptionListener
+        arguments: ["@templating", "@router", '%kernel.environment%']
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
 
     # makes classes in src/AppBundle available to be used as services
     # this creates a service per class whose id is the fully-qualified class name

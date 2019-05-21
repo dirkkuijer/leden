@@ -1,0 +1,20 @@
+{# {% form_theme form 'form/theme.html.twig' %}    #}
+{% extends ('layout.html.twig') %}
+
+{% block stylesheet %}
+    {{ parent() }}
+{% endblock %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+
+<h3>Foutmelding</h3>
+
+
+<p style="padding:3rem">
+    Er is een foutmelding.
+    <br/>
+    Het kan zijn dat u dezelfde gebruikersnaam en/of e-mail heeft gebruikt als een andere gebruiker.<br/> 
+    Verander deze en probeer het <a href=" {{ path('user_new') }} ">opnieuw</a>.
+</p>
+{% endblock %}

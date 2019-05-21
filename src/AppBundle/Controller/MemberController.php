@@ -53,7 +53,7 @@ class MemberController extends Controller
             $em->persist($member);
             $em->flush();
             
-            // Added bij Dirk
+            // Added by Dirk
             $state = "Persoon is toegevoegd.";
             $this->showFlash($state);
             

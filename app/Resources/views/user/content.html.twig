@@ -23,7 +23,13 @@
             <div class="cell medium-9"></div>   
     </div>
 
-    {{ form_start(form) }}
+    {{ form_start(form, {
+            'attr': {
+                'novalidate': 'novalidate',
+                'data-abide': 'data-abide'
+            }
+        })
+    }}
 
         {{ form_errors(form) }}
         {{ form_widget(form._token) }} 
@@ -34,6 +40,7 @@
         {% else %}
             {{ form_row(form.plainPassword.first) }}
             {{ form_row(form.plainPassword.second) }}
+
         {% endif %}
         {{ form_row(form.roles) }}
     

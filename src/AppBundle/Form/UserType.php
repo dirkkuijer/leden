@@ -41,7 +41,7 @@ class UserType extends AbstractType
             ])
         ;
     }
-/**
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
