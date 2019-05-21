@@ -34,13 +34,20 @@
         {{ form_errors(form) }}
         {{ form_widget(form._token) }} 
         {{ form_row(form.username)}}
-        {{ form_row(form.email)}}
+        {{ form_row(form.email, {
+            'attr' : { 'placeholder' : 'naam@mail.nl'}
+            })
+        }}
         {% if user.id is not null %}
             {% do form.plainPassword.setRendered %}
         {% else %}
-            {{ form_row(form.plainPassword.first) }}
-            {{ form_row(form.plainPassword.second) }}
-
+            {{ form_row(form.plainPassword.first, {
+                'attr' : { 'placeholder' : 'Minimaal 10 karakters'}
+            }) }}
+            {{ form_row(form.plainPassword.second, {
+                'attr' : { 'placeholder' : 'Minimaal 10 karakters'}
+            }) }}
+        
         {% endif %}
         {{ form_row(form.roles) }}
     

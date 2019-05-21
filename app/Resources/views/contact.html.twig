@@ -10,9 +10,13 @@
 <br>
     {{ form_start(form) }}
     {{ form_row(form.name) }}
-    {{ form_row(form.email) }}
+    {{ form_row(form.email, {
+        'attr' : { 'placeholder' : 'naam@mail.nl'}
+    }) }}
     {{ form_row(form.subject) }}
-    {{ form_row(form.message) }}
+    {{ form_row(form.message, {
+        'attr' : { 'placeholder' : 'Typ hier uw bericht...' }
+    }) }}
 
 
 

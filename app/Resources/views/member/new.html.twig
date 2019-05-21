@@ -23,13 +23,19 @@
         {{ form_widget(form._token) }}
         {{ form_row(form.firstName) }}
         {{ form_row(form.lastName) }}
-        {{ form_row(form.email) }}
+        {{ form_row(form.email, {
+            'attr' : { 'placeholder' : 'naam@mail.nl' }
+        }) }}
         {{ form_row(form.street) }}
         {{ form_row(form.houseNumber) }}
         {{ form_row(form.houseNumberAddition) }}
-        {{ form_row(form.zipCode) }}
+        {{ form_row(form.zipCode, {
+            'attr': { 'placeholder': '1234 AB'}
+        }) }}
         {{ form_row(form.city) }}
-        {{ form_row(form.telephone) }}
+        {{ form_row(form.telephone, {
+            'attr' : { 'placeholder' : '123 1234567'}
+        }) }}
         {{ form_row(form.dateOfBirth) }}
         {{ form_row(form.voice) }}
  
