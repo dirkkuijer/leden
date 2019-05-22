@@ -18,21 +18,46 @@
             <div class="cell medium-9"></div>   
     </div>
 
-    {{ form_start(form) }}
+
+    <datalist id="city">
+        <option>Baarn</option>
+        <option>Soest</option>
+        <option>Eemnes</option>
+    </datalist>
+
+    <datalist id="zipCode">
+        <option>3741</option>
+        <option>3742</option>
+    </datalist>
+    
+    {{ form_start(form, {
+            'attr': {
+                'novalidate': 'novalidate',
+                'data-abide': 'data-abide'
+            }
+        })
+    }}
         {{ form_errors(form) }}
         {{ form_widget(form._token) }}
         {{ form_row(form.firstName) }}
         {{ form_row(form.lastName) }}
         {{ form_row(form.email, {
             'attr' : { 'placeholder' : 'naam@mail.nl' }
-        }) }}
+            }) 
+        }}
         {{ form_row(form.street) }}
         {{ form_row(form.houseNumber) }}
         {{ form_row(form.houseNumberAddition) }}
         {{ form_row(form.zipCode, {
-            'attr': { 'placeholder': '1234 AB'}
-        }) }}
-        {{ form_row(form.city) }}
+            'attr': { 'placeholder': '1234 AB', 'list' : 'zipCode'}
+            }) 
+        }}
+        {{ form_row(form.city, {
+                'attr' : {
+                    'list' : 'city'
+                }
+            }) 
+        }}
         {{ form_row(form.telephone, {
             'attr' : { 'placeholder' : '123 1234567'}
         }) }}

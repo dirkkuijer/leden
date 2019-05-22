@@ -10,10 +10,32 @@
 
 <h3>Foutmelding</h3>
 
+<div class="grid-x grid-padding-x">
+        <div class="cell medium-2"></div>
+            <div class="cell medium-8">
+            <table class="stack">
+                <tbody>
+                    <tr>
+                        <th>Melding:</th>
+                    </tr>  
+                    <tr>
+                        <td> 
+                            {% if 'Duplicate' in status_text %}
+                                De gebruiker komt al voor. 
+                            {% else %}
+                                {{ status_text }}
+                            {% endif %}
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+            </div>
+            <div class="cell medium-2"></div>
+        </div>
 
 <p style="padding:3rem">
-    Er is een foutmelding.
-    <br/>
+
+    <em>Advies:</em></br>
     Het kan zijn dat u dezelfde gebruikersnaam en/of e-mail heeft gebruikt als een andere gebruiker.<br/> 
     Verander deze en probeer het <a href=" {{ path('user_new') }} ">opnieuw</a>.
 </p>
