@@ -87,6 +87,9 @@
                                 <li><a href=" {{ path('member_new') }} ">Nieuw</a></li>
                             </ul>
                         </li>
+                        <li>
+                            <a href=" {{ path('contact') }} ">Contact</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -100,7 +103,9 @@
         {% endblock %}
         
         <noscript>
-            <div class="callout alert center"> Zet uw Javascript aan in de browser!</div>
+            <div class="callout alert center">Activeer JavaScript in uw browser. Anders werkt 
+                deze site niet goed.
+            </div>
         </noscript> 
         
         {% block fos_user_content %}
