@@ -40,10 +40,7 @@
             })
         }}
  
-
-        {% if user.id is not null %}
-            {% do form.plainPassword.setRendered %}
-        {% else %}
+        {% if user.id is null %}
             {{ form_row(form.plainPassword.first, {
                 'attr' : { 'placeholder' : 'Minimaal 10 karakters' 
                         }

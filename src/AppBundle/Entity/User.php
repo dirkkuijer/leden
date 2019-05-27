@@ -20,13 +20,7 @@ class User extends BaseUser
      */
     protected $id;
    
-    /**
-     * @Assert\NotBlank
-     * @Assert\Length(
-     *      min = 10,
-     *      minMessage = "Uw wachtwoord moet minimaal {{ limit }} karakters hebben."
-     * )
-     */
+    
     protected $plainPassword;
 
 
