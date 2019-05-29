@@ -60,7 +60,7 @@ class UserController extends Controller
             $em->flush();
             
             // Added by Dirk
-            $state = "Persoon is toegevoegd.";
+            $state = "Gebruiker is toegevoegd.";
             $this->showFlash($state);
 
             return $this->redirectToRoute('user_show', array('id' => $user->getId()));
@@ -104,7 +104,7 @@ class UserController extends Controller
             $this->getDoctrine()->getManager()->flush();
             
              // added by Dirk
-             $state = "Persoon is aangepast.";
+             $state = "Gebruiker is aangepast.";
             
              $this->showFlash($state);
 
@@ -139,7 +139,7 @@ class UserController extends Controller
             $em->flush();
         }
         
-        $state = "Persoon is verwijderd.";
+        $state = "Gebruiker is verwijderd.";
         // added by Dirk
         $this->showFlash($state);
         

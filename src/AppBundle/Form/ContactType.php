@@ -26,6 +26,7 @@ class ContactType extends AbstractType
                     'Wachtwoord vergeten' => 'Wachtwoord vergeten',
                     'Persoonsgegevens' => 'Persoonsgegevens',
                     'Gebruikersgegevens' => 'Gebruikersgegevens',
+                    'Vraag' => 'Vraag',
                     'Anders' => 'Anders'
                 ]
             ])
