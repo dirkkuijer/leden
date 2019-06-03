@@ -8,6 +8,8 @@
 
 <h3>Contact</h3>
 <br>
+
+
     {{ form_start(form, {
             'attr': {
                 'novalidate': 'novalidate',
@@ -15,18 +17,10 @@
             }
         }) 
     }}
-    {{ form_row(form.name, {
-        'attr' : { 'required' : 'required'
-            }
-        }) 
-    }}
-    {{ form_row(form.email, {
-        'attr' : { 'placeholder' : 'naam@mail.nl'}
-    }) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.email) }}
     {{ form_row(form.subject) }}
-    {{ form_row(form.message, {
-        'attr' : { 'placeholder' : 'Uw bericht...' }
-    }) }}
+    {{ form_row(form.message) }}
 
 
 

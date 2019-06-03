@@ -1,30 +1,25 @@
 <?php 
 
-namespace Tests\AppBundle\Util;
+namespace Tests\AppBundle\Entity;
 
 use AppBundle\Entity\User;
-use AppBundle\Entity\Printen;
 use PHPUnit\Framework\TestCase;
 
 
 class UserTest extends TestCase
 {
-    public function testCredentials()
-    {
-       $user = new User();
-       $printen = new PrintenTest();
-   
-      
-        $user->setUsername('Dirk');
-        $printen->afdrukken($user->getUsername(), "Username" ,get_class($this));
-        
-        $user->setEmail('dirk@feka.nl');
-        $printen->afdrukken($user->getEmail(), "Email" ,get_class($this));
-        
-        $user->setPassword("1234");
-        $printen->afdrukken($user->getPassword(), "Password" ,get_class($this));
-      
-      }
-      
-     
+  public function tering() 
+  {
+    $user = new User;
+
+    echo "". get_class_vars($user);
+
+    $user->setUsername("Test");
+    $this->afdrukken($user->getUsername(), "Data: ", get_class($this));
+  }
+
+   public function afdrukken($waarde, $veld, $klasse) 
+        {
+          echo "\nWaarde: " .$waarde. " Property: ". $veld. " Klasse: " . $klasse;
+        }
 }
