@@ -20,7 +20,9 @@ class User extends BaseUser
      */
     protected $id;
    
-    
+    /**
+     * @Assert\Length(min=10, minMessage = "Minimaal 10 karakters invullen aub.")
+     */
     protected $plainPassword;
 
 

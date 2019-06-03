@@ -26,14 +26,18 @@ class MemberType extends AbstractType
                 ->add('firstName')
                 ->add('lastName')
                 ->add('email', EmailType::class, [
-                    
+                        'attr' => ['placeholder' => 'naam@mail.nl']
                 ])
                 ->add('street')
                 ->add('houseNumber')
                 ->add('houseNumberAddition')
-                ->add('zipCode')
+                ->add('zipCode', null, [
+                    'attr' => ['placeholder' => '1234 AB']
+                ])
                 ->add('city')
-                ->add('telephone')
+                ->add('telephone', null, [
+                    'attr' => ['placeholder' => '123 4567890']
+                ])
                 ->add('dateOfBirth', BirthDayType::Class, [
                     'widget' => 'single_text',
                 ])

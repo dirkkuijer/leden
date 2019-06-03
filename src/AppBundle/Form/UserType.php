@@ -17,12 +17,17 @@ class UserType extends AbstractType
         $user = $builder->getData();
 
         $builder
-            ->add('email', EmailType::class, array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
-            ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
+            ->add('email', EmailType::class, array('label' => 'form.email',
+             'attr' => ['placeholder' => 'naam@mail.nl'],
+                'translation_domain' => 'FOSUserBundle'))
+            
+            ->add('username', null, array('label' => 'form.username',
+                'translation_domain' => 'FOSUserBundle'))
+            
             ->add('roles', ChoiceType::class, [
                 'multiple' => true,
                 'expanded' => true,
-                'placeholder' => false,
+                'placeholder' => 'false',
                 'choices' => [
                     'Gebruiker' => 'ROLE_USER',
                     'Admin' => 'ROLE_ADMIN'
@@ -41,8 +46,12 @@ class UserType extends AbstractType
                             'autocomplete' => 'new-password',
                         ),
                     ),
-                    'first_options' => array('label' => 'form.password'),
-                    'second_options' => array('label' => 'form.password_confirmation'),
+                    'first_options' => array('label' => 'form.password',
+                                            'attr' => ['placeholder' => 'Minimaal 10 karakters'
+                                        ]),
+                    'second_options' => array('label' => 'form.password_confirmation',
+                                            'attr' => ['placeholder' => 'Minimaal 10 karakters'
+                                        ]),
                     'invalid_message' => 'fos_user.password.mismatch',
                 ))
             ;
