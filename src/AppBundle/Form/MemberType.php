@@ -36,7 +36,7 @@ class MemberType extends AbstractType
                 ])
                 ->add('city')
                 ->add('telephone', null, [
-                    'attr' => ['placeholder' => '123 4567890']
+                    'attr' => ['placeholder' => '123 4567890 / 06 1234 5678']
                 ])
                 ->add('dateOfBirth', BirthDayType::Class, [
                     'widget' => 'single_text',

@@ -1,6 +1,6 @@
 <?php 
 
-namespace Tests\AppBundle\Entity;
+namespace tests\AppBundle\Entity;
 
 use AppBundle\Entity\User;
 use PHPUnit\Framework\TestCase;
@@ -8,18 +8,27 @@ use PHPUnit\Framework\TestCase;
 
 class UserTest extends TestCase
 {
-  public function tering() 
+  
+  // setting property value note: don't change property-name!
+  public function testAdd() 
   {
-    $user = new User;
+    $user = new User();
 
-    echo "". get_class_vars($user);
-
-    $user->setUsername("Test");
-    $this->afdrukken($user->getUsername(), "Data: ", get_class($this));
+    $user->setUsername("Dirk");
+    $user->setPlainPassword("Kuijer");
+    
+    $this->afdrukken($user->getUsername(), "User", get_class($user));
+    $this->afdrukken($user->getPlainPassword(), "User", get_class($user));
   }
 
-   public function afdrukken($waarde, $veld, $klasse) 
-        {
-          echo "\nWaarde: " .$waarde. " Property: ". $veld. " Klasse: " . $klasse;
-        }
+  // print 
+  public function afdrukken($waarde, $veld, $klasse) 
+  {
+    echo "\nWaarde: " .$waarde. " Property: ". $veld. " Klasse: " . $klasse;
+    if($veld == "User")
+    {
+      echo "\n EINDE KLASSE\n";
+    }
+  }
+
 }

@@ -163,8 +163,7 @@ class MemberMemberType
     {
         return $this->member;
     }
-// kan de foutmelding na het indienen van die formulier hier van daan komen? r 175.
-// ongeldig argument.....
+
     /**
      * Set memberType
      *

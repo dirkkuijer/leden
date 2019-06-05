@@ -20,8 +20,7 @@ class ContactType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('email', EmailType::class,[
-                'attr' => ['placeholder' => 'naam@email.nl'],
-                'error_mapping' => 'Uw e-mail klopt niet.'
+                'attr' => ['placeholder' => 'naam@email.nl']
             ])
             ->add('subject', ChoiceType::class, [
                 'multiple' => false,
