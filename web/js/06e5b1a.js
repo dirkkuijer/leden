@@ -10395,7 +10395,7 @@ jQuery(document).ready(function() {
         console.log('Item toegevoegd.');
 
         var $collectionContainer = $('#' + $(this).data('collection'));
-       // hier gebruike we de tweede regel niet.
+       // hier gebruiken we de tweede regel niet.
         var insertOrder = $(this).data('insert-order') || 'last';
         var prototype = $collectionContainer.attr('data-prototype');
         var prototypeName = $collectionContainer.attr('data-prototype-name') || '__name__';

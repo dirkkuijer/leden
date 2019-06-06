@@ -24,13 +24,16 @@ class ContactController extends Controller
         {
             $contactFormData = $form->getData();
             
-            $message = (new \Swift_Message('Contactformulier bmk'))
-               ->setFrom($contactFormData['email'])
+            $message = (new \Swift_Message('Contactformulier BMK'))
+               ->setFrom($contactFormData['email'], $contactFormData['name'])
                ->setTo('baarnsmannenkoor@outlook.com')
+               ->setSubject($contactFormData['subject'])
                ->setBody(
                    $contactFormData['message'],
                    'text/plain'
                )
+               ->setReplyTo($contactFormData['email'])
+               ->addBcc($contactFormData['email'])
            ;
 
            $mailer->send($message);

@@ -58,6 +58,9 @@ class Member
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Email(
+     *     message = "'{{ value }}' is ongeldig als e-mail.")
      */
     private $email;
 
@@ -73,7 +76,7 @@ class Member
      * @var string
      *
      * @ORM\Column(name="houseNumber", type="string", length=255)
-     * 
+     * @Assert\NotBlank
      */
     private $houseNumber;
     
@@ -106,7 +109,12 @@ class Member
      *
      * @ORM\Column(name="telephone", type="string", length=14)
      * @Assert\NotBlank
-     * 
+     * @Assert\Length(
+     *      min=8,
+     *      max=14,
+     *      minMessage = "Minimaal {{ limit }} cijfers invoeren aub.",
+     *      maxMessage = "Maximaal {{ limit }} cijfers invoeren aub."
+     * )
      */
     private $telephone;
     

@@ -25,6 +25,7 @@ class ContactType extends AbstractType
             ->add('subject', ChoiceType::class, [
                 'multiple' => false,
                 'expanded' => false,
+                'placeholder' => 'Kies een optie',
                 'choices' => [
                     'Wachtwoord vergeten' => 'Wachtwoord vergeten',
                     'Persoonsgegevens' => 'Persoonsgegevens',
@@ -34,7 +35,7 @@ class ContactType extends AbstractType
                 ]
             ])
             ->add('message', TextareaType::class,[
-                'attr' => ['placeholder' => 'Type uw bericht'],
+                'attr' => ['placeholder' => 'Typ uw bericht'],
                 'required' => 'required'
             ])
         ;

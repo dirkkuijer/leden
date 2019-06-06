@@ -10,24 +10,12 @@
 <br>
 
 
-    {{ form_start(form, {
-            'attr': {
-                'novalidate': 'novalidate',
-                'data-abide': 'data-abide'
-            }
-        }) 
-    }}
-    {{ form_row(form.name, {
-            'attr': {
-                'pattern': '[a-zA-Z]+'
-            }
-        }) 
-    }}
-    {{ form_row(form.email) }}
+    {{ form_start(form) }}
+ 
+    {{ form_row(form.name) }}
+    {{ form_row(form.email) }}    
     {{ form_row(form.subject) }}
     {{ form_row(form.message) }}
-
-
 
     <div class="grid-x grid-padding-x">
         <div class="cell medium-7"></div>

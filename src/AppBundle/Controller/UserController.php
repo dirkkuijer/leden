@@ -108,7 +108,8 @@ class UserController extends Controller
             
              $this->showFlash($state);
 
-            return $this->redirectToRoute('user_edit', array('id' => $user->getId()));
+            //  , array('id' => $user->getId()) stond achter 'user_index'
+            return $this->redirectToRoute('user_index');
         }
 
         return $this->render('user/content.html.twig', array(

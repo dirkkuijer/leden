@@ -95,6 +95,8 @@
             </div>
         {% endif %}
 
+{# Kijk hieronder met de rollen. Als je op help drukt als normale gebruiker
+genereert de applicatie een fout. #}
         {% if is_granted('ROLE_USER') %}
             <a href=" {{ path('user_help') }} " style="position:absolute;right:3%">Help</a>
         {% endif %}            
