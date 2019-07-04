@@ -76,18 +76,17 @@
                     </tr> #}
                     <tr>            
                         <th colspan="2"><h4>Historie:</h4></th>
-                    </tr>           
+                    </tr>    
                     <tr>
-                        <td>
                     {% for form in member.type %}
                     <tr><th colspan="2" style="text-align:left">Periode</th>
                     </tr>
                     <tr>
-                        <td>Lid vanaf</td>
+                        <th>Lid vanaf</th>
                         <td>{{ form.fromDate | date('j-m-Y') }}</td>
                     </tr>
                     <tr>
-                        <td>Lid geweest tot</td>
+                        <th>Lid geweest tot</th>
                         <td>{% if form.tillDate is not empty %}
                                 {{ form.tillDate | date('j-m-Y') }}
                             {% else %}
@@ -96,11 +95,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Reden</td>
+                        <th>Reden</th>
                         <td>{{ form.reason }}</td>
                     </tr>
                     <tr>
-                        <td>Soort lid</td>
+                        <th>Soort lid</th>
                         <td>{{ form.MemberType.typeFunction }}</td>
                     </tr>
      

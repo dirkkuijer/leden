@@ -20,7 +20,7 @@
             <div class="cell medium-7"></div>
             <div class="cell medium-3">
                 <div class="wrapper_searchField">
-                    <input id="myInput" class="myInput" type="search" placeholder="Zoeken" />
+                    <input id="myInput" class="myInput" placeholder="Zoeken" />
                 </div>
             </div>
         </div>
@@ -51,13 +51,19 @@
 
         {% for member in member %}
                 <tr id="tr">
-                <div id="value"></div>
-
                     <td id="td">{{ member.firstName }}</td> 
-                    <td id="td">{{ member.lastName }}</td>
+                    <td id="td">{{ member.lastName}}
+                                {% if member.lastname == null %}
+                                Voeg een lid toe.
+                                {% endif %}
+                    </td>
                     <td id="td">{{ member.email }}</td>
                     <td id="td">{{ member.dateOfBirth | date('j-m-Y', "Europe/Amsterdam" ) }}</td>
                    
+        
+             
+         
+
                 {% if is_granted('ROLE_ADMIN') %}
                     <td id="td">
    

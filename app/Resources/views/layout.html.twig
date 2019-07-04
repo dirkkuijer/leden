@@ -32,7 +32,7 @@
  
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
 
     </head>
@@ -95,13 +95,13 @@
             </div>
         {% endif %}
 
-{# Kijk hieronder met de rollen. Als je op help drukt als normale gebruiker
-genereert de applicatie een fout. #}
+
         {% if is_granted('ROLE_USER') %}
             <a href=" {{ path('user_help') }} " style="position:absolute;right:3%">Help</a>
-        {% endif %}            
+        {% endif %}
 
         {% block body %}
+                    
         {% endblock %}
         
         <noscript>
@@ -110,12 +110,28 @@ genereert de applicatie een fout. #}
             </div>
         </noscript> 
         
+        
         {% block fos_user_content %}
         {% endblock fos_user_content %}
             
         {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
             {% include "start_text.html.twig" %}
         {% endif %}
+
+{% block footer %}
+
+    <div class="box-footer" onClick="footer()"><i class="fas fa-expand" style="cursor:pointer"></i></div>
+    <div class="footer">
+        {# <i class="fas fa-times"  onClick="footer()" style="cursor:pointer;margin-right:0.5rem"></i> #}
+         ontwikkelaar: <a href="mailto:dirkkuijer@hotmail.com" style="color:white">Dirk Kuijer</a>
+   
+    <span style="float:right">Met hulp van:
+        <a href="https://www.feka.nl/" target="_blank" class="feka">
+            &nbsp;Feka ICT B.V.
+        </a>
+    </span>
+    </div>
+{% endblock footer %}
 
         <script>
   
